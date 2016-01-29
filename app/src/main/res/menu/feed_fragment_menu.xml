@@ -37,5 +37,10 @@
               android:title="@string/delete_by_exchange"
               android:icon="@drawable/ic_trash_dark_full"
               compat:showAsAction="never"/>
+
+        <item android:id="@+id/action_delete_tree"
+              android:title="@string/delete_tree"
+              android:icon="@drawable/ic_trash_dark_full"
+              compat:showAsAction="never"/>
     </group>
 </menu>

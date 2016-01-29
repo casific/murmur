@@ -855,7 +855,7 @@ public class MessageStore extends SQLiteOpenHelper {
         if(db != null){
             db.execSQL("UPDATE "+TABLE+" SET "+COL_READ+"="+TRUE+";");
 
-            log.debug( "Messages read state changed in the store.");
+            log.debug("Messages read state changed in the store.");
             //clear exchange history
             ExchangeHistoryTracker.getInstance().resetExchangeCount();
             return true;
@@ -914,7 +914,14 @@ public class MessageStore extends SQLiteOpenHelper {
     public void deleteByLikes(int likes){
         SQLiteDatabase db = getWritableDatabase();
         if (db != null) {
-            db.execSQL("DELETE FROM " + TABLE + " WHERE " + COL_LIKES + "<=" + likes + ";");
+            db.execSQL("UPDATE " + TABLE + " SET " + COL_DELETED + "=" + TRUE + " WHERE " + COL_LIKES + "<=" + likes + ";");
+        }
+    }
+
+    public void deleteTree(String bigparent){
+        SQLiteDatabase db = getWritableDatabase();
+        if (db != null && bigparent != null) {
+            db.execSQL("UPDATE " + TABLE + " SET " + COL_DELETED + "=" + TRUE + " WHERE "+COL_MESSAGE_ID+" = '"+bigparent+"' OR "+ COL_BIGPARENT + "='" + bigparent + "';");
         }
     }
 

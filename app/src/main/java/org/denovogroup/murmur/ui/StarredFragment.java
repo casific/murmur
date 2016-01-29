@@ -409,6 +409,7 @@ public class StarredFragment extends Fragment implements View.OnClickListener, T
             boolean canDeleteLikes = false;
             boolean canDeleteSender = false;
             boolean canDeleteExchange = false;
+            boolean canDeleteTree = false;
 
             if(checkedCount == 1){
                 checkedCursor.moveToFirst();
@@ -427,6 +428,9 @@ public class StarredFragment extends Fragment implements View.OnClickListener, T
                 int likes = checkedCursor.getInt(checkedCursor.getColumnIndex(MessageStore.COL_LIKES));
 
                 canDeleteLikes = MessageStore.getInstance(getActivity()).getMessagesByLikeCount(likes) > 0;
+
+                String treeId = checkedCursor.getString(checkedCursor.getColumnIndex(MessageStore.COL_MESSAGE_ID));
+                canDeleteTree = treeId != null;
             }
 
             checkedCursor.close();
@@ -434,6 +438,7 @@ public class StarredFragment extends Fragment implements View.OnClickListener, T
             menu.findItem(R.id.action_delete_by_connection).setEnabled(checkedCount == 1 && canDeleteTrust);
             menu.findItem(R.id.action_delete_by_exchange).setEnabled(checkedCount == 1 && canDeleteExchange);
             menu.findItem(R.id.action_delete_from_sender).setEnabled(checkedCount == 1 && canDeleteSender);
+            menu.findItem(R.id.action_delete_tree).setEnabled(checkedCount == 1 && canDeleteTree);
             menu.findItem(R.id.action_retweet).setEnabled(checkedCount == 1);
             menu.findItem(R.id.action_share).setEnabled(checkedCount == 1);
         }
@@ -638,6 +643,26 @@ public class StarredFragment extends Fragment implements View.OnClickListener, T
                         MessageStore.getInstance(getActivity()).deleteBySender(
                                 senderName
                         );
+                        setListInDisplayMode();
+                        dialog.dismiss();
+                    }
+                });
+            case R.id.action_delete_tree:
+                final String treeId = checkedMessages.getString(checkedMessages.getColumnIndex(MessageStore.COL_MESSAGE_ID));
+                dialog = new AlertDialog.Builder(getActivity());
+                dialog.setTitle(R.string.delete_dialog_title);
+                dialog.setMessage(getString(R.string.delete_dialog_message1) + " "
+                        + (MessageStore.getInstance(getActivity()).getCommentCount(treeId)+1) + " " + getString(R.string.delete_dialog_message2));
+                dialog.setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+                dialog.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        MessageStore.getInstance(getActivity()).deleteTree(treeId);
                         setListInDisplayMode();
                         dialog.dismiss();
                     }

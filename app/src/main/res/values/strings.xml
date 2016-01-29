@@ -86,6 +86,7 @@
     <string name="delete_from_sender">Same nickname</string><!--Delete messages with same sender(s)-->
     <string name="delete_by_connection">Same &amp; lower score</string><!--Delete messages with same or lower connection-->
     <string name="delete_by_exchange">Same exchange</string><!--Delete messages from same exchange-->
+    <string name="delete_tree">Including replies</string><!--Delete message and replies-->
 
     <!-- Feed/Starred-->
 
