@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:background="@android:color/white"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <ScrollView
+        android:id="@+id/drawer_menu_scroll"
+        android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="0dp">
+
+        <LinearLayout
+            android:id="@+id/drawer_menu"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+
+            <TextView
+                style="@style/DrawerMenuItem"
+                android:id="@+id/drawer_menu_feed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/drawer_menu_feed"
+                android:drawableLeft="@drawable/drawer_menu_feed_btn"/>
+
+            <TextView
+                style="@style/DrawerMenuItem"
+                android:id="@+id/drawer_menu_starred"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/drawer_menu_starred"
+                android:drawableLeft="@drawable/drawer_menu_starred_btn"/>
+
+            <View style="@style/DrawerMenuDivider"/>
+
+            <LinearLayout
+                style="@style/DrawerMenuItem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/DrawerMenuTextItem"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="@string/drawer_menu_offline_mode"
+                    android:drawableLeft="@drawable/drawer_menu_offline_mode_btn"/>
+
+                <android.support.v7.widget.SwitchCompat
+                    android:id="@+id/drawer_menu_offline_mode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+            <View style="@style/DrawerMenuDivider"/>
+
+            <TextView
+                style="@style/DrawerMenuItem"
+                android:id="@+id/drawer_menu_contact"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/drawer_menu_contact"
+                android:drawableLeft="@drawable/drawer_menu_contact_btn"/>
+
+            <TextView
+                style="@style/DrawerMenuItem"
+                android:id="@+id/drawer_menu_profile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/drawer_menu_profile"
+                android:drawableLeft="@drawable/drawer_menu_profile_btn"/>
+
+            <View style="@style/DrawerMenuDivider"/>
+
+            <TextView
+                style="@style/DrawerMenuItem"
+                android:id="@+id/drawer_menu_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/drawer_menu_info"
+                android:drawableLeft="@drawable/drawer_menu_info_btn"/>
+
+            <View style="@style/DrawerMenuDivider"/>
+
+            <TextView
+                style="@style/DrawerMenuItem"
+                android:id="@+id/drawer_menu_share_app"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/drawer_menu_share_app"
+                android:drawableLeft="@drawable/drawer_menu_share_app_btn"/>
+            <TextView
+                style="@style/DrawerMenuItem"
+                android:id="@+id/drawer_menu_settings"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/drawer_menu_settings"
+                android:drawableLeft="@drawable/drawer_menu_settings_btn"/>
+
+            <TextView
+                style="@style/DrawerMenuItem"
+                android:id="@+id/drawer_menu_help"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/drawer_menu_help"
+                android:drawableLeft="@drawable/drawer_menu_help_btn"/>
+
+            <CheckBox
+                style="@style/DrawerMenuItem"
+                android:id="@+id/drawer_menu_advanced"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/drawer_menu_advanced"
+                android:drawableRight="@drawable/pulldown_icon"
+                android:button="@android:color/transparent"
+                android:paddingLeft="54dp"
+                android:background="@android:color/transparent"
+                android:checked="false"/>
+
+            <LinearLayout
+                android:id="@+id/drawer_menu_advanced_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/DrawerMenuItem"
+                    android:id="@+id/drawer_menu_reset"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/drawer_menu_reset"
+                    android:drawableLeft="@drawable/drawer_menu_reset_btn"/>
+
+                <TextView
+                    style="@style/DrawerMenuItem"
+                    android:id="@+id/drawer_menu_export_feed"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/drawer_menu_export"
+                    android:drawableLeft="@drawable/drawer_menu_export_feed_btn"/>
+
+            </LinearLayout>
+
+            <TextView
+                style="@style/DrawerMenuItem"
+                android:id="@+id/drawer_menu_debug"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Debug"
+                android:drawableLeft="@drawable/ic_info_dark"
+                android:visibility="gone"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

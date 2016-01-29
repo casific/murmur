@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@+id/whole"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+                android:paddingTop="2dp"
+              android:fitsSystemWindows="true">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/appToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:background="@drawable/grey_to_white_fade"/>
+
+    <EditText
+        android:id="@+id/editText1"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="top|left"
+        android:isScrollContainer="false"
+        android:hint="@string/post_hint"
+        android:textColor="@color/drawer_menu_text_grey"
+        android:padding="16dp"
+        android:maxLength="500"
+        android:background="@android:color/white">
+
+        <requestFocus />
+    </EditText>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@android:color/white">
+
+        <ImageButton
+            style="@style/PostMessageAction"
+            android:id="@+id/action_share_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/post_message_tag_location"
+            android:background="@android:color/transparent"/>
+
+        <ImageButton
+            style="@style/PostMessageAction"
+            android:id="@+id/action_timebound"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/post_message_timebound"/>
+
+        <ImageButton
+            style="@style/PostMessageAction"
+            android:id="@+id/action_restricted"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/post_message_restricted"/>
+
+        <View android:layout_weight="1"
+              android:layout_height="match_parent"
+              android:layout_width="0dp"/>
+
+        <TextView
+            style="@style/PostMessageAction"
+            android:id="@+id/character_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:gravity="right"
+            android:textColor="#939393"
+            android:text="140"/>
+
+
+    </LinearLayout>
+
+</LinearLayout>

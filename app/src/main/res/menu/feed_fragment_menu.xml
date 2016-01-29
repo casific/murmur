@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:compat="http://schemas.android.com/apk/res-auto" >
+    <item android:id="@+id/search"
+          android:title="@string/search_title"
+          android:icon="@drawable/ic_search_light"
+          compat:showAsAction="always"/>
+
+    <group android:id="@+id/checked_only_actions"
+        android:visible="false">
+        <item android:id="@+id/action_retweet"
+              android:title="@string/retweet"
+              android:icon="@drawable/ic_relay"
+              compat:showAsAction="ifRoom"/>
+
+        <item android:id="@+id/action_share"
+              android:title="@string/share"
+              android:icon="@drawable/ic_share"
+              compat:showAsAction="ifRoom"/>
+
+        <item android:id="@+id/action_delete"
+              android:title="@string/delete"
+              android:icon="@drawable/ic_trash"
+              compat:showAsAction="ifRoom"/>
+
+        <item android:id="@+id/action_delete_from_sender"
+              android:title="@string/delete_from_sender"
+              android:icon="@drawable/ic_trash_dark_full"
+              compat:showAsAction="never"/>
+
+        <item android:id="@+id/action_delete_by_connection"
+              android:title="@string/delete_by_connection"
+              android:icon="@drawable/ic_trash_dark_full"
+              compat:showAsAction="never"/>
+
+        <item android:id="@+id/action_delete_by_exchange"
+              android:title="@string/delete_by_exchange"
+              android:icon="@drawable/ic_trash_dark_full"
+              compat:showAsAction="never"/>
+    </group>
+</menu>

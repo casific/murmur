@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:padding="20dp">
+
+    <TextView
+        android:text="@string/conf_friend_dialog_name_title"
+        android:maxLength="25"
+        style="@style/Configure_friend_field_title"/>
+
+    <EditText
+        android:id="@+id/name"
+        style="@style/Configure_friend_field_input"/>
+
+</LinearLayout>

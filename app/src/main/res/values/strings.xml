@@ -1,0 +1,294 @@
+<resources>
+
+    <!-- General -->
+    <!-- Application name-->
+    <string name="app_name" translatable="false">Murmur</string>
+
+    <!-- Navigation drawer state for usability assistance-->
+    <string name="open">Navigation Drawer is Open</string>
+    <string name="close">Navigation Drawer is Closed</string>
+
+    <!-- Network error notification and prompts -->
+    <string name="offline_mode_toast">Murmur is running in Offline mode</string>
+    <string name="notification_connection_error_title">Connection Error</string>
+    <string name="notification_connection_error_message">Turn on BT/WiFi or switch to Offline</string>
+    <string name="notification_no_bluetooth_title">Connection Error: Bluetooth is off</string><!-- no longer in use, uses single error for both WIFI and BT-->
+    <string name="notification_no_bluetooth_message">Please turn on Bluetooth or switch to Offline mode</string><!-- no longer in use, uses single error for both WIFI and BT-->
+    <string name="notification_no_wifi_title">Connection Error: WiFi is off</string><!-- no longer in use, uses single error for both WIFI and BT-->
+    <string name="notification_no_wifi_message">Please turn on WiFi or switch to Offline mode</string><!-- no longer in use, uses single error for both WIFI and BT-->
+
+    <string name="error_notification_action_onwifi">Turn on</string>
+    <string name="error_notification_action_turnon_bt">Turn on</string>
+    <string name="error_notification_action_off_service">Switch to Offline</string>
+
+    <!-- New messages notification-->
+    <string name="unread_notification_title">New unread messages</string>
+    <string name="unread_notification_content">New exchanges</string>
+
+    <!-- New messages snackbar -->
+    <string name="new_messages_notification_desc">new messages</string>
+    <string name="new_message_notification_desc">new message</string>
+    <string name="new_messages_notification_btn">View New</string>
+    <string name="exchanges">new exchanges</string>
+    <string name="exchange">new exchange</string>
+
+    <!-- Drawer menu actions (also used as page titles)-->
+    <string name="drawer_menu_feed">Feed</string>
+    <string name="drawer_menu_starred">Starred</string>
+    <string name="drawer_menu_offline_mode">Offline mode</string>
+    <string name="drawer_menu_contact">Contacts</string>
+    <string name="drawer_menu_profile">Profile</string>
+    <string name="drawer_menu_settings">Settings</string>
+    <string name="drawer_menu_help">Help &amp; feedback</string>
+    <string name="drawer_menu_info">Info</string>
+    <string name="drawer_menu_reset">Reset app</string>
+    <string name="drawer_menu_export">Export feed</string>
+    <string name="drawer_menu_share_app">Share Murmur</string>
+    <string name="drawer_menu_advanced">Advanced</string>
+
+    <!-- share app picker title-->
+    <string name="share_using">Share using</string>
+
+    <!-- Export -->
+    <string name="export_subdiractory" translatable="false">Murmur exports</string>
+
+    <!-- export process toasts-->
+    <string name="export">Exporting....</string>
+    <string name="export_message">Please wait...</string>
+    <string name="export_successful">Feed exported to your Download folder</string>
+    <string name="export_failed">Oops, feed export failed, please try again</string>
+
+    <!-- Share message (from feed/stared)-->
+    <string name="share_prefix">Sent with Murmur</string>
+
+    <!-- Actionbar/Toolbar-->
+
+    <string name="empty_string"></string>
+    <string name="select_all">Select All</string>
+    <string name="deselect_all">Deselect All</string>
+
+    <!-- actionbar sort options-->
+    <string name="sort_opt_newest">Newest</string>
+    <string name="sort_opt_oldest">Oldest</string>
+    <string name="sort_opt_mostendorsed">Most endorsed</string>
+    <string name="sort_opt_leastendorsed">Least endorsed</string>
+    <string name="sort_opt_mostconnected">Most connected</string>
+    <string name="sort_opt_leastconnected">Least connected</string>
+
+    <!-- menu item titles (not shown but required) -->
+    <string name="send">Send</string>
+    <string name="search_title">Search</string>
+    <string name="retweet">Retweet</string>
+    <string name="share">Share</string>
+    <string name="delete">Delete</string>
+
+    <!-- menu item titles (shown when in advance delete mode-->
+    <string name="delete_from_sender">Same nickname</string><!--Delete messages with same sender(s)-->
+    <string name="delete_by_connection">Same &amp; lower score</string><!--Delete messages with same or lower connection-->
+    <string name="delete_by_exchange">Same exchange</string><!--Delete messages from same exchange-->
+
+    <!-- Feed/Starred-->
+
+    <!-- delete dialog conformation-->
+    <string name="delete_dialog_title">Delete items</string>
+    <string name="delete_dialog_message1">Are you sure you wish to delete</string><!-- pre-number-->
+    <string name="delete_dialog_message2">items</string><!-- post-number-->
+
+    <!-- item time units -->
+    <string name="days_short">d</string>
+    <string name="just_now">last hour</string>
+    <string name="today">today</string>
+    <string name="h_ago">hr ago</string>
+    <string name="d_ago">d ago</string>
+
+    <!-- self destruct pre-text-->
+    <string name="self_destruct_in">self-destructs in</string><!-- time -->
+
+    <!-- reset application dialog -->
+    <string name="reset_dialog_title">Reset application</string>
+    <string name="reset_app_message">Are you sure you wish to reset Murmur?\nAll messages and contacts will be erased</string>
+    <string name="confirm_reset_dialog_title">Confirm reset</string>
+    <string name="confirm_reset_app_message">Click \'yes\' to reset Murmur.</string>
+
+    <!-- Post/Reply post -->
+    <!-- actionbar titles-->
+    <string name="new_post">New post</string>
+    <string name="reply">Reply</string>
+
+    <string name="post_hint">Type your message</string>
+
+    <!-- Self-destruct dialog -->
+    <string name="timebound_dialog_title">Self-destruct</string>
+    <string name="hours_short">hrs</string>
+
+    <!-- Share location error -->
+    <string name="no_gps_error">Could not determine location please activate your GPS</string>
+
+    <!-- Profile -->
+    <string name="pseudonym_title">Nickname</string>
+    <string name="qr_title">QR Code</string>
+
+    <!-- Contacts-->
+
+    <!-- Menu item title (not shown but required) -->
+    <string name="add">Add</string>
+
+    <!-- Add Contact dialog -->
+    <string name="add_friend_dialog_title">Add contact</string>
+    <string name="add_friend_dialog_body">Select method</string>
+    <string name="add_friend_qrcode">QR-code</string>
+    <string name="add_friend_phonebook">Phonebook</string>
+
+    <!-- edit contact dialog -->
+    <string name="conf_friend_dialog_title">Edit contact</string>
+    <string name="conf_friend_dialog_name_title">Nickname</string>
+    <string name="conf_friend_dialog_number_title">Phone</string>
+
+    <!-- Delete contact conformation dialog-->
+    <string name="delete_dialog_friend1">Are you sure you wish to delete</string><!--pre-number-->
+    <string name="delete_dialog_friend2">items</string><!--post-number-->
+
+    <!-- QR code scanner prompt message-->
+    <string name="qr_scanner_message">Scan a Murmur QR code</string>
+    <!-- valid QR code prefix to identify app related QR-->
+    <string name="qr_code_prefix" translatable="false">Murmur:</string>
+
+    <!-- add contact result toasts -->
+    <string name="contact_add_conf">Contact Added</string>
+    <string name="contact_exist">Already in contacts</string>
+    <string name="contact_add_fail">Selected contact doesn\'t have a phone number</string>
+    <string name="qr_badqr_error">Not a Murmur QR code</string>
+
+    <!-- Settings-->
+    <!-- profile preset block-->
+    <string name="select_profile_title">Choose a profile</string>
+    <string name="profile_flexible">More features / less security</string>
+    <string name="profile_strict">More security / less features</string>
+    <string name="profile_custom">Custom</string>
+    <string name="profile_custom_annotation">Recommended only for advanced users</string>
+
+    <!-- general settings block-->
+    <string name="settings_general_title">General</string>
+
+    <string name="settings_timestamp">Timestamps</string>
+    <string name="settings_trust">Connection scores</string>
+    <string name="settings_location_tagging">Location tagging</string>
+    <string name="settings_pseudonym">Nicknames</string>
+    <string name="settings_self_dest">Self-destruct duration</string>
+    <string name="settings_self_dest_annotation">Default self-destruct message duration in hours</string>
+    <string name="settings_restricted">Restricted messages (contacts)</string>
+    <string name="settings_restricted_annotation">Minimum shared contacts to send message</string>
+
+    <!-- feed related settings block-->
+    <string name="settings_feed_title">Feed</string>
+
+    <string name="settings_autodelete">Auto-delete messages</string>
+    <string name="settings_autodelete_trust_annotation">With a connection score less than</string><!-- describe meaning of changing connection score threshold-->
+    <string name="settings_autodelete_age_annotation">Older than (in days)</string><!-- describe meaning of changing age threshold-->
+
+    <!-- contact related settings block-->
+    <string name="settings_contacts_title">Contacts</string>
+
+    <string name="settings_add_via_phonebook">Add contacts via phonebook</string>
+    <string name="settings_add_via_qr">Add contacts via QR code</string>
+
+    <!-- exchange related settings block-->
+    <string name="settings_exchange_title">Exchanges</string>
+
+    <string name="settings_max_messages_p_exchange">Maximum messages per exchange</string>
+    <string name="settings_timeout_p_exchange">Timeout between exchanges</string>
+
+    <!-- network related settings block (not currently in use)-->
+    <string name="settings_network_title">Network</string>
+
+    <string name="settings_mac_title">Bluetooth MAC address</string>
+
+    <!-- Info -->
+
+    <string name="aboutTitle">About Murmur</string>
+    <string name="aboutBody">Murmur is an open-source, anonymous messaging app that does not require an Internet connection. It provides an alternative means of communication that caters to various types of users based on their communication, anonymity and security needs. Messages do not spread in real-time like in other messaging apps that are using the Internet and instead spread directly from one device to another using BlueTooth and WiFi Direct whenever devices are in physical proximity to each other. The network formed by Murmur devices is delay-tolerant, meaning when a user sends a message, it is saved in the app until it is within range of another device. The app runs in the background, periodically searching for nearby devices and sending and receiving messages to and from each device, therefore not requiring user’s active participation in message forwarding.\n\nNote, this is an early version of the app that has gone through only limited testing. Unfortunately, given the current design of the Android OS (Operating System) there are still severe limitations on apps, such as Murmur, attempting to create peer-to-peer connectivity. We therefore highly recommend, especially for users with stricter anonymity and security requirements, to thoroughly research and test the app prior to using it.</string>
+
+    <!-- Share app-->
+    <!-- notification attached to the url message -->
+    <string name="share_app_promo">Check out Murmur!</string>
+    <string name="apk_url" translatable="false">https://github.com/denovogroup/Murmur/blob/master/murmur.apk?raw=true</string>
+
+    <!-- On-boarding -->
+    <string name="skip_welcome">Skip</string>
+
+    <string name="intro_3">Help Study Anonymous Messaging</string>
+    <string name="intro_2">Pass Other Murmur Users and Share Messages</string>
+
+    <!--Replies feed-->
+    <string name="comments">Replies</string>
+
+    <!-- Help & Feedback-->
+    <!-- feedback-->
+    <string name="send_feedback">Send feedback</string>
+    <string name="feedback_email" translatable="false">murmur_support@denovogroup.org</string>
+    <string name="feedback_title" translatable="false">Murmur feedback</string>
+    <string name="feedback_intro" >Dear Murmur support representative, </string>
+
+    <string name="more_help"><u>More FAQ</u></string>
+
+    <!-- FAQ content -->
+    <string name="help_title1">How to use the Feed ?</string>
+    <string name="help_content1">The feed is the main screen in the app. It displays all the messages and allows you to sort, search, save (star) and delete messages amongst other things. You can sort the messages in the feed by time, endorsements or connection score, and you can search for specific messages by entering a nickname ( ‘@’ followed by the name), hashtag (‘#’ followed by tag) or keyword(s) in the search input box.</string>
+
+
+    <string name="help_title2">What do the icons in each message represent?</string>
+    <string name="help_content2"><![CDATA[<img src=\"icon_demo.png\"><br>Messages may include some or all of the following fields:<br><br>1) Message body (mandatory) - the content of the message<br>2) Nickname (optional) - top-left in bold ; included if message contains author’s nickname<br>3) Connection score (optional) - bottom-left  ; number between 1-100<br>4) Saved message (optional) - bottom-right ; marked in orange if message saved<br>5) Replies (optional) - 2nd from the right ; shows the total number of replies received for this message<br>6) Endorsements (optional) - 3rd from the right ; shows the total number of endorsements<br>7) Location tag (optional) - 4nd from the right ; included if message contains location tag<br>8) Time received (optional) - top-right ; the time (rounded to nearest hour) in which message was received<br>9) Self-destruct expiration (optional) - top-right ; if message is set-up as self-destruct then shows the time left until message is automatically deleted from feed<br><br>Optional fields are included if message contains that field and enabled in Settings. For more details about each field see relevant Q&A.]]></string>
+
+    <string name="help_title3">How to post a message?</string>
+    <string name="help_content3">Tap on the plus button to open the New Post screen, enter the message and tap the arrow button at the top right to send.  To undo simply tap on the cancel icon at the top-left.</string>
+
+    <string name="help_title4">How do I add my location to a new message?</string>
+    <string name="help_content4">Tap on the location icon in the New Post screen. Note, this requires Android\'s location services (GPS) to be on.\nTo undo and clear the location tag from the message simply tap again on the location icon while in the New Post screen.</string>
+
+    <string name="help_title5">What is a restricted message and how do I send one?</string>
+    <string name="help_content5">A restricted message is exchanged only with peers who have at least a certain number of mutual contacts with you. The minimum number of mutual contacts is configured in the Settings screen under Restricted Messages and automatically sent with the message body in each exchange.\n\nTo send a restricted message simply tap on the restricted icon in the New Post screen. The minimum number set on your Settings screen will be added to the message and only users with whom you (or any recipient of the message) have at least that number of mutual contacts with will receive the message. To undo a message from being set as restricted simply tap again on the restricted icon while in the New Post screen. Note, in the feed, restricted messages are marked with a lock icon.</string>
+
+    <string name="help_title6">What is a self-destruct message and how do I send one?</string>
+    <string name="help_content6">A self-destruct message is exchanged only between the author of the message and any immediate peers he connects with directly. It will not get forwarded from those users onwards to other users. The author can configure the expiration (in hours) for the message in the Settings screen under Self-destruct duration. Once the duration configured for the message has elapsed each app will delete automatically that message from its feed, for instance if the self-destruct is set for two hours then each user that receives the message will have two hours from the moment received to view the message until it is deleted from the feed. Note, this option does not guarantee that the message is not copied and thereby sent to other users - it simply automatically deletes the message from the recipient and limits its forwarding to other users.\n\nTo send a self-destruct message simply tap on the self-destruct icon in the New Post screen. You can change the expiration time in the Settings screen. To undo a message from being set as self-destruct simply tap again on the self-destruct icon while in the New Post screen.</string>
+
+    <string name="help_title7">How do I configure a nickname?</string>
+    <string name="help_content7">To configure a nickname go to the Profile screen in the left navigation menu, enter your nickname and tap the check icon on top right.</string>
+
+    <string name="help_title8">What is a connection score?</string>
+    <string name="help_content8">Murmur automatically calculates a score between 1 and 100 (the higher the better) that roughly represents the percentage of mutual connections the message author and each recipient share. When a user posts a message it is automatically assigned with a score of 100. When a message is exchanged with another user, the percentage of mutual contacts between the sender and receiver is multiplied by the original message’s score. The result is rounded and normalized to fit the 1-100 range. This same calculation repeats every message exchange, therefore as the message propagates in the network its connection score will go down.</string>
+
+    <string name="help_title9">How do I endorse a message?</string>
+    <string name="help_content9">Tap the endorse icon to endorse a message you like. Each user can only endorse a message once. If you wish to undo your endorsement simply tap on the endorsement icon again.\nNote, the number next to the icon shows the total number of endorsements a message has.</string>
+
+    <string name="help_title10">How do I reply to a message?</string>
+    <string name="help_content10">Tap the reply icon to reply to a message. If the message already has replies, tapping on the icon will open the Replies screen which displays all the existing replies and includes a floating reply icon that opens the Reply screen. Otherwise (i.e. there are no replies available) the Reply screen opens directly. The Reply screen is essentially the New Post screen addressed at the nickname (if one is available in the original message).\nNote, the number next to the icon shows the total number of replies a specific message has.</string>
+
+    <string name="help_title11">How do I save a message?</string>
+    <string name="help_content11">Tap the star icon to save a message for easy access later on through the Starred menu (accessible via the left navigation menu). To undo simply tap again on the star icon.</string>
+
+    <string name="help_title12">How do messages spread in Murmur?</string>
+    <string name="help_content12">Generally messages in Murmur spread between all users. Whenever two users connect, they exchange all the messages they have between them. Messages are sent in plain-text (i.e. are not encrypted) and are broadcasted to the entire network. That said, certain restrictions on messages may be applied, for instance configuring messages as self-destruct or restricted, or limiting the number of messages sent in each exchange. Because messages are spread from one device to another using Bluetooth, there could be a significant delay between the time a message was sent and the time it was received by all or most of the users in the network. The delay depends on the density of the users and how frequently they are in close proximity to each other. To shorten the time it takes for messages to spread in the network, users can coordinate message exchanges (e.g. decide on a certain time and location to meet).</string>
+
+    <string name="help_title13">How do I add contacts in Murmur?</string>
+    <string name="help_content13">To add contacts go to the Contacts screen from the left navigation menu and select the method you would like to add contacts - QR Code or Phonebook based (note these options depend on the profile chosen in the Settings screen). If QR Code is selected a scanner is opened, have your contact open their Profile screen, scan their QR code and enter a nickname for that contact.  If Phonebook is selected then select the contact you wish to add from the Phonebook. To add more than one friend simply repeat the process.\nGiven QR code addition requires physical proximity to your contact it is more secure, albeit less convenient. Conversely Phonebook contact addition does not require physical proximity and more convenient yet less secure.</string>
+
+    <string name="help_title14">How do I set up Murmur?</string>
+    <string name="help_content14"><![CDATA[Go to the Settings screen from left navigation menu and select either one of the preconfigured profiles or choose a custom one by changing specific settings (we recommend this only to advanced users).<br>There are two preconfigured settings:<br><br>&#8226; <b>More features / less security</b> - provides more functionality including nicknames, timestamps, location tagging, etc in exchange for less security - namely, less anonymity and less protections against spam.<br><br>&#8226; <b>More security / less features</b> - provide less functionality in exchange for more security - namely, more anonymity and more protections against spam messages.]]></string>
+
+    <string name="help_title15">What do the various options included in the Settings screen mean?</string>
+    <string name="help_content15"><![CDATA[<u>General</u><br><br>&#8226; <b>Timestamps</b> - if enabled, posted messages receive a timestamp (resolution of hours) and the feed displays the timestamp of messages received (if available). If disabled, then no timestamp is added to posted messages and the feed does not display any timestamp (nor are timestamps retained in the app’s database).<br><br>&#8226; <b>Connection score</b> - if enabled, a connection score is calculated per message as part of any message exchange and presented accordingly in the feed.<br><br>&#8226; <b>Location tagging</b> - if enabled, location tagging is enabled in New Post screen.<br><br>&#8226; <b>Nicknames</b> - if enabled, posted messages will automatically include the nickname set-up in the Profile screen.<br><br><u>Feed</u><br><br>&#8226; <b>Auto-delete messages</b> - allows you to set a criteria by which messages are automatically deleted from the feed:<br>  1) connection score - deletes messages with score below the set threshold<br>  2) older than - deletes messages that have been received more than the preset threshold before.<br><br><u>Contacts</u><br><br>&#8226; <b>Add contacts via Phonebook</b> - if enabled you can add contacts directly from Phonebook<br><br>&#8226; <b>Add contacts via QR code</b> - if enabled you can add contacts using QR codes which require physical proximity to each contact.<br>]]></string>
+
+    <string name="help_title16">How do I reset the app?</string>
+    <string name="help_content16">Tap on Advanced in the left navigation menu and then Reset app. Beware that this will erase all messages and contacts from the app and restore the Settings to the default settings. There is no way to undo this operation.</string>
+
+    <string name="help_title17">How do I export messages from Murmur?</string>
+    <string name="help_content17">Tap on Advanced in the left navigation menu and then Export feed. Your current feed will be saved in a CSV format in your downloads folder on your device under Murmur Exports folder. Note, to easily access this file we recommend using a file/storage manager app.</string>
+
+    <string name="help_title18">What does Offline mode mean?</string>
+    <string name="help_content18">If Offline mode is enabled, the app ceases to scan and exchange messages with other devices and is also no longer discoverable.\nWe suggest using this mode as a quick way to disable the app when not in range of other devices, or not interested in exchanging messages, or in order to reduce battery degradation.</string>
+
+    <string name="help_title19">How do I share the app with other users?</string>
+    <string name="help_content19">Tap on Share Murmur in the left navigation menu and then select the an app to use to share. A link to download Murmur will be pasted into the selected app.</string>
+    <string name="settings_bt_device_settings">Check device settings</string>
+
+</resources>

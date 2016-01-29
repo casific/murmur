@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:divider="@drawable/divider_dark"
+              android:showDividers="middle"
+              android:descendantFocusability="beforeDescendants"
+              android:focusableInTouchMode="true">
+
+    <EditText
+        android:id="@+id/pseudonym"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:textSize="19sp"
+        android:textColor="@android:color/black"
+        android:hint="@string/pseudonym_title"
+        android:background="#fafafa"
+        android:textColorHint="#c7c7c7"
+        android:drawableLeft="@drawable/ic_nickname"
+        android:drawablePadding="20dp"
+        android:maxLength="25"
+        android:padding="30dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:background="#eeeeee">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="19sp"
+            android:textColor="@android:color/black"
+            android:text="@string/qr_title"
+            android:textStyle="bold"
+            android:drawableLeft="@drawable/ic_qr_dark"
+            android:drawablePadding="20dp"
+            android:padding="30dp"/>
+
+        <ImageView
+            android:layout_gravity="center"
+            android:id="@+id/qr_code"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:scaleType="centerInside"/>
+
+    </LinearLayout>
+
+</LinearLayout>

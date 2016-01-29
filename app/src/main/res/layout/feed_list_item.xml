@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              style="@style/FeedListItem"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:descendantFocusability="blocksDescendants">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/FeedListItem_Pseudonym"
+            android:id="@+id/feed_item_pseudonym"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            style="@style/FeedListItem_Time"
+            android:id="@+id/feed_item_time"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <TextView
+        style="@style/FeedListItem_Message"
+        android:id="@+id/feed_item_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autoLink="none"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/FeedListItem_Extra"
+            android:id="@+id/feed_item_connection"
+            android:drawableLeft="@drawable/feed_connection_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="0dp"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1"/>
+
+        <TextView
+            style="@style/FeedListItem_Extra"
+            android:id="@+id/feed_item_restricted"
+            android:drawableLeft="@drawable/ic_restricted_dark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""/>
+
+        <TextView
+            style="@style/FeedListItem_Extra"
+            android:id="@+id/feed_item_navigate"
+            android:drawableLeft="@drawable/feed_item_navigate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""/>
+
+        <TextView
+            style="@style/FeedListItem_ExtraActive"
+            android:id="@+id/feed_item_likes"
+            android:drawableLeft="@drawable/feed_item_like"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            style="@style/FeedListItem_Extra"
+            android:id="@+id/feed_item_replies"
+            android:drawableLeft="@drawable/feed_item_reply"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            style="@style/FeedListItem_Extra"
+            android:id="@+id/feed_item_favorite"
+            android:drawableLeft="@drawable/feed_item_favorite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""/>
+
+    </LinearLayout>
+
+</LinearLayout>

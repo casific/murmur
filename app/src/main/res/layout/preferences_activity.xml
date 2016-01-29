@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/purple"/>
+
+    <android.support.v4.view.ViewPager
+               android:id="@+id/pref_pager"
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:padding="@dimen/activity_horizontal_margin"
+               android:descendantFocusability="beforeDescendants"
+               android:focusableInTouchMode="true">
+
+        <android.support.v4.view.PagerTitleStrip
+            style="@style/Pager_title_strip"
+            android:id="@+id/pref_pager_title"
+            android:layout_width="match_parent"
+            android:gravity="top"
+            android:layout_height="34dp" /><!--other view's height - parent padding top-->
+
+    </android.support.v4.view.ViewPager>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/right_fading_purple_gradient"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/left_fading_purple_gradient"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

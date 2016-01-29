@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="horizontal"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+                android:padding="15dp" android:paddingBottom="0dp">
+
+    <TextView
+        android:id="@+id/char_index"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#939393"
+        android:textSize="20sp"
+        android:text="A"/>
+
+    <LinearLayout
+        android:id="@+id/item_data"
+        android:orientation="horizontal"
+        android:layout_toRightOf="@id/char_index"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp">
+
+        <TextView
+            android:id="@+id/item_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:layout_weight="1"/>
+
+        <ImageView
+            android:id="@+id/item_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="15dp"/>
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/item_divider"
+        android:layout_alignLeft="@id/item_data"
+        android:layout_alignRight="@id/item_data"
+        android:layout_below="@id/item_data"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/feed_list_divider_dark"/>
+
+</RelativeLayout>

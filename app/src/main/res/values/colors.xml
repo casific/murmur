@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="whitish">#D7D7D7</color>
+    <color name="purple">#8D44AF</color>
+    <color name="purple_transparent">#008D44AF</color>
+    <color name="purpleOld">#6d0094</color>
+    <color name="grey">#FFFEFF</color>
+
+
+    <color name="app_dark_purple">#30164d</color>
+    <color name="app_purple">#6734ba</color>
+    <color name="app_yellow">#ff6f43</color>
+    <color name="app_bg">#e5e5e5</color>
+
+    <color name="drawer_menu_text_grey">#1f1f1f</color>
+    <color name="drawer_menu_text_purple">@color/app_purple</color>
+    <color name="drawer_menu_grey_icon">#757575</color>
+    <color name="drawer_menu_bg_selected">#e4e4e4</color>
+
+    <color name="list_item_bg">#f2f2f2</color>
+    <color name="list_item_bg_checked">#d5d5d5</color>
+
+    <color name="feed_item_extra_idle">#6f6f6f</color>
+    <color name="feed_item_extra_activated">@color/app_purple</color>
+
+    <color name="feed_list_divider">#e0e0e0</color>
+    <color name="feed_list_divider_dark">#d7d7d7</color>
+
+    <color name="toolbar_grey">#6c6c6c</color>
+    <color name="foreground_material_dark">#303030</color>
+
+    <color name="light_gray">#888888</color>
+
+    <color name="statusbar_tint">#64000000</color>
+
+</resources>

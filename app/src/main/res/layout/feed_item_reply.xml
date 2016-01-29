@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="horizontal"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+
+    <View
+        android:id="@+id/feed_reply_item_dead_space"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent"/>
+
+    <View
+        android:id="@+id/feed_reply_item_color_tab"
+        android:layout_width="10dp"
+        android:layout_height="match_parent"
+        android:background="@android:color/holo_red_dark"/>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            style="@style/FeedListItem">
+
+            <TextView
+                android:id="@+id/feed_reply_item_time"
+                style="@style/FeedListItem_Time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"/>
+
+            <TextView
+                android:id="@+id/feed_reply_item_pseudonym"
+                style="@style/FeedListItem_Pseudonym"
+                android:layout_toLeftOf="@id/feed_reply_item_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/feed_reply_item_message"
+                style="@style/FeedListItem_Message"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/feed_reply_item_pseudonym"
+                android:autoLink="web|phone"/>
+
+
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#d7d7d7"/>
+
+    </LinearLayout>
+
+</LinearLayout>

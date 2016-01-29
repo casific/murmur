@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <ListView
+        android:id="@+id/feed_listView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:descendantFocusability="blocksDescendants"
+        android:divider="@color/feed_list_divider"
+        android:dividerHeight="1dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:animateLayoutChanges="true">
+
+        <Button
+            android:id="@+id/new_post_button"
+            android:layout_gravity="right"
+            android:layout_marginBottom="15dp"
+            android:layout_marginRight="15dp"
+            android:paddingBottom="2dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:text="+"
+            android:textSize="26dp"
+            android:textColor="@android:color/white"
+            android:gravity="center"
+            android:background="@drawable/ui_buttoncircle"/>
+
+        <include layout="@layout/new_message_snackbar"
+            android:visibility="gone"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

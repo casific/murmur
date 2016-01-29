@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="15dp" android:paddingBottom="0dp"
+                android:descendantFocusability="blocksDescendants">
+
+    <CheckBox
+        android:id="@+id/checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:focusableInTouchMode="false"
+        android:focusable="false"
+        android:clickable="false"
+        android:text=""/>
+
+    <LinearLayout
+        android:id="@+id/item_data"
+        android:orientation="horizontal"
+        android:layout_toRightOf="@id/checkbox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp">
+
+        <TextView
+            android:id="@+id/item_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:layout_weight="1"/>
+
+        <ImageView
+            android:id="@+id/item_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="15dp"/>
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/item_divider"
+        android:layout_alignLeft="@id/item_data"
+        android:layout_alignRight="@id/item_data"
+        android:layout_below="@id/item_data"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/feed_list_divider_dark"/>
+
+</RelativeLayout>

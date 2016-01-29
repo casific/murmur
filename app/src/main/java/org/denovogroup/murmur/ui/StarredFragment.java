@@ -1,0 +1,761 @@
+package org.denovogroup.murmur.ui;
+
+import android.app.Activity;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.database.Cursor;
+import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.CursorAdapter;
+import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.Spinner;
+import android.widget.TextView;
+
+import org.denovogroup.murmur.R;
+import org.denovogroup.murmur.backend.ExchangeHistoryTracker;
+import org.denovogroup.murmur.backend.MessageStore;
+import org.denovogroup.murmur.backend.SearchHelper;
+import org.denovogroup.murmur.backend.Utils;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * Created by Liran on 12/27/2015.
+ *
+ * The fragment which display the message feed overview
+ */
+public class StarredFragment extends Fragment implements View.OnClickListener, TextWatcher, FragmentBackHandler{
+
+    public static final int REQ_CODE_MESSAGE = 100;
+    public static final int REQ_CODE_SEARCH = 101;
+    private static final int MAX_NEW_MESSAGES_DISPLAY = 1000;
+
+    private boolean inSearchMode = false;
+    private boolean inSelectionMode = false;
+    private boolean selectAll = false;
+
+    private ListView feedListView;
+    private Button newPostButton;
+
+    private ViewGroup newMessagesNotification;
+    private TextView newMessagesNotification_text;
+    private Button newMessagesNotification_button;
+    private Spinner sortSpinner;
+    private TextView leftText;
+    private sortOption currentSort = sortOption.NEWEST;
+    private EditText searchView;
+
+    Menu menu;
+
+    private String query = "";
+
+    @Override
+    public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+    @Override
+    public void onTextChanged(CharSequence s, int start, int before, int count) {
+        query = s.toString();
+        FeedAdapter adapter = new FeedAdapter(getActivity(), getCursor(), false, feedAdapterCallbacks);
+        if(SearchHelper.searchToSQL(query) == null) {
+            adapter.setHighlight(Utils.getKeywords(query));
+        }
+        feedListView.setAdapter(adapter);
+    }
+
+    @Override
+    public void afterTextChanged(Editable s) {}
+
+    private enum sortOption{
+        NEWEST, OLDEST, MOST_ENDORSED, LEAST_ENDORSED, MOST_CONNECTED, LEAST_CONNECTED
+    }
+
+    private List<Object[]> sortOptions = new ArrayList<Object[]>(){{
+        add(new Object[]{R.drawable.sort_spinner_newest, R.string.sort_opt_newest, sortOption.NEWEST});
+        add(new Object[]{R.drawable.sort_spinner_oldest,R.string.sort_opt_oldest, sortOption.OLDEST});
+        add(new Object[]{R.drawable.sort_spinner_most_endorsed,R.string.sort_opt_mostendorsed, sortOption.MOST_ENDORSED});
+        add(new Object[]{R.drawable.sort_spinner_least_endorsed,R.string.sort_opt_leastendorsed, sortOption.LEAST_ENDORSED});
+        add(new Object[]{R.drawable.sort_spinner_most_connected,R.string.sort_opt_mostconnected, sortOption.MOST_CONNECTED});
+        add(new Object[]{R.drawable.sort_spinner_least_connected,R.string.sort_opt_leastconnected, sortOption.LEAST_CONNECTED});
+    }};
+
+    // Create reciever object
+    private BroadcastReceiver receiver;
+
+    // Set When broadcast event will fire.
+    private IntentFilter filter = new IntentFilter(MessageStore.NEW_MESSAGE);
+
+    /**
+     * This is the broadcast receiver object that I am registering. I created a
+     * new class in order to override onReceive functionality.
+     *
+     * @author jesus
+     *
+     */
+    public class MessageEventReceiver extends BroadcastReceiver {
+
+        /**
+         * When the receiver is activated then that means a message has been
+         * added to the message store, (either by the user or by the active
+         * services). The reason that the instanceof check is necessary is
+         * because there are two possible routes of activity:
+         *
+         * 1) The previous/current fragment viewed could have been the about
+         * fragment, if it was then the focused fragment is not a
+         * ListFragmentOrganizer and when the user returns to the feed then the
+         * feed will check its own data set and not crash.
+         *
+         * 2) The previous/current fragment is the feed, it needs to be notified
+         * immediately that there was a change in the underlying dataset.
+         */
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            setPendingUnreadMessagesDisplay();
+        }
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
+        ((DrawerActivityHelper) getActivity()).getDrawerToggle().setDrawerIndicatorEnabled(true);
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(R.string.drawer_menu_starred);
+
+        searchView = (EditText) ((MainActivity)getActivity()).getToolbar().findViewById(R.id.searchView);
+
+        leftText = (TextView) ((MainActivity) getActivity()).getToolbar().findViewById(R.id.leftText);
+
+        initSortSpinner();
+
+        View v = inflater.inflate(R.layout.feed_fragment, container, false);
+
+        feedListView = (ListView) v.findViewById(R.id.feed_listView);
+        newPostButton = (Button) v.findViewById(R.id.new_post_button);
+            newPostButton.setOnClickListener(this);
+        newMessagesNotification = (ViewGroup) v.findViewById(R.id.new_message_notification);
+        newMessagesNotification_text = (TextView) v.findViewById(R.id.new_message_notification_desc);
+        newMessagesNotification_button = (Button) v.findViewById(R.id.new_message_notification_btn);
+            newMessagesNotification_button.setOnClickListener(this);
+
+        setListView();
+
+        setActionbar();
+
+        return v;
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.new_post_button:
+                Intent intent = new Intent(getActivity(), PostActivity.class);
+                startActivityForResult(intent, REQ_CODE_MESSAGE);
+                break;
+            case R.id.new_message_notification_btn:
+                //TODO
+                break;
+        }
+    }
+
+    private void initSortSpinner(){
+        if(getActivity() instanceof MainActivity) {
+            sortSpinner = (Spinner) ((MainActivity) getActivity()).getToolbar().findViewById(R.id.sortSpinner);
+            sortSpinner.setAdapter(new FeedSortSpinnerAdapter(getActivity(), sortOptions, inSearchMode));
+            for(int i=0; i<sortOptions.size();i++){
+                if(sortOptions.get(i)[2] == currentSort){
+                    sortSpinner.setSelection(i);
+                    break;
+                }
+            }
+            sortSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                    currentSort = (sortOption) sortOptions.get(position)[2];
+
+                    MessageStore store = MessageStore.getInstance(getActivity());
+
+                    switch(currentSort){
+                        case LEAST_CONNECTED:
+                            store.setSortOption(new String[]{MessageStore.COL_TRUST}, true);
+                            break;
+                        case MOST_CONNECTED:
+                            store.setSortOption(new String[]{MessageStore.COL_TRUST}, false);
+                            break;
+                        case LEAST_ENDORSED:
+                            store.setSortOption(new String[]{MessageStore.COL_LIKES}, true);
+                            break;
+                        case MOST_ENDORSED:
+                            store.setSortOption(new String[]{MessageStore.COL_LIKES}, false);
+                            break;
+                        case NEWEST:
+                            store.setSortOption(new String[]{MessageStore.COL_ROWID}, false);
+                            break;
+                        case OLDEST:
+                            store.setSortOption(new String[]{MessageStore.COL_ROWID}, true);
+                            break;
+                    }
+
+                    feedListView.setAdapter(new FeedAdapter(getActivity(), getCursor(), inSelectionMode, feedAdapterCallbacks));
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> parent) {
+                    // do nothing
+                }
+            });
+        }
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.feed_fragment_menu, menu);
+        this.menu = menu;
+
+        //Setup the search view
+        /*MenuItem searchItem = menu.findItem(R.id.search);
+        searchView = (SearchView) searchItem.getActionView();
+        setSearchView(searchView);*/
+
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    /** callback handler from clicks on buttons inside the feed list view */
+    FeedAdapter.FeedAdapterCallbacks feedAdapterCallbacks = new FeedAdapter.FeedAdapterCallbacks() {
+        @Override
+        public void onUpvote(String message, int oldPriority) {
+            MessageStore.getInstance(getActivity()).likeMessage(
+                    message,
+                    true);
+            swapCursor();
+        }
+
+        @Override
+        public void onDownvote(String message, int oldPriority) {
+            MessageStore.getInstance(getActivity()).likeMessage(
+                    message,
+                    false);
+            swapCursor();
+        }
+
+        @Override
+        public void onFavorite(String message, boolean isFavoriteBefore) {
+            MessageStore.getInstance(getActivity()).favoriteMessage(
+                    message,
+                    !isFavoriteBefore);
+            swapCursor();
+        }
+
+        @Override
+        public void onNavigate(String message, String latxLon) {
+            double lat = Double.parseDouble(latxLon.substring(0, latxLon.indexOf(" ")));
+            double lon = Double.parseDouble(latxLon.substring(latxLon.indexOf(" ") + 1));
+
+            Uri gmmIntentUri = Uri.parse("geo:"+lat+","+lon);
+            Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+            mapIntent.setPackage("com.google.android.apps.maps");
+            if (mapIntent.resolveActivity(getActivity().getPackageManager()) != null) {
+                getActivity().startActivity(mapIntent);
+            }
+        }
+
+        @Override
+        public void onReply(String parentId, String sender) {
+            Intent intent = new Intent(getActivity(), PostActivity.class);
+            intent.putExtra(PostActivity.MESSAGE_PARENT, parentId);
+            intent.putExtra(PostActivity.MESSAGE_BODY, "@"+sender+" ");
+            startActivityForResult(intent, REQ_CODE_MESSAGE);
+        }
+    };
+
+    private Cursor getCursor(){
+        String baseCondition = "AND "+MessageStore.COL_FAVIRITE+"="+MessageStore.TRUE;
+        String sqlQuery = SearchHelper.searchToSQL(query);
+        return (sqlQuery != null) ?
+                MessageStore.getInstance(getActivity()).getMessagesByQuery(sqlQuery+baseCondition) :
+                MessageStore.getInstance(getActivity()).getFavoriteMessagesContainingCursor(query, false, false, -1);
+    }
+
+    private void swapCursor(){
+
+        int offsetFromTop = 0;
+        int firstVisiblePosition = Math.max(0, feedListView.getFirstVisiblePosition());
+        if(feedListView.getChildCount() > 0) {
+            offsetFromTop = feedListView.getChildAt(0).getTop();
+        }
+
+        CursorAdapter newAdapter = ((CursorAdapter) feedListView.getAdapter());
+        newAdapter.swapCursor(getCursor());
+        if(SearchHelper.searchToSQL(query) == null) {
+            ((FeedAdapter) newAdapter).setHighlight(Utils.getKeywords(query));
+        }
+        feedListView.setAdapter(newAdapter);
+
+        feedListView.setSelectionFromTop(firstVisiblePosition, offsetFromTop);
+    }
+
+    private void setListView(){
+        feedListView.setAdapter(new FeedAdapter(getActivity(), getCursor(), inSelectionMode, feedAdapterCallbacks));
+        if(inSelectionMode) {
+            setListInSelectionMode();
+        } else {
+            setListInDisplayMode();
+        }
+    }
+
+    AdapterView.OnItemLongClickListener longClickListener = new AdapterView.OnItemLongClickListener() {
+        @Override
+        public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+            setListInSelectionMode();
+            return false;
+        }
+    };
+
+    private void setListInSelectionMode(){
+
+        inSelectionMode = true;
+
+        ((FeedAdapter) feedListView.getAdapter()).setSelectionMode(true);
+        swapCursor();
+        feedListView.setOnItemLongClickListener(null);
+        feedListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Cursor c = ((CursorAdapter) feedListView.getAdapter()).getCursor();
+                c.moveToPosition(position);
+                boolean isChecked = c.getInt(c.getColumnIndex(MessageStore.COL_CHECKED)) == MessageStore.TRUE;
+                String message = c.getString(c.getColumnIndex(MessageStore.COL_MESSAGE));
+
+                MessageStore.getInstance(getActivity()).checkMessage(message, !isChecked);
+                swapCursor();
+                setActionbar();
+
+            }
+        });
+        setActionbar();
+
+        newPostButton.setVisibility(View.INVISIBLE);
+    }
+
+    private void setListInDisplayMode(){
+        inSelectionMode = false;
+        MessageStore.getInstance(getActivity()).checkAllMessages(false, true);
+                ((FeedAdapter) feedListView.getAdapter()).setSelectionMode(false);
+        feedListView.setOnItemLongClickListener(longClickListener);
+        feedListView.setOnItemClickListener(null/*new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                //go to expanded view
+                if (getActivity() instanceof FeedFragment.FeedFragmentCallbacks) {
+
+                    Cursor c = ((CursorAdapter) parent.getAdapter()).getCursor();
+                    c.moveToPosition(position);
+                    String messageId = c.getString(c.getColumnIndex(MessageStore.COL_MESSAGE_ID));
+
+                    //if (MessageStore.getInstance(getActivity()).getCommentCount(messageId) > 0) {
+                    ((FeedFragment.FeedFragmentCallbacks) getActivity()).onFeedItemExpand(messageId);
+                    //}
+                }
+
+            }
+        }*/);
+        swapCursor();
+        setActionbar();
+        newPostButton.setVisibility(View.VISIBLE);
+    }
+
+    private void setActionbar(){
+        ActionBar actionBar = ((AppCompatActivity) getActivity()).getSupportActionBar();
+        if(actionBar != null) {
+            actionBar.setBackgroundDrawable(new ColorDrawable(getActivity().getResources().getColor(inSelectionMode ? R.color.toolbar_grey : inSearchMode ? android.R.color.white : R.color.app_yellow)));
+            actionBar.setTitle(inSelectionMode ? R.string.empty_string : (inSearchMode ? R.string.empty_string : R.string.drawer_menu_starred));
+        }
+        if(menu != null) {
+            menu.setGroupVisible(R.id.checked_only_actions, inSelectionMode);
+            menu.findItem(R.id.search).setVisible(!inSearchMode && !inSelectionMode);
+
+            Cursor checkedCursor = MessageStore.getInstance(getActivity()).getCheckedMessages();
+            int checkedCount = checkedCursor.getCount();
+            if(inSelectionMode)
+                ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(checkedCount <= 99 ? String.valueOf(checkedCount) : "+99");
+
+            menu.findItem(R.id.action_delete).setEnabled(checkedCount > 0);
+            boolean canDeleteTrust = false;
+            boolean canDeleteLikes = false;
+            boolean canDeleteSender = false;
+            boolean canDeleteExchange = false;
+
+            if(checkedCount == 1){
+                checkedCursor.moveToFirst();
+                String sender = checkedCursor.getString(checkedCursor.getColumnIndex(MessageStore.COL_PSEUDONYM));
+
+                if(sender != null) canDeleteSender = MessageStore.getInstance(getActivity()).getMessagesBySenderCount(sender) > 0;
+
+                String exchange = checkedCursor.getString(checkedCursor.getColumnIndex(MessageStore.COL_EXCHANGE));
+
+                if(exchange != null) canDeleteExchange = MessageStore.getInstance(getActivity()).getMessagesByExchangeCount(exchange) > 0;
+
+                float trust = checkedCursor.getFloat(checkedCursor.getColumnIndex(MessageStore.COL_TRUST));
+
+                canDeleteTrust = MessageStore.getInstance(getActivity()).getMessagesByTrustCount(trust) > 0;
+
+                int likes = checkedCursor.getInt(checkedCursor.getColumnIndex(MessageStore.COL_LIKES));
+
+                canDeleteLikes = MessageStore.getInstance(getActivity()).getMessagesByLikeCount(likes) > 0;
+            }
+
+            checkedCursor.close();
+
+            menu.findItem(R.id.action_delete_by_connection).setEnabled(checkedCount == 1 && canDeleteTrust);
+            menu.findItem(R.id.action_delete_by_exchange).setEnabled(checkedCount == 1 && canDeleteExchange);
+            menu.findItem(R.id.action_delete_from_sender).setEnabled(checkedCount == 1 && canDeleteSender);
+            menu.findItem(R.id.action_retweet).setEnabled(checkedCount == 1);
+            menu.findItem(R.id.action_share).setEnabled(checkedCount == 1);
+        }
+
+        if(searchView != null){
+            searchView.setVisibility(inSearchMode && !inSelectionMode ? View.VISIBLE : View.GONE);
+            searchView.removeTextChangedListener(this);
+            searchView.setText(query);
+            if(inSearchMode && !inSelectionMode){
+                searchView.addTextChangedListener(this);
+                searchView.requestFocus();
+                InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.showSoftInput(searchView, InputMethodManager.SHOW_IMPLICIT);
+            } else if(!inSelectionMode){
+                query = "";
+                searchView.removeTextChangedListener(this);
+                searchView.setText("");
+                //reset the list to its normal state
+                swapCursor();
+            }
+        }
+
+        ((DrawerActivityHelper) getActivity()).getDrawerToggle().setDrawerIndicatorEnabled(!(inSearchMode || inSelectionMode));
+        ((DrawerActivityHelper) getActivity()).getDrawerToggle().syncState();
+
+        if(actionBar != null) {
+            if(inSelectionMode && inSearchMode){
+                ((DrawerActivityHelper) getActivity()).getDrawerToggle().setDrawerIndicatorEnabled(true);
+                ((DrawerActivityHelper) getActivity()).getDrawerToggle().syncState();
+                ((DrawerActivityHelper) getActivity()).getDrawerToggle().setDrawerIndicatorEnabled(false);
+                ((DrawerActivityHelper) getActivity()).getDrawerToggle().syncState();
+            } else if (inSearchMode && !inSelectionMode) {
+                actionBar.setHomeAsUpIndicator(R.drawable.ic_close_dark);
+            }
+        }
+
+        if(sortSpinner != null) {
+            sortSpinner.setVisibility(inSelectionMode ? View.GONE : View.VISIBLE);
+            initSortSpinner();
+        }
+        if(leftText != null){
+            updateSelectAll();
+            leftText.setVisibility(inSelectionMode ? View.VISIBLE : View.GONE);
+            leftText.setOnClickListener(inSelectionMode ? new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    String baseCondition = "AND "+MessageStore.COL_FAVIRITE+"="+MessageStore.TRUE;
+                    String sqlQuery = SearchHelper.searchToSQL(query);
+                    if (sqlQuery != null){
+                        sqlQuery += baseCondition;
+                    } else {
+                        sqlQuery = baseCondition;
+                        String safequery = Utils.makeTextSafeForSQL(query);
+                        String likeQuery = "";
+                        safequery = safequery.replaceAll("[\n\"]", " ");
+                        String[] words = safequery.split("\\s");
+                        for (int i = 0; i < words.length; i++) {
+                            if (words[i].length() > 0) {
+                                if (likeQuery.length() > 0) {
+                                    likeQuery += " OR ";
+                                }
+                                likeQuery += " " + MessageStore.COL_MESSAGE + " LIKE '%" + words[i] + "%' ";
+                            }
+                        }
+                        if(likeQuery.length() > 0)
+                            sqlQuery += " AND ( " + likeQuery + " )";
+                    }
+
+                    MessageStore.getInstance(getActivity()).checkAllQueriedMessages(!selectAll, sqlQuery);
+                    selectAll = !selectAll;
+                    swapCursor();
+                    setActionbar();
+                }
+            } : null);
+        }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        final Cursor checkedMessages = MessageStore.getInstance(getActivity()).getCheckedMessages();
+        checkedMessages.moveToFirst();
+        AlertDialog.Builder dialog = null;
+
+        switch (item.getItemId()){
+            case android.R.id.home:
+                if(inSelectionMode){
+                    setListInDisplayMode();
+                } else if(inSearchMode){
+                    InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+                    if(searchView != null) imm.hideSoftInputFromWindow(searchView.getWindowToken(), 0);
+                    inSearchMode = false;
+                    setActionbar();
+                    break;
+                } else if(!inSelectionMode){
+                    inSearchMode = false;
+                    setActionbar();
+                    break;
+                }
+
+                ActionBarDrawerToggle toogle = ((DrawerActivityHelper) getActivity()).getDrawerToggle();
+                if(!toogle.isDrawerIndicatorEnabled()){
+                    setListInDisplayMode();
+                }
+                break;
+            case R.id.search:
+                inSearchMode = true;
+                setActionbar();
+                break;
+            case R.id.action_retweet:
+                //TODO fix this to new assets
+                Intent intent = new Intent(getActivity(), PostActivity.class);
+                intent.putExtra(PostActivity.MESSAGE_BODY, checkedMessages.getString(checkedMessages.getColumnIndex(MessageStore.COL_MESSAGE)));
+                getActivity().startActivityForResult(intent, REQ_CODE_MESSAGE);
+                break;
+            case R.id.action_share:
+                Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                shareIntent.setType("text/plain");
+                shareIntent.putExtra(Intent.EXTRA_SUBJECT, "Sent with Murmur");
+                shareIntent.putExtra(Intent.EXTRA_TEXT, checkedMessages.getString(checkedMessages.getColumnIndex(MessageStore.COL_MESSAGE)));
+                getActivity().startActivity(Intent.createChooser(shareIntent, getString(R.string.share_using)));
+                break;
+            case R.id.action_delete:
+                dialog = new AlertDialog.Builder(getActivity());
+                dialog.setTitle(R.string.delete_dialog_title);
+                dialog.setMessage(getString(R.string.delete_dialog_message1) + " " + checkedMessages.getCount() + " " + getString(R.string.delete_dialog_message2));
+                dialog.setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+                dialog.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        MessageStore.getInstance(getActivity()).removeCheckedMessage();
+                        setListInDisplayMode();
+                        dialog.dismiss();
+                    }
+                });
+                break;
+            case R.id.action_delete_by_connection:
+                final float trust = checkedMessages.getFloat(checkedMessages.getColumnIndex(MessageStore.COL_TRUST));
+                dialog = new AlertDialog.Builder(getActivity());
+                dialog.setTitle(R.string.delete_dialog_title);
+                dialog.setMessage(getString(R.string.delete_dialog_message1) + " "
+                        + MessageStore.getInstance(getActivity()).getMessagesByTrustCount(trust) + " " + getString(R.string.delete_dialog_message2));
+                dialog.setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+                dialog.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        MessageStore.getInstance(getActivity()).deleteByTrust(
+                                trust
+                        );
+                        setListInDisplayMode();
+                        dialog.dismiss();
+                    }
+                });
+                break;
+            case R.id.action_delete_by_exchange:
+                final String exchange = checkedMessages.getString(checkedMessages.getColumnIndex(MessageStore.COL_EXCHANGE));
+                dialog = new AlertDialog.Builder(getActivity());
+                dialog.setTitle(R.string.delete_dialog_title);
+                dialog.setMessage(getString(R.string.delete_dialog_message1) + " "
+                        + MessageStore.getInstance(getActivity()).getMessagesByExchangeCount(exchange) + " " + getString(R.string.delete_dialog_message2));
+                dialog.setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+                dialog.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        MessageStore.getInstance(getActivity()).deleteByExchange(exchange);
+                        setListInDisplayMode();
+                        dialog.dismiss();
+                    }
+                });
+                break;
+            case R.id.action_delete_from_sender:
+                final String senderName = checkedMessages.getString(checkedMessages.getColumnIndex(MessageStore.COL_PSEUDONYM));
+                dialog = new AlertDialog.Builder(getActivity());
+                dialog.setTitle(R.string.delete_dialog_title);
+                dialog.setMessage(getString(R.string.delete_dialog_message1) + " "
+                        + MessageStore.getInstance(getActivity()).getMessagesBySenderCount(senderName) + " " + getString(R.string.delete_dialog_message2));
+                dialog.setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+                dialog.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        MessageStore.getInstance(getActivity()).deleteBySender(
+                                senderName
+                        );
+                        setListInDisplayMode();
+                        dialog.dismiss();
+                    }
+                });
+                break;
+        }
+
+        if(dialog != null){
+            AlertDialog alertdialog = dialog.show();
+            DialogStyler.styleAndShow(getActivity(), alertdialog);
+        }
+        checkedMessages.close();
+        return super.onOptionsItemSelected(item);
+    }
+
+    /** display a notification bar showing how many unread messages there are in the store */
+    private void setPendingUnreadMessagesDisplay(){
+        long unreadCount = MessageStore.getInstance(getActivity()).getUnreadCount();
+        if(newMessagesNotification != null){
+            if(unreadCount > 0) {
+                String countString = ((unreadCount <= MAX_NEW_MESSAGES_DISPLAY) ? unreadCount +" "+getString(unreadCount > 1 ? R.string.new_messages_notification_desc : R.string.new_message_notification_desc) : "+"+MAX_NEW_MESSAGES_DISPLAY) +"\n("+ ExchangeHistoryTracker.getInstance().getExchangeHistory()+" "+getString(ExchangeHistoryTracker.getInstance().getExchangeHistory() > 1 ? R.string.exchanges : R.string.exchange)+")";
+
+                ((TextView)newMessagesNotification.findViewById(R.id.new_message_notification_desc)).setText(countString);
+                newMessagesNotification.setVisibility(View.VISIBLE);
+                newMessagesNotification.findViewById(R.id.new_message_notification_btn).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        //mark all the messages as read
+                        MessageStore.getInstance(getActivity()).setAllAsRead();
+                        setPendingUnreadMessagesDisplay();
+
+                        swapCursor();
+                        setPendingUnreadMessagesDisplay();
+                    }
+                });
+            } else {
+                newMessagesNotification.setVisibility(View.GONE);
+            }
+
+        }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        setPendingUnreadMessagesDisplay();
+
+        receiver = new MessageEventReceiver();
+        getActivity().registerReceiver(receiver, filter);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+
+        if(receiver != null){
+            getActivity().unregisterReceiver(receiver);
+            receiver = null;
+        }
+
+        //mark all the messages as read
+        MessageStore.getInstance(getActivity()).setAllAsRead();
+        setPendingUnreadMessagesDisplay();
+        swapCursor();
+    }
+
+    @Override
+    public void onActivityResult(int reqCode, int resCode, Intent data) {
+        super.onActivityResult(reqCode, resCode, data);
+        if(resCode == Activity.RESULT_OK) {
+            switch (reqCode){
+                case REQ_CODE_MESSAGE:
+                    //mark all the messages as read
+                    MessageStore.getInstance(getActivity()).setAllAsRead();
+                    setPendingUnreadMessagesDisplay();
+
+                    swapCursor();
+                    setPendingUnreadMessagesDisplay();
+                    break;
+            }
+        }
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if(searchView != null) searchView.removeTextChangedListener(this);
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.app_purple)));
+    }
+
+    @Override
+    public boolean onBackPressed() {
+        if(inSelectionMode){
+            setListInDisplayMode();
+            return true;
+        } else if(inSearchMode){
+            InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+            if(searchView != null) imm.hideSoftInputFromWindow(searchView.getWindowToken(), 0);
+            inSearchMode = false;
+            setActionbar();
+            return true;
+        }
+        return false;
+    }
+
+    private void updateSelectAll() {
+        //TODO: Danielk Should this contain replies as well?
+        int checkedCount = MessageStore.getInstance(getActivity()).getCheckedMessages().getCount();
+        long totalCount = getCursor().getCount();
+        selectAll = checkedCount == totalCount;
+        if(leftText != null)
+        {
+            if (inSelectionMode)
+                leftText.setText(!selectAll ? R.string.select_all : R.string.deselect_all);
+            else
+                leftText.setText(R.string.empty_string);
+        }
+    }
+
+}

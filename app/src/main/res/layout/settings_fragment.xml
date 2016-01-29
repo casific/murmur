@@ -1,0 +1,593 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            android:isScrollContainer="false">
+
+    <LinearLayout
+                  android:orientation="vertical"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content">
+
+        <RadioGroup
+            style="@style/SettingsBlock"
+            android:id="@+id/radiogroup_profiles"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                style="@style/SettingsTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/select_profile_title"
+                android:layout_margin="@dimen/settings_fragment_margin"/>
+
+            <RadioButton
+                style="@style/SettingsRadioButton"
+                android:id="@+id/radio_profile_flexible"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/profile_flexible"
+                android:layout_marginLeft="@dimen/settings_fragment_margin"
+                android:paddingTop="@dimen/settings_fragment_margin"
+                android:paddingBottom="@dimen/settings_fragment_margin"
+                android:paddingRight="@dimen/settings_fragment_margin"/>
+
+            <View style="@style/SettingsDivider"/>
+
+            <RadioButton
+                style="@style/SettingsRadioButton"
+                android:id="@+id/radio_profile_strict"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/profile_strict"
+                android:layout_marginLeft="@dimen/settings_fragment_margin"
+                android:paddingTop="@dimen/settings_fragment_margin"
+                android:paddingBottom="@dimen/settings_fragment_margin"
+                android:paddingRight="@dimen/settings_fragment_margin"/>
+
+            <View style="@style/SettingsDivider"/>
+
+            <RadioButton
+                style="@style/SettingsRadioButton"
+                android:id="@+id/radio_profile_custom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/profile_custom"
+                android:layout_marginLeft="@dimen/settings_fragment_margin"
+                android:paddingTop="@dimen/settings_fragment_margin"
+                android:paddingBottom="@dimen/settings_fragment_margin"
+                android:paddingRight="@dimen/settings_fragment_margin"/>
+
+            <TextView
+                style="@style/SettingsAnnotation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/profile_custom_annotation"
+                android:layout_marginBottom="5dp"
+                android:layout_marginRight="@dimen/settings_fragment_margin"
+                android:layout_marginTop="-15dp"
+                android:layout_marginLeft="61dp"/>
+
+            <View style="@style/SettingsDivider"/>
+
+        </RadioGroup>
+
+        <LinearLayout
+            android:id="@+id/network_block"
+            style="@style/SettingsBlock"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <View style="@style/SettingsDivider"/>
+
+            <TextView
+                style="@style/SettingsTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/settings_network_title"
+                android:layout_margin="@dimen/settings_fragment_margin"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:id="@+id/layout_mac"
+                android:layout_margin="@dimen/settings_fragment_margin">
+
+                <TextView
+                    style="@style/SettingsText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/settings_mac_title"/>
+
+                <EditText
+                    android:id="@+id/edit_mac"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none"
+                    android:maxLength="25"
+                    android:gravity="center"/>
+
+                <Button
+                    android:id="@+id/device_settings"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/settings_bt_device_settings"
+                    android:textColor="@android:color/white"/>
+            </LinearLayout>
+
+            <View style="@style/SettingsDivider"/>
+
+        </LinearLayout>
+
+        <org.denovogroup.murmur.ui.DisableableLinearLayout
+            android:id="@+id/general_block"
+            style="@style/SettingsBlock"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <View style="@style/SettingsDivider"/>
+
+            <TextView
+                style="@style/SettingsTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/settings_general_title"
+                android:layout_margin="@dimen/settings_fragment_margin"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="@dimen/settings_fragment_margin">
+
+               <TextView
+                   style="@style/SettingsText"
+                   android:layout_width="0dp"
+                   android:layout_height="wrap_content"
+                   android:layout_weight="1"
+                   android:text="@string/settings_timestamp"/>
+
+                <android.support.v7.widget.SwitchCompat
+                    style="@style/SettingsAction"
+                    android:id="@+id/switch_timestamp"/>
+
+            </LinearLayout>
+
+            <View style="@style/SettingsDivider"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="@dimen/settings_fragment_margin">
+
+                <TextView
+                    style="@style/SettingsText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/settings_trust"/>
+
+                <android.support.v7.widget.SwitchCompat
+                    style="@style/SettingsAction"
+                    android:id="@+id/switch_trust"/>
+
+            </LinearLayout>
+
+            <View style="@style/SettingsDivider"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="@dimen/settings_fragment_margin">
+
+                <TextView
+                    style="@style/SettingsText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/settings_location_tagging"/>
+
+                <android.support.v7.widget.SwitchCompat
+                    style="@style/SettingsAction"
+                    android:id="@+id/switch_location_tagging"/>
+
+            </LinearLayout>
+
+            <View style="@style/SettingsDivider"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="@dimen/settings_fragment_margin">
+
+                <TextView
+                    style="@style/SettingsText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/settings_pseudonym"/>
+
+                <android.support.v7.widget.SwitchCompat
+                    style="@style/SettingsAction"
+                    android:id="@+id/switch_pseudonym"/>
+
+            </LinearLayout>
+
+            <View style="@style/SettingsDivider"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="@dimen/settings_fragment_margin"
+                android:id="@+id/layout_self_dest">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/SettingsText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/settings_self_dest"/>
+
+                    <TextView
+                        style="@style/SettingsAnnotation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/settings_self_dest_annotation"/>
+
+                </LinearLayout>
+
+                <EditText
+                    style="@style/SettingsEditTextAction"
+                    android:id="@+id/edit_self_dest"
+                    android:gravity="right"/>
+
+            </LinearLayout>
+
+            <View style="@style/SettingsDivider"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="@dimen/settings_fragment_margin"
+                android:id="@+id/layout_restricted">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/SettingsText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/settings_restricted"/>
+
+                    <TextView
+                        style="@style/SettingsAnnotation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/settings_restricted_annotation"/>
+
+                </LinearLayout>
+
+                <EditText
+                    style="@style/SettingsEditTextAction"
+                    android:id="@+id/edit_restricted"
+                    android:gravity="right"/>
+
+            </LinearLayout>
+
+            <View style="@style/SettingsDivider"/>
+
+        </org.denovogroup.murmur.ui.DisableableLinearLayout>
+
+        <org.denovogroup.murmur.ui.DisableableLinearLayout
+            android:id="@+id/feed_block"
+            style="@style/SettingsBlock"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <View style="@style/SettingsDivider"/>
+
+            <TextView
+                style="@style/SettingsTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/settings_feed_title"
+                android:layout_margin="@dimen/settings_fragment_margin"/>
+
+            <!--<LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="@dimen/settings_fragment_margin">
+
+                <TextView
+                    style="@style/SettingsText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/settings_max_messages"/>
+
+                <EditText
+                    style="@style/SettingsAction"
+                    android:id="@+id/edit_max_messages"
+                    android:gravity="right"/>
+
+            </LinearLayout>
+
+            <View style="@style/SettingsDivider"/>-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="@dimen/settings_fragment_margin">
+
+                <TextView
+                    style="@style/SettingsText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/settings_autodelete"/>
+
+                <android.support.v7.widget.SwitchCompat
+                    style="@style/SettingsAction"
+                    android:id="@+id/switch_auto_delete"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="@dimen/settings_fragment_margin"
+                android:id="@+id/layout_autodelete_trust">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/SettingsAnnotation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/settings_autodelete_trust_annotation"/>
+
+                    <org.denovogroup.murmur.ui.CustomSeekbar
+                        style="@style/Seekbar"
+                        android:id="@+id/seekbar_autodelete_trust"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                    <LinearLayout
+                        style="@style/Seekbar.Metric.container"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/Seekbar.Metric.left"
+                            android:text="0"/>
+
+                        <TextView
+                            style="@style/Seekbar.Metric.right"
+                            android:text="100"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <EditText
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginTop="5dp"
+                    style="@style/SettingsEditTextAction"
+                    android:id="@+id/edit_autodelete_trust"
+                    android:gravity="right"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="@dimen/settings_fragment_margin"
+                android:id="@+id/layout_autodelete_age">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/SettingsAnnotation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/settings_autodelete_age_annotation"/>
+
+                    <org.denovogroup.murmur.ui.CustomSeekbar
+                        style="@style/Seekbar"
+                        android:id="@+id/seekbar_autodelete_age"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                    <LinearLayout
+                        style="@style/Seekbar.Metric.container"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/Seekbar.Metric.left"
+                            android:text="0"/>
+
+                        <TextView
+                            style="@style/Seekbar.Metric.right"
+                            android:text="365"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <EditText
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginTop="5dp"
+                    style="@style/SettingsEditTextAction"
+                    android:id="@+id/edit_autodelete_age"
+                    android:gravity="right"/>
+
+            </LinearLayout>
+
+            <View style="@style/SettingsDivider"/>
+
+        </org.denovogroup.murmur.ui.DisableableLinearLayout>
+
+        <org.denovogroup.murmur.ui.DisableableLinearLayout
+            android:id="@+id/contacts_block"
+            style="@style/SettingsBlock"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <View style="@style/SettingsDivider"/>
+
+            <TextView
+                style="@style/SettingsTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/settings_contacts_title"
+                android:layout_margin="@dimen/settings_fragment_margin"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="@dimen/settings_fragment_margin">
+
+                <TextView
+                    style="@style/SettingsText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/settings_add_via_phonebook"/>
+
+                <android.support.v7.widget.SwitchCompat
+                    style="@style/SettingsAction"
+                    android:id="@+id/switch_add_via_phone"/>
+
+            </LinearLayout>
+
+            <View style="@style/SettingsDivider"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="@dimen/settings_fragment_margin">
+
+                <TextView
+                    style="@style/SettingsText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/settings_add_via_qr"/>
+
+                <android.support.v7.widget.SwitchCompat
+                    style="@style/SettingsAction"
+                    android:id="@+id/switch_add_via_qr"/>
+
+            </LinearLayout>
+
+            <View style="@style/SettingsDivider"/>
+
+        </org.denovogroup.murmur.ui.DisableableLinearLayout>
+
+        <org.denovogroup.murmur.ui.DisableableLinearLayout
+            android:id="@+id/exchange_block"
+            style="@style/SettingsBlock"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <View style="@style/SettingsDivider"/>
+
+            <TextView
+                style="@style/SettingsTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/settings_exchange_title"
+                android:layout_margin="@dimen/settings_fragment_margin"
+                android:id="@+id/layout_max_messages_p_exchange"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="@dimen/settings_fragment_margin">
+
+                <TextView
+                    style="@style/SettingsText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/settings_max_messages_p_exchange"/>
+
+                <EditText
+                    style="@style/SettingsEditTextAction"
+                    android:id="@+id/edit_max_messages_p_exchange"
+                    android:gravity="right"/>
+
+            </LinearLayout>
+
+            <View style="@style/SettingsDivider"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="@dimen/settings_fragment_margin"
+                android:id="@+id/layout_timeout_p_exchange">
+
+                <TextView
+                    style="@style/SettingsText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/settings_timeout_p_exchange"/>
+
+                <EditText
+                    style="@style/SettingsEditTextAction"
+                    android:id="@+id/edit_timeout_p_exchange"
+                    android:gravity="right"/>
+
+            </LinearLayout>
+
+            <View style="@style/SettingsDivider"/>
+
+        </org.denovogroup.murmur.ui.DisableableLinearLayout>
+
+    </LinearLayout>
+
+
+</ScrollView>

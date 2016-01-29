@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <group android:id="@+id/delete_group">
+
+        <item android:id="@+id/item_cancel"
+            android:title="@android:string/cancel" app:showAsAction="always"/>
+
+        <item android:title="      " app:showAsAction="always"/>
+
+        <item android:id="@+id/item_selectAll"
+              android:title="Select all" app:showAsAction="always"/>
+
+        <item android:id="@+id/item_delete"
+              android:title="Delete" android:icon="@drawable/ic_trash_light" app:showAsAction="always"/>
+
+    </group>
+
+    <group android:id="@+id/normal_group">
+        <item android:id="@+id/item_add"
+              android:title="Add" app:showAsAction="always"/>
+    </group>
+</menu>

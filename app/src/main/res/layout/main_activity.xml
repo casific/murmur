@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                        android:id="@+id/drawerLayout"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:background="@color/app_bg">
+
+    <RelativeLayout
+        android:animateLayoutChanges="true"
+        android:id="@+id/contentHolder"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <android.support.v7.widget.Toolbar
+           android:id="@+id/appToolbar"
+           android:minHeight="?attr/actionBarSize"
+           android:background="@drawable/actionbar_default_bg"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/leftText"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="2dp"
+                android:layout_gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:visibility="invisible"/>
+
+            <EditText
+                android:id="@+id/searchView"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                android:singleLine="true"
+                android:maxLength="25"
+                android:visibility="gone"/>
+
+            <Spinner
+                android:id="@+id/sortSpinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="invisible"
+                android:background="@android:color/transparent"
+                android:layout_marginLeft="5dp"/>
+
+        </android.support.v7.widget.Toolbar>
+
+        <FrameLayout
+            android:layout_below="@id/appToolbar"
+            android:id="@+id/mainContent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </RelativeLayout>
+
+    <include layout="@layout/drawer_menu"
+         android:layout_width="300dp"
+         android:layout_height="match_parent"
+         android:layout_gravity="left"/>
+
+</android.support.v4.widget.DrawerLayout>

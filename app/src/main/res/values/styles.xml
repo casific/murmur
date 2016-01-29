@@ -1,0 +1,398 @@
+<resources>
+
+    <style name="ButtonBar" parent="@android:style/ButtonBar"></style>
+
+    <style name="ButtonBarButton"></style>
+
+    <style name="Holo.ButtonBar" parent="ButtonBar">
+        <item name="android:paddingTop">0dip</item>
+        <item name="android:paddingLeft">0dip</item>
+        <item name="android:paddingRight">0dip</item>
+        <item name="android:paddingBottom">0dip</item>
+        <item name="divider">?android:attr/dividerVertical</item>
+        <item name="showDividers">middle</item>
+        <item name="dividerPadding">12dip</item>
+        <item name="background">@null</item>
+    </style>
+
+    <style name="NoActionBar" parent="Theme.AppCompat.Light">
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <style name="Transparent" parent="@android:style/Theme.NoTitleBar">
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:windowActionBar">false</item>
+    </style>
+
+    <style name="MyTheme1" parent="@style/Theme.AppCompat.Light.DarkActionBar">
+        <!-- Setting values in the android namespace affects API levels 11+ -->
+        <item name="android:actionBarStyle">@style/Widget.Styled.ActionBar</item>
+        <item name="android:titleTextStyle">@style/TitleTextStyle</item>
+
+        <item name="actionBarStyle">@style/Widget.Styled.ActionBar</item>
+        <item name="titleTextStyle">@style/TitleTextStyle</item>
+    </style>
+
+    <style name="FeedListItemButton">
+        <item name="android:padding">5dp</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:layout_marginRight">10dp</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
+    <style name="Settings_table_row">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="Settings_checkbox_title">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="Settings_checkbox_description">
+        <item name="android:textSize">14sp</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_span">2</item>
+        <item name="android:layout_marginBottom">10dp</item>
+    </style>
+
+    <style name="Settings_checkbox">
+        <item name="android:text"></item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">right</item>
+    </style>
+
+    <style name="Configure_friend_field_title">
+        <item name="android:textColor">@color/drawer_menu_grey_icon</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:layout_marginTop">10dp</item>
+    </style>
+
+    <style name="Configure_friend_field_input">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <style name="Pager_title_strip">
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="Search_field_title">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">#000000</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
+    <style name="Search_field">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">#000000</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">60dp</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <style name="AppThemeBase" parent="Theme.AppCompat.NoActionBar">
+        <item name="colorAccent">@color/app_yellow</item>
+        <item name="android:colorBackground">@android:color/white</item>
+        <item name="android:colorForeground">@color/foreground_material_dark</item>
+        <item name="android:textColorPrimary">@color/drawer_menu_text_grey</item>
+        <item name="android:windowActionModeOverlay">true</item>
+        <item name="windowActionModeOverlay">true</item>
+        <item name="android:editTextStyle">@style/AppTheme.EditText</item>
+        <item name="android:radioButtonStyle">@style/AppTheme.RadioButton</item>
+        <item name="android:alertDialogTheme">@style/Theme_Sphinx_Dialog_Alert</item>
+        <item name="alertDialogTheme">@style/Theme_Sphinx_Dialog_Alert</item>
+        <item name="android:titleTextStyle">@style/TitleTextStyle</item>
+        <item name="android:checkboxStyle">@style/AppTheme.CheckBox</item>
+        <item name="android:itemTextAppearance">@style/myCustomMenuTextApearance</item>
+
+        <item name="android:actionOverflowButtonStyle">@style/OverflowButton</item>
+        <item name="actionOverflowButtonStyle">@style/OverflowButton</item>
+
+        <item name="actionModeCloseDrawable">@drawable/ic_arrow_back_light</item>
+        <item name="actionModeBackground">@color/toolbar_grey</item>
+        <item name="actionModeStyle">@style/ActionModeStyle</item>
+    </style>
+
+    <style name="OverflowButton" parent="@style/Widget.AppCompat.ActionButton.Overflow">
+
+    </style>
+
+
+    <style name="AppTheme" parent="AppThemeBase">
+
+    </style>
+
+    <style name="AppTheme.PostActivity" parent="AppTheme">
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:textColorPrimary">#6D6D6D</item>
+    </style>
+
+    <style name="myCustomMenuTextApearance" parent="@android:style/TextAppearance.Widget.IconMenu.Item">
+        <item name="android:textColor">@color/overflow_menu_text</item>
+        <item name="android:singleLine">false</item>
+        <item name="android:ellipsize">none</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
+        <item name="android:windowActionModeOverlay">true</item>
+        <item name="windowActionModeOverlay">true</item>
+        <item name="android:titleTextStyle">@style/TitleTextStyle</item>
+    </style>
+
+    <style name="AppTheme.ActionBar" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="windowActionBar">true</item>
+        <item name="windowNoTitle">false</item>
+        <item name="actionBarStyle">@style/Widget.Styled.ActionBar</item>
+        <item name="android:actionBarStyle">@style/Widget.Styled.ActionBar</item>
+        <item name="android:titleTextStyle">@style/TitleTextStyle</item>
+    </style>
+
+    <style name="DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
+        <item name="spinBars">true</item>
+        <item name="color">@android:color/white</item>
+    </style>
+
+    <style name="DrawerMenuTextItem">
+        <item name="android:textColor">@color/drawer_menu_text</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:drawablePadding">20dp</item>
+    </style>
+
+    <style name="DrawerMenuItem" parent="DrawerMenuTextItem">
+        <item name="android:background">@drawable/drawer_menu_item_bg</item>
+        <item name="android:paddingBottom">15dp</item>
+        <item name="android:paddingTop">15dp</item>
+        <item name="android:paddingLeft">12dp</item>
+        <item name="android:paddingRight">10dp</item>
+    </style>
+
+    <style name="DrawerMenuDivider">
+        <item name="android:background">#e3e3e3</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+    </style>
+
+    <style name="FeedListItem">
+        <item name="android:padding">16dp</item>
+        <item name="android:background">@color/list_item_bg</item>
+    </style>
+
+    <style name="FeedListItem_Pseudonym">
+        <item name="android:textColor">@color/drawer_menu_text_grey</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="FeedListItem_Time">
+        <item name="android:textColor">#6d6d6d</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:gravity">right</item>
+    </style>
+
+    <style name="FeedListItem_Message">
+        <item name="android:textColor">@color/drawer_menu_text_grey</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:layout_marginBottom">15dp</item>
+    </style>
+
+    <style name="FeedListItem_Extra">
+        <item name="android:textColor">@color/feed_item_extra_idle</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:layout_marginRight">10dp</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="FeedListItem_ExtraActive" parent="FeedListItem_Extra">
+        <item name="android:textColor">@color/feed_item_extra</item>
+    </style>
+
+    <style name="PostMessageAction">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:layout_marginLeft">7dp</item>
+        <item name="android:layout_marginRight">7dp</item>
+        <item name="android:layout_marginBottom">7dp</item>
+    </style>
+
+    <style name="SettingsTitle">
+        <item name="android:textColor">@color/app_purple</item>
+        <item name="android:textSize">17dp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="SettingsText">
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textSize">18dp</item>
+    </style>
+
+    <style name="SettingsBlock">
+        <item name="android:background">#f8f8f8</item>
+        <item name="android:layout_marginBottom">10dp</item>
+    </style>
+
+    <style name="SettingsDivider">
+        <item name="android:background">@drawable/divider</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+    </style>
+
+    <style name="SettingsRadioButton" parent="@style/SettingsText">
+        <item name="android:paddingLeft">20dp</item>
+        <item name="android:button">@drawable/radio_button</item>
+    </style>
+
+    <style name="SettingsAnnotation">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">#adadad</item>
+    </style>
+
+    <style name="SettingsAction">
+        <item name="android:layout_width">80dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:inputType">number</item>
+    </style>
+
+    <style name="SettingsEditTextAction">
+        <item name="android:selectAllOnFocus">true</item>
+        <item name="android:layout_width">30dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:inputType">number</item>
+        <item name="android:maxLength">3</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:background">@drawable/edit_text_underline_selected_only</item>
+    </style>
+
+    <style name="AppTheme.EditText" parent="Base.Widget.AppCompat.EditText">
+        <item name="android:background">@drawable/edit_text_underline</item>
+    </style>
+
+    <style name="AppTheme.RadioButton" parent="Base.Widget.AppCompat.CompoundButton.RadioButton">
+        <item name="android:button">@drawable/radio_button</item>
+    </style>
+
+    <style name="AppTheme.CheckBox" parent="Base.Widget.AppCompat.CompoundButton.CheckBox">
+        <item name="android:button">@drawable/checkbox</item>
+    </style>
+
+    <style name="Widget.Styled.ActionBar" parent="@style/Widget.AppCompat.Light.ActionBar">
+
+        <!-- Setting values in the android namespace affects API levels 11+ -->
+        <item name="android:background">@color/app_purple</item>
+        <item name="background">@color/app_purple</item>
+    </style>
+
+    <style name="TitleTextStyle" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="TitleTextStyle2" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textColor">#6D6D6D</item>
+    </style>
+
+    <style name="Seekbar">
+        <item name="android:progressDrawable">@drawable/apptheme_scrubber_progress_horizontal_holo_light</item>
+    </style>
+
+    <!-- Dialog style-->
+
+    <style name="Theme_Sphinx_Dialog_Alert" parent="@style/Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:background">@android:color/white</item>
+        <!-- title -->
+        <item name="android:windowTitleStyle">@style/TextAppearance.Sphinx.DialogWindowTitle</item>
+        <!-- message color -->
+        <item name="android:textColorPrimary">@android:color/black</item>
+        <!-- message text style (apart from color) -->
+        <item name="android:textAppearanceMedium">@style/TextAppearance.Sphinx.Medium</item>
+        <!-- Used for the buttons -->
+        <item name="colorAccent">@color/app_yellow</item>
+    </style>
+
+    <style name="TextAppearance.Sphinx.DialogWindowTitle" parent="@android:style/TextAppearance.Holo.DialogWindowTitle">
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textSize">22dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:minWidth">250dp</item>
+    </style>
+
+    <style name="TextAppearance.Sphinx.Medium" parent="@android:style/TextAppearance.Holo.Medium">
+        <item name="android:textStyle">italic</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="Seekbar.Metric.container">
+        <item name="android:layout_marginTop">-10dp</item>
+    </style>
+
+    <style name="Seekbar.Metric">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">#adadad</item>
+
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
+    <style name="Seekbar.Metric.left" parent="@style/Seekbar.Metric">
+        <item name="android:gravity">left|top</item>
+        <item name="android:layout_marginLeft">15dp</item>
+    </style>
+
+    <style name="Seekbar.Metric.right" parent="@style/Seekbar.Metric">
+        <item name="android:gravity">right|top</item>
+        <item name="android:layout_marginRight">15dp</item>
+    </style>
+
+    <style name="ActionModeStyle" parent="@style/Widget.AppCompat.ActionMode">
+        <item name="android:titleTextStyle">@style/ActionModeTitleStyle</item>
+    </style>
+
+    <style name="ActionModeTitleStyle" parent="@style/TextAppearance.AppCompat.Widget.ActionMode.Title">
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+</resources>
