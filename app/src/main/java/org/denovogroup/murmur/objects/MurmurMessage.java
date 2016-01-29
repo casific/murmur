@@ -208,8 +208,8 @@ public final class MurmurMessage extends Message {
         try {
             Location location = new Location(LocationManager.GPS_PROVIDER);
 
-            double lat = Double.parseDouble(latlong.substring(0,latlong.indexOf("x")));
-            double lng = Double.parseDouble(latlong.substring(latlong.indexOf("x")+1));
+            double lat = Double.parseDouble(latlong.substring(0,latlong.indexOf(" ")));
+            double lng = Double.parseDouble(latlong.substring(latlong.indexOf(" ")+1));
 
             location.setLatitude(lat);
             location.setLongitude(lng);
