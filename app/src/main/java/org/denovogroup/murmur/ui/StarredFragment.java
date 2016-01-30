@@ -33,10 +33,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import org.denovogroup.murmur.R;
-import org.denovogroup.murmur.backend.ExchangeHistoryTracker;
-import org.denovogroup.murmur.backend.MessageStore;
-import org.denovogroup.murmur.backend.SearchHelper;
-import org.denovogroup.murmur.backend.Utils;
+import org.denovogroup.murmur.backend.*;
+import org.denovogroup.murmur.backend.SecurityManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -423,7 +421,7 @@ public class StarredFragment extends Fragment implements View.OnClickListener, T
 
                 float trust = checkedCursor.getFloat(checkedCursor.getColumnIndex(MessageStore.COL_TRUST));
 
-                canDeleteTrust = MessageStore.getInstance(getActivity()).getMessagesByTrustCount(trust) > 0;
+                canDeleteTrust = SecurityManager.getCurrentProfile(getActivity()).isUseTrust() && MessageStore.getInstance(getActivity()).getMessagesByTrustCount(trust) > 0;
 
                 int likes = checkedCursor.getInt(checkedCursor.getColumnIndex(MessageStore.COL_LIKES));
 

@@ -19,6 +19,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -36,10 +37,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import org.denovogroup.murmur.R;
-import org.denovogroup.murmur.backend.ExchangeHistoryTracker;
-import org.denovogroup.murmur.backend.MessageStore;
-import org.denovogroup.murmur.backend.SearchHelper;
-import org.denovogroup.murmur.backend.Utils;
+import org.denovogroup.murmur.backend.*;
+import org.denovogroup.murmur.backend.SecurityManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -407,7 +406,7 @@ public class FeedFragment extends Fragment implements View.OnClickListener, Text
 
                         float trust = checkedCursor.getFloat(checkedCursor.getColumnIndex(MessageStore.COL_TRUST));
 
-                        canDeleteTrust = MessageStore.getInstance(getActivity()).getMessagesByTrustCount(trust) > 0;
+                        canDeleteTrust = SecurityManager.getCurrentProfile(getActivity()).isUseTrust() &&MessageStore.getInstance(getActivity()).getMessagesByTrustCount(trust) > 0;
 
                         int likes = checkedCursor.getInt(checkedCursor.getColumnIndex(MessageStore.COL_LIKES));
 
@@ -503,7 +502,7 @@ public class FeedFragment extends Fragment implements View.OnClickListener, Text
 
                 float trust = checkedCursor.getFloat(checkedCursor.getColumnIndex(MessageStore.COL_TRUST));
 
-                canDeleteTrust = MessageStore.getInstance(getActivity()).getMessagesByTrustCount(trust) > 0;
+                canDeleteTrust = SecurityManager.getCurrentProfile(getActivity()).isUseTrust() && MessageStore.getInstance(getActivity()).getMessagesByTrustCount(trust) > 0;
 
                 int likes = checkedCursor.getInt(checkedCursor.getColumnIndex(MessageStore.COL_LIKES));
 

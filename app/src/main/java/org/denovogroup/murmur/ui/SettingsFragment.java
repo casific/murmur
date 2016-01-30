@@ -324,17 +324,17 @@ public class SettingsFragment extends Fragment implements SeekBar.OnSeekBarChang
                     autodelAgeEditText.setText(String.valueOf(valueAsInt));
                     autodelAgeEditText.selectAll();
                 }
-                autodelAgeSeekbar.setProgress(valueAsInt);
                 currentProfile.setAutodeleteAge(valueAsInt);
+                autodelAgeSeekbar.setProgress(valueAsInt);
                 break;
             case R.id.edit_autodelete_trust:
                 if(valueAsInt > autodelMaxTrust){
-                    valueAsInt = autodelMaxAge;
+                    valueAsInt = autodelMaxTrust;
                     autodelTrustEditText.setText(String.valueOf(valueAsInt));
-                    autodelAgeEditText.selectAll();
+                    autodelTrustEditText.selectAll();
                 }
-                autodelAgeSeekbar.setProgress(valueAsInt);
                 currentProfile.setAutodeleteTrust(valueAsInt / 100f);
+                autodelTrustSeekbar.setProgress(valueAsInt);
                 break;
             case R.id.edit_self_dest:
                 currentProfile.setTimeboundPeriod(valueAsInt);
