@@ -1,32 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:background="@color/app_bg"
+             android:paddingTop="10dp">
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/welcome_pager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+    <LinearLayout
+                  android:orientation="vertical"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:background="@drawable/onboarding_background"
+                  android:paddingTop="7dp"
+                  android:layout_margin="16dp">
 
-    <RadioGroup
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/pager_ind"
-        android:orientation="horizontal"
-        android:layout_gravity="bottom|center_horizontal"
-        android:layout_marginBottom="20dp"
-        android:descendantFocusability="blocksDescendants"/>
+        <android.support.v4.view.ViewPager
+            android:id="@+id/welcome_pager"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
 
-    <TextView
-        android:id="@+id/skip"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/skip_welcome"
-        android:textSize="17sp"
-        android:textColor="@android:color/white"
-        android:padding="10dp"
-        android:layout_marginTop="22dp"
-        android:layout_gravity="top|right"/>
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/pager_ind"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:descendantFocusability="blocksDescendants"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ui_divider_dark"/>
+
+        <TextView
+            android:id="@+id/skip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/skip_welcome"
+            android:textSize="17sp"
+            android:textColor="@android:color/white"
+            android:gravity="center"
+            android:padding="17dp"/>
+
+    </LinearLayout>
 
 </FrameLayout>

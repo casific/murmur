@@ -219,10 +219,16 @@
     <string name="apk_url" translatable="false">https://github.com/denovogroup/Murmur/blob/master/murmur.apk?raw=true</string>
 
     <!-- On-boarding -->
-    <string name="skip_welcome">Skip</string>
+    <string name="skip_welcome">Next</string>
 
-    <string name="intro_3">Help Study Anonymous Messaging</string>
-    <string name="intro_2">Pass Other Murmur Users and Share Messages</string>
+    <string name="onboarding1_title">title1</string>
+    <string name="onboarding1_message">message1</string>
+
+    <string name="onboarding2_title">title3</string>
+    <string name="onboarding2_message">message3</string>
+
+    <string name="onboarding3_title">title3</string>
+    <string name="onboarding3_message">message3</string>
 
     <!--Replies feed-->
     <string name="comments">Replies</string>

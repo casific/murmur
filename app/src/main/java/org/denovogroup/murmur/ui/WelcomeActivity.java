@@ -43,7 +43,8 @@ public class WelcomeActivity extends AppCompatActivity {
         findViewById(R.id.skip).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                goToMain();
+                changePageRunnable.run();
+                //goToMain();
             }
         });
 
@@ -139,17 +140,19 @@ public class WelcomeActivity extends AppCompatActivity {
         pagingTimer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        if(pager.getCurrentItem() == pager.getAdapter().getCount()-1){
-                            goToMain();
-                        } else {
-                            pager.setCurrentItem(pager.getCurrentItem()+1, true);
-                        }
-                    }
-                });
+                runOnUiThread(changePageRunnable);
             }
         }, PAGE_DURATION,PAGE_DURATION);
     }
+
+    private Runnable changePageRunnable = new Runnable() {
+        @Override
+        public void run() {
+            if(pager.getCurrentItem() == pager.getAdapter().getCount()-1){
+                goToMain();
+            } else {
+                pager.setCurrentItem(pager.getCurrentItem()+1, true);
+            }
+        }
+    };
 }
