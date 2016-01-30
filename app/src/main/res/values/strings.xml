@@ -222,7 +222,7 @@
     <!-- Share app-->
     <!-- notification attached to the url message -->
     <string name="share_app_promo">Check out Murmur!</string>
-    <string name="apk_url" translatable="false">https://github.com/levimatan/murmur/raw/master/murmur.apk</string>
+    <string name="apk_url" translatable="false">http://bit.ly/1P2TZcN</string>
 
     <!-- On-boarding -->
     <string name="skip_welcome">Next</string>
