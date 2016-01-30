@@ -176,7 +176,7 @@ public class MainActivity extends AppCompatActivity implements DrawerActivityHel
                     @Override
                     public void onTextChanged(CharSequence s, int start, int before, int count) {
                         alertdialog.getButton(DialogInterface.BUTTON_POSITIVE)
-                                .setEnabled(BluetoothAdapter.checkBluetoothAddress(s.toString()));
+                                .setEnabled(BluetoothAdapter.checkBluetoothAddress(s.toString().toUpperCase()));
                     }
 
                     @Override

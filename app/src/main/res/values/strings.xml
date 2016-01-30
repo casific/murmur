@@ -242,7 +242,7 @@
     <!-- Help & Feedback-->
     <!-- feedback-->
     <string name="send_feedback">Send feedback</string>
-    <string name="feedback_email" translatable="false">murmur_support@denovogroup.org</string>
+    <string name="feedback_email" translatable="false">murmur_support@casific.com</string>
     <string name="feedback_title" translatable="false">Murmur feedback</string>
     <string name="feedback_intro" >Dear Murmur support representative, </string>
 
