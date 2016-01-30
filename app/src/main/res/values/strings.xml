@@ -4,6 +4,12 @@
     <!-- Application name-->
     <string name="app_name" translatable="false">Murmur</string>
 
+    <!-- Marshmallow Bluetooth MAC dialog -->
+    <string name="mac_dialog_title">Almost ready</string>
+    <string name="mac_dialog_message">Please turn on Bluetooth, go to Status screen and copy &amp; paste your Bluetooth address here:</string>
+    <string name="mac_dialog_message_small_why">Why are we asking for this?</string>
+    <string name="mac_dialog_message_small">Murmur uses Bluetooth to communicate. Unfortunately in Android 6.0 applications cannot get programmatic access to the device\'s Bluetooth address so we need your help in getting it. Don\'t worry - you will only have to enter this once.</string>
+
     <!-- Navigation drawer state for usability assistance-->
     <string name="open">Navigation Drawer is Open</string>
     <string name="close">Navigation Drawer is Closed</string>

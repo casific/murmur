@@ -1,5 +1,7 @@
 package org.denovogroup.murmur.ui;
 
+import android.bluetooth.BluetoothAdapter;
+import android.content.ComponentName;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -18,7 +20,10 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SwitchCompat;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -26,6 +31,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.Spinner;
@@ -123,8 +129,75 @@ public class MainActivity extends AppCompatActivity implements DrawerActivityHel
         //start Murmur service if necessary
         SharedPreferences pref = getSharedPreferences(PREF_FILE, MODE_PRIVATE);
         if (pref.getBoolean(IS_APP_ENABLED, true)) {
-            Intent startServiceIntent = new Intent(this, MurmurService.class);
-            startService(startServiceIntent);
+            if(Build.VERSION.SDK_INT >= 23 && SecurityManager.getStoredMAC(this).length() == 0){
+                //need to request MAC from user first
+                AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+                dialog.setTitle(R.string.mac_dialog_title);
+                dialog.setMessage(R.string.mac_dialog_message);
+                final ViewGroup contentView = (ViewGroup) LayoutInflater.from(this).inflate(R.layout.request_mac_dialog, null, false);
+                dialog.setView(contentView);
+                dialog.setCancelable(false);
+                dialog.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        SecurityManager.setStoredMAC(MainActivity.this, ((EditText) contentView.findViewById(R.id.mac_input)).getText().toString());
+                        dialog.dismiss();
+
+                        Intent startServiceIntent = new Intent(MainActivity.this, MurmurService.class);
+                        startService(startServiceIntent);
+                    }
+                });
+                dialog.setNeutralButton(R.string.settings_bt_device_settings, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                    }
+                });
+                final AlertDialog alertdialog = dialog.create();
+                DialogStyler.styleAndShow(this, alertdialog);
+
+                alertdialog.getButton(DialogInterface.BUTTON_NEUTRAL).setOnClickListener(new OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        final Intent i = new Intent();
+                        i.setAction(Intent.ACTION_MAIN);
+                        i.setComponent(new ComponentName("com.android.settings", "com.android.settings.deviceinfo.Status"));
+                        startActivity(i);
+                    }
+                });
+
+                alertdialog.getButton(DialogInterface.BUTTON_POSITIVE).setEnabled(false);
+
+                TextWatcher watcher = new TextWatcher() {
+                    @Override
+                    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                    }
+
+                    @Override
+                    public void onTextChanged(CharSequence s, int start, int before, int count) {
+                        alertdialog.getButton(DialogInterface.BUTTON_POSITIVE)
+                                .setEnabled(BluetoothAdapter.checkBluetoothAddress(s.toString()));
+                    }
+
+                    @Override
+                    public void afterTextChanged(Editable s) {
+
+                    }
+                };
+
+                ((EditText) contentView.findViewById(R.id.mac_input)).addTextChangedListener(watcher);
+                contentView.findViewById(R.id.why_mac).setOnClickListener(new OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        ((TextView) v).setText(R.string.mac_dialog_message_small);
+                        v.setOnClickListener(null);
+                    }
+                });
+
+            } else {
+                Intent startServiceIntent = new Intent(this, MurmurService.class);
+                startService(startServiceIntent);
+            }
         } else {
             Toast.makeText(this, R.string.offline_mode_toast, Toast.LENGTH_LONG).show();
         }
