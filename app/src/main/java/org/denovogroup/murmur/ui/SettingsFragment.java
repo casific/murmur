@@ -35,7 +35,8 @@ public class SettingsFragment extends Fragment implements SeekBar.OnSeekBarChang
 
     SecurityProfile currentProfile;
 
-    View generalBlock;
+    View privacyBlock;
+    View anonymityBlock;
     View networkBlock;
     View feedBlock;
     View contactsBlock;
@@ -76,7 +77,8 @@ public class SettingsFragment extends Fragment implements SeekBar.OnSeekBarChang
 
         currentProfile = org.denovogroup.murmur.backend.SecurityManager.getCurrentProfile(getActivity());
 
-        generalBlock = view.findViewById(R.id.general_block);
+        privacyBlock = view.findViewById(R.id.privacy_block);
+        anonymityBlock = view.findViewById(R.id.anonymity_block);
         networkBlock = view.findViewById(R.id.network_block);
         networkBlock.setVisibility((Build.VERSION.SDK_INT >= 23) ? View.VISIBLE : View.GONE);
         feedBlock = view.findViewById(R.id.feed_block);
@@ -380,7 +382,8 @@ public class SettingsFragment extends Fragment implements SeekBar.OnSeekBarChang
     private void enableBlocks(){
         boolean enable = currentProfile.getName() == R.id.radio_profile_custom;
 
-        generalBlock.setEnabled(enable);
+        privacyBlock.setEnabled(enable);
+        anonymityBlock.setEnabled(enable);
         feedBlock.setEnabled(enable);
         contactsBlock.setEnabled(enable);
         exchangeBlock.setEnabled(enable);

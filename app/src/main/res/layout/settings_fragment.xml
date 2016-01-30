@@ -124,7 +124,7 @@
         </LinearLayout>
 
         <org.denovogroup.murmur.ui.DisableableLinearLayout
-            android:id="@+id/general_block"
+            android:id="@+id/anonymity_block"
             style="@style/SettingsBlock"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -136,29 +136,8 @@
                 style="@style/SettingsTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/settings_general_title"
+                android:text="@string/settings_anonymity_title"
                 android:layout_margin="@dimen/settings_fragment_margin"/>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_margin="@dimen/settings_fragment_margin">
-
-               <TextView
-                   style="@style/SettingsText"
-                   android:layout_width="0dp"
-                   android:layout_height="wrap_content"
-                   android:layout_weight="1"
-                   android:text="@string/settings_timestamp"/>
-
-                <android.support.v7.widget.SwitchCompat
-                    style="@style/SettingsAction"
-                    android:id="@+id/switch_timestamp"/>
-
-            </LinearLayout>
-
-            <View style="@style/SettingsDivider"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -171,11 +150,11 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/settings_trust"/>
+                    android:text="@string/settings_timestamp"/>
 
                 <android.support.v7.widget.SwitchCompat
                     style="@style/SettingsAction"
-                    android:id="@+id/switch_trust"/>
+                    android:id="@+id/switch_timestamp"/>
 
             </LinearLayout>
 
@@ -218,6 +197,45 @@
                 <android.support.v7.widget.SwitchCompat
                     style="@style/SettingsAction"
                     android:id="@+id/switch_pseudonym"/>
+
+            </LinearLayout>
+
+            <View style="@style/SettingsDivider"/>
+
+        </org.denovogroup.murmur.ui.DisableableLinearLayout>
+
+        <org.denovogroup.murmur.ui.DisableableLinearLayout
+            android:id="@+id/privacy_block"
+            style="@style/SettingsBlock"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <View style="@style/SettingsDivider"/>
+
+            <TextView
+                style="@style/SettingsTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/settings_privacy_title"
+                android:layout_margin="@dimen/settings_fragment_margin"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="@dimen/settings_fragment_margin">
+
+                <TextView
+                    style="@style/SettingsText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/settings_trust"/>
+
+                <android.support.v7.widget.SwitchCompat
+                    style="@style/SettingsAction"
+                    android:id="@+id/switch_trust"/>
 
             </LinearLayout>
 

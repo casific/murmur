@@ -168,13 +168,17 @@
     <string name="profile_custom">Custom</string>
     <string name="profile_custom_annotation">Recommended only for advanced users</string>
 
-    <!-- general settings block-->
-    <string name="settings_general_title">General</string>
+    <!-- anonymity settings block-->
+    <string name="settings_anonymity_title">Anonymity</string>
 
     <string name="settings_timestamp">Timestamps</string>
-    <string name="settings_trust">Connection scores</string>
     <string name="settings_location_tagging">Location tagging</string>
     <string name="settings_pseudonym">Nicknames</string>
+
+    <!-- privacy settings block-->
+    <string name="settings_privacy_title">Privacy</string>
+
+    <string name="settings_trust">Connection scores</string>
     <string name="settings_self_dest">Self-destruct duration</string>
     <string name="settings_self_dest_annotation">Default self-destruct message duration in hours</string>
     <string name="settings_restricted">Restricted messages (contacts)</string>
