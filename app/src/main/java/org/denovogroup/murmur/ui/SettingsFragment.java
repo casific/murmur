@@ -13,6 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SwitchCompat;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -180,6 +181,10 @@ public class SettingsFragment extends Fragment implements SeekBar.OnSeekBarChang
         autodelTrustSeekbar.setEnabled(currentProfile.isAutodelete());
         autodelAgeSeekbar.setEnabled(currentProfile.isAutodelete());
 
+        autodelSwitch.setOnCheckedChangeListener(null);
+        autodelSwitch.setChecked(currentProfile.isAutodelete());
+        autodelSwitch.setOnCheckedChangeListener(this);
+
         addViaPhoneSwitch.setOnCheckedChangeListener(null);
         addViaPhoneSwitch.setChecked(currentProfile.isFriendsViaBook());
         addViaPhoneSwitch.setOnCheckedChangeListener(this);
@@ -211,18 +216,24 @@ public class SettingsFragment extends Fragment implements SeekBar.OnSeekBarChang
         switch (seekBar.getId()){
             case R.id.seekbar_autodelete_trust:
                 if(fromUser){
+                    Log.d("liran","trust:"+progress);
+                    if(!currentProfile.isAutodelete()) autodelSwitch.setChecked(true);
                     currentProfile.setAutodeleteTrust(progress/100f);
                     autodelTrustEditText.removeTextChangedListener(this);
                     autodelTrustEditText.setText(String.valueOf(progress));
                     autodelTrustEditText.addTextChangedListener(this);
+                    SecurityManager.setCurrentProfile(getActivity(), currentProfile);
                 }
                 break;
             case R.id.seekbar_autodelete_age:
                 if(fromUser) {
+                    Log.d("liran","age:"+progress);
+                    if(!currentProfile.isAutodelete()) autodelSwitch.setChecked(true);
                     currentProfile.setAutodeleteAge(progress);
                     autodelAgeEditText.removeTextChangedListener(this);
                     autodelAgeEditText.setText(String.valueOf(progress));
                     autodelAgeEditText.addTextChangedListener(this);
+                    SecurityManager.setCurrentProfile(getActivity(), currentProfile);
                 }
                 break;
         }
