@@ -428,7 +428,7 @@ public class StarredFragment extends Fragment implements View.OnClickListener, T
                 canDeleteLikes = MessageStore.getInstance(getActivity()).getMessagesByLikeCount(likes) > 0;
 
                 String treeId = checkedCursor.getString(checkedCursor.getColumnIndex(MessageStore.COL_MESSAGE_ID));
-                canDeleteTree = treeId != null;
+                canDeleteTree = treeId != null && MessageStore.getInstance(getActivity()).getCommentCount(treeId) > 0;
             }
 
             checkedCursor.close();

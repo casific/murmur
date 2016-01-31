@@ -413,7 +413,7 @@ public class FeedFragment extends Fragment implements View.OnClickListener, Text
                         canDeleteLikes = MessageStore.getInstance(getActivity()).getMessagesByLikeCount(likes) > 0;
 
                         String treeId = checkedCursor.getString(checkedCursor.getColumnIndex(MessageStore.COL_MESSAGE_ID));
-                        canDeleteTree = treeId != null;
+                        canDeleteTree = treeId != null && MessageStore.getInstance(getActivity()).getCommentCount(treeId) > 0;
                     }
 
                     menu.findItem(R.id.action_delete_by_connection).setEnabled(checkedCount == 1 && canDeleteTrust);
@@ -489,6 +489,7 @@ public class FeedFragment extends Fragment implements View.OnClickListener, Text
             boolean canDeleteLikes = false;
             boolean canDeleteSender = false;
             boolean canDeleteExchange = false;
+            boolean canDeleteTree = false;
 
             if(checkedCount == 1){
                 checkedCursor.moveToFirst();
@@ -507,6 +508,9 @@ public class FeedFragment extends Fragment implements View.OnClickListener, Text
                 int likes = checkedCursor.getInt(checkedCursor.getColumnIndex(MessageStore.COL_LIKES));
 
                 canDeleteLikes = MessageStore.getInstance(getActivity()).getMessagesByLikeCount(likes) > 0;
+
+                String treeId = checkedCursor.getString(checkedCursor.getColumnIndex(MessageStore.COL_MESSAGE_ID));
+                canDeleteTree = treeId != null && MessageStore.getInstance(getActivity()).getCommentCount(treeId) > 0;
             }
 
             checkedCursor.close();
@@ -514,6 +518,7 @@ public class FeedFragment extends Fragment implements View.OnClickListener, Text
             menu.findItem(R.id.action_delete_by_connection).setEnabled(checkedCount == 1 && canDeleteTrust);
             menu.findItem(R.id.action_delete_by_exchange).setEnabled(checkedCount == 1 && canDeleteExchange);
             menu.findItem(R.id.action_delete_from_sender).setEnabled(checkedCount == 1 && canDeleteSender);
+            menu.findItem(R.id.action_delete_tree).setEnabled(checkedCount == 1 && canDeleteTree);
             menu.findItem(R.id.action_retweet).setEnabled(checkedCount == 1);
             menu.findItem(R.id.action_share).setEnabled(checkedCount == 1);
         }
