@@ -34,10 +34,13 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 
 import org.denovogroup.murmur.R;
+import org.denovogroup.murmur.backend.*;
 
 /**
  * Created by Liran on 1/15/2016.
@@ -54,15 +57,25 @@ public class SplashActivity extends Activity {
 
         setContentView(R.layout.splash_activity);
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
         String prefName = "initializes";
         String prefProperty = "initializes";
 
         SharedPreferences prefFile = getSharedPreferences(prefName, Context.MODE_PRIVATE);
 
         if(prefFile.contains(prefProperty)){
-            isFirstLaunch = false;
+            if(Build.VERSION.SDK_INT >= 23 && org.denovogroup.murmur.backend.SecurityManager.getStoredMAC(this).length() == 0) {
+                isFirstLaunch = true;
+            } else {
+                isFirstLaunch = false;
+            }
         } else {
-            prefFile.edit().putBoolean(prefProperty,true).commit();
+            prefFile.edit().putBoolean(prefProperty, true).commit();
             isFirstLaunch = true;
         }
 

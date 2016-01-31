@@ -40,7 +40,7 @@
     <string name="drawer_menu_profile">Profile</string>
     <string name="drawer_menu_settings">Settings</string>
     <string name="drawer_menu_help">Help &amp; feedback</string>
-    <string name="drawer_menu_info">Info</string>
+    <string name="drawer_menu_info">About</string>
     <string name="drawer_menu_reset">Reset app</string>
     <string name="drawer_menu_export">Export feed</string>
     <string name="drawer_menu_share_app">Share Murmur</string>
@@ -224,20 +224,22 @@
 
     <!-- On-boarding -->
     <string name="skip_welcome">NEXT</string>
+    <string name="skip_welcome2">SAVE</string>
 
     <string name="onboarding1_title">Communicate freely</string>
     <string name="onboarding1_message">Messages are broadcast between devices over Bluetooth &amp; WiFi. The more devices, the faster the messages moves! If no device is around, the message is queued to be sent later</string>
 
     <string name="onboarding2_title">Control your anonymity</string>
-    <string name="onboarding2_message">Choose security settings to determine your level of anonymity. The more settings you enable, the more information you share about yourself.</string>
+    <string name="onboarding2_message">Choose security settings to determine your level of anonymity. The more settings you enable, the more information you share about yourself</string>
 
     <string name="onboarding3_title">Maintain your privacy</string>
     <string name="onboarding3_message">Filter spam using Connection Scores and limit your audience with Restricted Messages</string>
 
     <string name="onboarding4_title">Just one more thing</string>
-    <string name="onboarding4_message"><![CDATA[Please turn on Bluetooth, go to your Status screen, and copy &amp; paste your Bluetooth address below:]]></string>
+    <string name="onboarding4_message"><![CDATA[Please turn on Bluetooth, go to your Status screen, and copy & paste your Bluetooth address below:]]></string>
     <string name="onboarding4_message_small_why">Why are we asking for this?</string>
-    <string name="onboarding4_message_small">Murmur uses Bluetooth to communicate. Unfortunately in Android 6.0 applications cannot get programmatic access to the device\'s Bluetooth address so we need your help in getting it. Don\'t worry - you will only have to enter this once.</string>
+    <string name="onboarding4_message_small">Murmur uses Bluetooth to communicate. Unfortunately Android 6.x applications cannot get automatic access to your Bluetooth address, so we need your help. Don\'t worry - you will only have to enter this once. If you made a mistake entering the address you can correct it later on in Settings</string>
+    <string name="onboarding4_message_error">Invalid Bluetooth address</string>
 
     <!--Replies feed-->
     <string name="comments">Replies</string>

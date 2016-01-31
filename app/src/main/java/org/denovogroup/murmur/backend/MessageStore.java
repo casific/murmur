@@ -887,8 +887,8 @@ public class MessageStore extends SQLiteOpenHelper {
 
         long ageThreshold = reducedAge.getTimeInMillis() - TimeUnit.DAYS.toMillis(currentProfile.getAutodeleteAge());
 
-        db.execSQL("UPDATE " + TABLE + " SET " + COL_DELETED + "=" + TRUE + " WHERE "
-                + COL_TRUST+"<="+currentProfile.getAutodeleteTrust() //delete untrusted
+        db.execSQL("DELETE FROM "+TABLE+" WHERE "/*"UPDATE " + TABLE + " SET " + COL_DELETED + "=" + TRUE + " WHERE "*/
+                + COL_TRUST+"<="+(currentProfile.isAutodelete() ? currentProfile.getAutodeleteTrust() : 0) //delete untrusted
                 + " OR ("+COL_TIMESTAMP+"> 0 AND "+COL_TIMESTAMP+"<"+ageThreshold+")" //delete old
                 + " OR ("+COL_EXPIRE+"> 0 AND "+COL_TIMESTAMP+">0 AND ("+COL_EXPIRE  +"+"+COL_TIMESTAMP+") <"+System.currentTimeMillis() //delete expired (self-destruct)
                 +");"

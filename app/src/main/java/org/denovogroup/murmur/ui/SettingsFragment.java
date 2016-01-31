@@ -246,7 +246,7 @@ public class SettingsFragment extends Fragment implements SeekBar.OnSeekBarChang
         switch (seekBar.getId()){
             case R.id.seekbar_autodelete_trust:
                 if(fromUser){
-                    Log.d("liran","trust:"+progress);
+                    if(progress < 5) progress = 5;
                     if(!currentProfile.isAutodelete()) autodelSwitch.setChecked(true);
                     currentProfile.setAutodeleteTrust(progress/100f);
                     autodelTrustEditText.removeTextChangedListener(this);
@@ -257,8 +257,8 @@ public class SettingsFragment extends Fragment implements SeekBar.OnSeekBarChang
                 break;
             case R.id.seekbar_autodelete_age:
                 if(fromUser) {
-                    Log.d("liran","age:"+progress);
                     if(!currentProfile.isAutodelete()) autodelSwitch.setChecked(true);
+                    if(progress == 0) progress = 1;
                     currentProfile.setAutodeleteAge(progress);
                     autodelAgeEditText.removeTextChangedListener(this);
                     autodelAgeEditText.setText(String.valueOf(progress));
@@ -364,6 +364,10 @@ public class SettingsFragment extends Fragment implements SeekBar.OnSeekBarChang
                     valueAsInt = autodelMaxAge;
                     autodelAgeEditText.setText(String.valueOf(valueAsInt));
                     autodelAgeEditText.selectAll();
+                } else if(valueAsInt == 0){
+                    valueAsInt = 1;
+                    autodelAgeEditText.setText(String.valueOf(valueAsInt));
+                    autodelAgeEditText.selectAll();
                 }
                 currentProfile.setAutodeleteAge(valueAsInt);
                 autodelAgeSeekbar.setProgress(valueAsInt);
@@ -371,6 +375,10 @@ public class SettingsFragment extends Fragment implements SeekBar.OnSeekBarChang
             case R.id.edit_autodelete_trust:
                 if(valueAsInt > autodelMaxTrust){
                     valueAsInt = autodelMaxTrust;
+                    autodelTrustEditText.setText(String.valueOf(valueAsInt));
+                    autodelTrustEditText.selectAll();
+                } else if(valueAsInt < 5){
+                    valueAsInt = 5;
                     autodelTrustEditText.setText(String.valueOf(valueAsInt));
                     autodelTrustEditText.selectAll();
                 }
@@ -405,6 +413,10 @@ public class SettingsFragment extends Fragment implements SeekBar.OnSeekBarChang
             case R.id.edit_mac:
                 String mac = s != null ? s.toString() : "";
                 SecurityManager.setStoredMAC(getActivity(), mac);
+                Intent intent = new Intent(getActivity(), MurmurService.class);
+                getActivity().stopService(intent);
+                getActivity().startService(intent);
+                reload = false;
                 break;
             default:
                 reload = false;

@@ -276,7 +276,7 @@ public class MurmurService extends Service {
                     log.error("exception during cleanup message store scheduled task",e);
                 }
             }
-        }, 0, 5, TimeUnit.MINUTES);
+        }, 0, 1, TimeUnit.MINUTES);
 
         TIME_BETWEEN_EXCHANGES_MILLIS = SecurityManager.getCurrentProfile(this).getCooldown() * 1000;
         log.info( "MurmurService created.");

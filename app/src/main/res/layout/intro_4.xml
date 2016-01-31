@@ -6,7 +6,8 @@
               android:orientation="vertical"
               android:paddingTop="20dp"
               android:paddingLeft="25dp"
-              android:paddingRight="25dp">
+              android:paddingRight="25dp"
+    android:animateLayoutChanges="true">
 
     <TextView
         style="@style/OnboardingTitle"
@@ -48,6 +49,16 @@
         android:layout_marginBottom="20dp"/>
 
     <TextView
+        android:id="@+id/error_message"
+        style="@style/OnboardingMessageSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/onboarding4_message_error"
+        android:textColor="@color/app_yellow"
+        android:visibility="invisible"
+        android:layout_marginBottom="10dp"/>
+
+    <TextView
         style="@style/OnboardingMessageSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -58,6 +69,6 @@
         style="@style/OnboardingMessageSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/onboarding4_message"/>
+        android:text="@string/onboarding4_message_small"/>
 
 </LinearLayout>

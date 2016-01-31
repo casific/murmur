@@ -39,10 +39,12 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 
 import org.denovogroup.murmur.R;
 
@@ -82,18 +84,23 @@ public class WelcomeActivity extends AppCompatActivity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (pagingTimer != null) pagingTimer.cancel();
+                /*if (pagingTimer != null) pagingTimer.cancel();
                 pagingTimer = new Timer();
                 pagingTimer.schedule(new TimerTask() {
                     @Override
                     public void run() {
                         setAutopage();
                     }
-                }, AUTO_PAGE_RETURN_DELAY);
+                }, AUTO_PAGE_RETURN_DELAY);*/
 
                 if (Build.VERSION.SDK_INT >= 23 && pager.getCurrentItem() == pager.getAdapter().getCount() - 1) {
-                    org.denovogroup.murmur.backend.SecurityManager.setStoredMAC(WelcomeActivity.this, enteredMAC);
-                    goToMain();
+                    if(enteredMAC != null && BluetoothAdapter.checkBluetoothAddress(enteredMAC)) {
+                        org.denovogroup.murmur.backend.SecurityManager.setStoredMAC(WelcomeActivity.this, enteredMAC);
+                        goToMain();
+                    } else {
+                        next.setEnabled(false);
+                        return;
+                    }
                 }
 
                 changePageRunnable.run();
@@ -183,8 +190,9 @@ public class WelcomeActivity extends AppCompatActivity {
                     @Override
                     public void onMacChanged(String mac) {
                         enteredMAC = mac;
-                        next.setEnabled(pager.getCurrentItem() != getCount() - 1 ||
-                                (enteredMAC != null && BluetoothAdapter.checkBluetoothAddress(enteredMAC.toUpperCase())));
+                        next.setEnabled(
+                                pager.getCurrentItem() != getCount() - 1 ||
+                                        (enteredMAC != null && BluetoothAdapter.checkBluetoothAddress(enteredMAC.toUpperCase())));
                     }
                 });
             }
@@ -212,8 +220,10 @@ public class WelcomeActivity extends AppCompatActivity {
         public void onPageScrollStateChanged(int state) {
             if(state == ViewPager.SCROLL_STATE_IDLE) {
                 if (Build.VERSION.SDK_INT >= 23 && pager.getCurrentItem() == images.length - 1) {
+                    ((TextView)next).setText(R.string.skip_welcome2);
                     next.setEnabled(false);
                 } else {
+                    ((TextView)next).setText(R.string.skip_welcome);
                     next.setEnabled(true);
                 }
             }
@@ -221,14 +231,14 @@ public class WelcomeActivity extends AppCompatActivity {
     };
 
     private void setAutopage(){
-        if(pagingTimer != null) pagingTimer.cancel();
+        /*if(pagingTimer != null) pagingTimer.cancel();
         pagingTimer = new Timer();
         pagingTimer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
                 runOnUiThread(changePageRunnable);
             }
-        }, PAGE_DURATION,PAGE_DURATION);
+        }, PAGE_DURATION,PAGE_DURATION);*/
     }
 
     private Runnable changePageRunnable = new Runnable() {

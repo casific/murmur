@@ -30,6 +30,7 @@
 */
 package org.denovogroup.murmur.ui;
 
+import android.bluetooth.BluetoothAdapter;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.os.Bundle;
@@ -54,6 +55,7 @@ public class WelcomeFragmentPage extends Fragment{
 
     private MacInputCallbacks callbacks;
     private EditText input;
+    private View errorView;
 
     private TextWatcher watcher = new TextWatcher() {
         @Override
@@ -62,7 +64,8 @@ public class WelcomeFragmentPage extends Fragment{
 
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
-            if(callbacks != null) callbacks.onMacChanged(s.toString());
+            if(callbacks != null) callbacks.onMacChanged(s.toString().toUpperCase());
+            if(errorView != null) errorView.setVisibility(s != null && BluetoothAdapter.checkBluetoothAddress(s.toString().toUpperCase()) ? View.INVISIBLE : View.VISIBLE);
         }
 
         @Override
@@ -84,6 +87,7 @@ public class WelcomeFragmentPage extends Fragment{
 
         if(getArguments().containsKey(HANDLE_MAC_INPUT)){
             handleMacInput(view);
+            errorView = view.findViewById(R.id.error_message);
         }
 
         return view;
@@ -91,7 +95,6 @@ public class WelcomeFragmentPage extends Fragment{
 
     private void handleMacInput(View view) {
         input = ((EditText) view.findViewById(R.id.mac_input));
-        input.addTextChangedListener(watcher);
         view.findViewById(R.id.check_device_settings).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -105,6 +108,12 @@ public class WelcomeFragmentPage extends Fragment{
 
     public void setCallbacks(MacInputCallbacks callbacks) {
         this.callbacks = callbacks;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if(input != null ) input.addTextChangedListener(watcher);
     }
 
     @Override

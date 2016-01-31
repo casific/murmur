@@ -283,16 +283,21 @@ public class MainActivity extends AppCompatActivity implements DrawerActivityHel
         }
 
         showAdvanced = ((CheckBox) findViewById(R.id.drawer_menu_advanced)).isChecked();
-        int visibility = showAdvanced ? View.VISIBLE : View.GONE;
         childcount = advancedDrawerMenu.getChildCount();
         for (int i = 0; i < childcount; i++) {
             View child = advancedDrawerMenu.getChildAt(i);
-            //child.setVisibility(visibility);
             if (child instanceof TextView) child.setOnClickListener(drawerMenuClickListener);
         }
         advancedDrawerMenu.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
         if(advancedHeight <= 0 ) advancedHeight = advancedDrawerMenu.getMeasuredHeight();
-        advancedDrawerMenu.setVisibility(View.GONE);
+
+        if(true){
+            advancedToggle.setVisibility(View.GONE);
+            advancedToggle.setChecked(true);
+            advancedDrawerMenu.setVisibility(View.VISIBLE);
+        } else {
+            advancedDrawerMenu.setVisibility(View.GONE);
+        }
 
         SharedPreferences pref = getSharedPreferences(PREF_FILE, MODE_PRIVATE);
         ((SwitchCompat) drawerMenu.findViewById(R.id.drawer_menu_offline_mode)).setChecked(!pref.getBoolean(IS_APP_ENABLED, true));

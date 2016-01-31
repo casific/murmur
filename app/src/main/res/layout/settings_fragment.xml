@@ -593,7 +593,7 @@
                     android:layout_height="wrap_content"
                     android:inputType="none"
                     android:maxLength="25"
-                    android:gravity="center"
+                    android:gravity="right"
                     android:layout_marginLeft="17dp"/>
 
             </LinearLayout>
@@ -603,10 +603,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/settings_bt_device_settings"
-                android:layout_gravity="center"
+                android:layout_gravity="right"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
                 android:textColor="@color/app_yellow"
+                android:layout_marginRight="15dp"
                 android:background="@android:color/transparent"/>
 
             <View style="@style/SettingsDivider"/>

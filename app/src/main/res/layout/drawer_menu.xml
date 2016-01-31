@@ -109,6 +109,8 @@
                 android:text="@string/drawer_menu_help"
                 android:drawableLeft="@drawable/drawer_menu_help_btn"/>
 
+            <View style="@style/DrawerMenuDivider"/>
+
             <CheckBox
                 style="@style/DrawerMenuItem"
                 android:id="@+id/drawer_menu_advanced"
