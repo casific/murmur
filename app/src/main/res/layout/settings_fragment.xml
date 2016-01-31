@@ -74,57 +74,6 @@
 
         </RadioGroup>
 
-        <LinearLayout
-            android:id="@+id/network_block"
-            style="@style/SettingsBlock"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <View style="@style/SettingsDivider"/>
-
-            <TextView
-                style="@style/SettingsTitle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/settings_network_title"
-                android:layout_margin="@dimen/settings_fragment_margin"/>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:id="@+id/layout_mac"
-                android:layout_margin="@dimen/settings_fragment_margin">
-
-                <TextView
-                    style="@style/SettingsText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/settings_mac_title"/>
-
-                <EditText
-                    android:id="@+id/edit_mac"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="none"
-                    android:maxLength="25"
-                    android:gravity="center"/>
-
-                <Button
-                    android:id="@+id/device_settings"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/settings_bt_device_settings"
-                    android:layout_gravity="center"
-                    android:textColor="@color/app_yellow"
-                    android:background="@android:color/transparent"/>
-            </LinearLayout>
-
-            <View style="@style/SettingsDivider"/>
-
-        </LinearLayout>
-
         <org.denovogroup.murmur.ui.DisableableLinearLayout
             android:id="@+id/anonymity_block"
             style="@style/SettingsBlock"
@@ -606,6 +555,63 @@
             <View style="@style/SettingsDivider"/>
 
         </org.denovogroup.murmur.ui.DisableableLinearLayout>
+
+        <LinearLayout
+            android:id="@+id/network_block"
+            style="@style/SettingsBlock"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <View style="@style/SettingsDivider"/>
+
+            <TextView
+                style="@style/SettingsTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/settings_network_title"
+                android:layout_margin="@dimen/settings_fragment_margin"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:id="@+id/layout_mac"
+                android:layout_margin="@dimen/settings_fragment_margin">
+
+                <TextView
+                    style="@style/SettingsText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/settings_mac_title"/>
+
+                <EditText
+                    style="@style/SettingsEditTextAction"
+                    android:id="@+id/edit_mac"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:inputType="none"
+                    android:maxLength="25"
+                    android:gravity="center"
+                    android:layout_marginLeft="17dp"/>
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/device_settings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/settings_bt_device_settings"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:textColor="@color/app_yellow"
+                android:background="@android:color/transparent"/>
+
+            <View style="@style/SettingsDivider"/>
+
+        </LinearLayout>
 
     </LinearLayout>
 

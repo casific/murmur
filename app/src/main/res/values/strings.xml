@@ -212,9 +212,9 @@
     <!-- network related settings block (not currently in use)-->
     <string name="settings_network_title">Network</string>
 
-    <string name="settings_mac_title">Bluetooth MAC address</string>
+    <string name="settings_mac_title">Bluetooth Address</string>
 
-    <string name="settings_bt_device_settings">Check device settings</string>
+    <string name="settings_bt_device_settings">Go to Status Screen</string>
 
     <!-- About -->
 
