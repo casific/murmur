@@ -348,6 +348,11 @@ public class SettingsFragment extends Fragment implements SeekBar.OnSeekBarChang
                 autodelTrustSeekbar.setProgress(valueAsInt);
                 break;
             case R.id.edit_self_dest:
+                if(valueAsInt > 240){
+                    valueAsInt = 240;
+                    restrictedEditText.setText(String.valueOf(valueAsInt));
+                    restrictedEditText.selectAll();
+                }
                 currentProfile.setTimeboundPeriod(valueAsInt);
                 break;
             case R.id.edit_restricted:
