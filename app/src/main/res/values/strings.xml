@@ -251,6 +251,6 @@
     <string name="feedback_title" translatable="false">Murmur feedback</string>
     <string name="feedback_intro" >Dear Murmur support representative, </string>
 
-    <string name="more_help"><u>More FAQ</u></string>
+    <string name="more_help"><u>More >></u></string>
 
 </resources>

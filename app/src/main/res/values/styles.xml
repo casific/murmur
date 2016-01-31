@@ -200,6 +200,8 @@
     </style>
 
     <style name="DrawerMenuItem" parent="DrawerMenuTextItem">
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_weight">1</item>
         <item name="android:background">@drawable/drawer_menu_item_bg</item>
         <item name="android:paddingBottom">15dp</item>
         <item name="android:paddingTop">15dp</item>
