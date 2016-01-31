@@ -1045,7 +1045,36 @@ public class MessageStore extends SQLiteOpenHelper {
 
     /** return comments of a certain message parent containing the query in the message */
     public Cursor getCommentsContaining(String parentId, String query){
-        return getCommentsByQuery(parentId, "AND " + COL_MESSAGE + " LIKE '%" + Utils.makeTextSafeForSQL(query) + "%'");
+        if(query == null) query = "";
+        query = Utils.makeTextSafeForSQL(query);
+        String likeQuery = "";
+        String queryNoSpace = query.replaceAll("\\s","");
+
+        if(query.length() == 0 || queryNoSpace.length() == 0) likeQuery = (COL_MESSAGE + " LIKE '%" + query + "%'");
+
+        if(likeQuery.length() == 0){
+            query = query.replaceAll("[\n\"]", " ");
+
+            while(query.charAt(0) == ' '){
+                query = query.substring(1);
+            }
+
+            String[] words = query.split("\\s");
+
+            for(int i=0; i<words.length; i++){
+                if(words[i].length() > 0)
+                {
+                    if (likeQuery.length() > 0)
+                    {
+                        likeQuery += " OR ";
+                    }
+                    likeQuery += " " + COL_MESSAGE + " LIKE '%" + words[i] + "%' ";
+                }
+            }
+        }
+
+
+        return getCommentsByQuery(parentId, "AND (" + likeQuery + ")");
     }
 
     public int getCommentCount(String parentId){

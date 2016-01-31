@@ -581,9 +581,9 @@ public class ContactsFragment extends Fragment implements View.OnClickListener, 
                                 String adjustedName = contactName;
                                 if(phonesCount > 1 && requireReformating){
                                     if(contactName.length()+5 > 25){
-                                        adjustedName = adjustedName.substring(0,20)+" "+noneNullValue.substring(noneNullValue.length()-4);
+                                        adjustedName = adjustedName.substring(0,20)+" "+noneNullValue.substring(Math.max(1,noneNullValue.length()-4));
                                     } else {
-                                        adjustedName = adjustedName+" "+noneNullValue.substring(noneNullValue.length()-4);
+                                        adjustedName = adjustedName+" "+noneNullValue.substring(Math.max(1,noneNullValue.length()-4));
                                     }
                                 }
 
