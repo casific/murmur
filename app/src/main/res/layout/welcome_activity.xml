@@ -2,8 +2,8 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
-             android:background="@color/app_bg"
-             android:paddingTop="10dp">
+             android:background="#4b4b4b"
+             android:paddingTop="16dp">
 
     <LinearLayout
                   android:orientation="vertical"
@@ -40,7 +40,7 @@
             android:layout_height="wrap_content"
             android:text="@string/skip_welcome"
             android:textSize="17sp"
-            android:textColor="@android:color/white"
+            android:textColor="@color/next_button_color"
             android:gravity="center"
             android:padding="17dp"/>
 

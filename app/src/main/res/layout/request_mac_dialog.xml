@@ -20,7 +20,7 @@
         android:id="@+id/why_mac"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/mac_dialog_message_small_why"
+        android:text="@string/onboarding4_message_small_why"
         android:layout_marginTop="7dp"
         android:layout_marginBottom="7dp"
         android:layout_marginLeft="16dp"

@@ -1,6 +1,8 @@
 package org.denovogroup.murmur.ui;
 
+import android.bluetooth.BluetoothAdapter;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -29,7 +31,12 @@ public class WelcomeActivity extends AppCompatActivity {
     RadioGroup pagerMarkers;
     Timer pagingTimer;
 
-    int[] images = new int[]{R.layout.intro_1, R.layout.intro_2, R.layout.intro_3};
+    String enteredMAC;
+
+    View next;
+
+    int[] images = Build.VERSION.SDK_INT >=23 ? new int[]{R.layout.intro_1, R.layout.intro_2, R.layout.intro_3, R.layout.intro_4} :
+            new int[]{R.layout.intro_1, R.layout.intro_2, R.layout.intro_3};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,11 +47,26 @@ public class WelcomeActivity extends AppCompatActivity {
         pager = (ViewPager) findViewById(R.id.welcome_pager);
         pagerMarkers = (RadioGroup) findViewById(R.id.pager_ind);
 
-        findViewById(R.id.skip).setOnClickListener(new View.OnClickListener() {
+        next = findViewById(R.id.skip);
+
+        next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (pagingTimer != null) pagingTimer.cancel();
+                pagingTimer = new Timer();
+                pagingTimer.schedule(new TimerTask() {
+                    @Override
+                    public void run() {
+                        setAutopage();
+                    }
+                }, AUTO_PAGE_RETURN_DELAY);
+
+                if (Build.VERSION.SDK_INT >= 23 && pager.getCurrentItem() == pager.getAdapter().getCount() - 1) {
+                    org.denovogroup.murmur.backend.SecurityManager.setStoredMAC(WelcomeActivity.this, enteredMAC);
+                    goToMain();
+                }
+
                 changePageRunnable.run();
-                //goToMain();
             }
         });
 
@@ -61,6 +83,7 @@ public class WelcomeActivity extends AppCompatActivity {
         }*/
         initPaging(); // commented logic was moved to splash activity so if we got this far we need to page
 
+        pager.addOnPageChangeListener(pageChangeListener);
     }
 
     private void goToMain(){
@@ -121,9 +144,20 @@ public class WelcomeActivity extends AppCompatActivity {
 
         @Override
         public Fragment getItem(int position) {
-            Fragment frag = new WelcomeFragmentPage();
+            WelcomeFragmentPage frag = new WelcomeFragmentPage();
             Bundle args = new Bundle();
             args.putInt(WelcomeFragmentPage.IMAGE_SRC, images[position]);
+            if(Build.VERSION.SDK_INT >= 23 && position == getCount()-1){
+                args.putBoolean(WelcomeFragmentPage.HANDLE_MAC_INPUT, true);
+                frag.setCallbacks(new WelcomeFragmentPage.MacInputCallbacks() {
+                    @Override
+                    public void onMacChanged(String mac) {
+                        enteredMAC = mac;
+                        next.setEnabled(pager.getCurrentItem() != getCount() - 1 ||
+                                (enteredMAC != null && BluetoothAdapter.checkBluetoothAddress(enteredMAC.toUpperCase())));
+                    }
+                });
+            }
             frag.setArguments(args);
             return frag;
         }
@@ -133,6 +167,28 @@ public class WelcomeActivity extends AppCompatActivity {
             return images.length;
         }
     }
+
+    private ViewPager.OnPageChangeListener pageChangeListener = new ViewPager.OnPageChangeListener() {
+        @Override
+        public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+        }
+
+        @Override
+        public void onPageSelected(int position) {
+        }
+
+        @Override
+        public void onPageScrollStateChanged(int state) {
+            if(state == ViewPager.SCROLL_STATE_IDLE) {
+                if (Build.VERSION.SDK_INT >= 23 && pager.getCurrentItem() == images.length - 1) {
+                    next.setEnabled(false);
+                } else {
+                    next.setEnabled(true);
+                }
+            }
+        }
+    };
 
     private void setAutopage(){
         if(pagingTimer != null) pagingTimer.cancel();
@@ -149,7 +205,9 @@ public class WelcomeActivity extends AppCompatActivity {
         @Override
         public void run() {
             if(pager.getCurrentItem() == pager.getAdapter().getCount()-1){
-                goToMain();
+                if(Build.VERSION.SDK_INT < 23){
+                    goToMain();
+                }
             } else {
                 pager.setCurrentItem(pager.getCurrentItem()+1, true);
             }

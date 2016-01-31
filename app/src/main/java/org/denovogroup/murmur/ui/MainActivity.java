@@ -132,8 +132,8 @@ public class MainActivity extends AppCompatActivity implements DrawerActivityHel
             if(Build.VERSION.SDK_INT >= 23 && SecurityManager.getStoredMAC(this).length() == 0){
                 //need to request MAC from user first
                 AlertDialog.Builder dialog = new AlertDialog.Builder(this);
-                dialog.setTitle(R.string.mac_dialog_title);
-                dialog.setMessage(R.string.mac_dialog_message);
+                dialog.setTitle(R.string.onboarding4_title);
+                dialog.setMessage(R.string.onboarding4_message);
                 final ViewGroup contentView = (ViewGroup) LayoutInflater.from(this).inflate(R.layout.request_mac_dialog, null, false);
                 dialog.setView(contentView);
                 dialog.setCancelable(false);
@@ -189,7 +189,7 @@ public class MainActivity extends AppCompatActivity implements DrawerActivityHel
                 contentView.findViewById(R.id.why_mac).setOnClickListener(new OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        ((TextView) v).setText(R.string.mac_dialog_message_small);
+                        ((TextView) v).setText(R.string.onboarding4_message_small);
                         v.setOnClickListener(null);
                     }
                 });

@@ -4,12 +4,6 @@
     <!-- Application name-->
     <string name="app_name" translatable="false">Murmur</string>
 
-    <!-- Marshmallow Bluetooth MAC dialog -->
-    <string name="mac_dialog_title">Almost ready</string>
-    <string name="mac_dialog_message">Please turn on Bluetooth, go to Status screen and copy &amp; paste your Bluetooth address here:</string>
-    <string name="mac_dialog_message_small_why">Why are we asking for this?</string>
-    <string name="mac_dialog_message_small">Murmur uses Bluetooth to communicate. Unfortunately in Android 6.0 applications cannot get programmatic access to the device\'s Bluetooth address so we need your help in getting it. Don\'t worry - you will only have to enter this once.</string>
-
     <!-- Navigation drawer state for usability assistance-->
     <string name="open">Navigation Drawer is Open</string>
     <string name="close">Navigation Drawer is Closed</string>
@@ -229,16 +223,21 @@
     <string name="apk_url" translatable="false">http://bit.ly/1P2TZcN</string>
 
     <!-- On-boarding -->
-    <string name="skip_welcome">Next</string>
+    <string name="skip_welcome">NEXT</string>
 
-    <string name="onboarding1_title">title1</string>
-    <string name="onboarding1_message">message1</string>
+    <string name="onboarding1_title">Communicate freely</string>
+    <string name="onboarding1_message">Messages are broadcast between devices over Bluetooth &amp; WiFi. The more devices, the faster the messages moves! If no device is around, the message is queued to be sent later</string>
 
-    <string name="onboarding2_title">title3</string>
-    <string name="onboarding2_message">message3</string>
+    <string name="onboarding2_title">Control your anonymity</string>
+    <string name="onboarding2_message">Choose security settings to determine your level of anonymity. The more settings you enable, the more information you share about yourself.</string>
 
     <string name="onboarding3_title">Maintain your privacy</string>
     <string name="onboarding3_message">Filter spam using Connection Scores and limit your audience with Restricted Messages</string>
+
+    <string name="onboarding4_title">Just one more thing</string>
+    <string name="onboarding4_message"><![CDATA[Please turn on Bluetooth, go to your Status screen, and copy &amp; paste your Bluetooth address below:]]></string>
+    <string name="onboarding4_message_small_why">Why are we asking for this?</string>
+    <string name="onboarding4_message_small">Murmur uses Bluetooth to communicate. Unfortunately in Android 6.0 applications cannot get programmatic access to the device\'s Bluetooth address so we need your help in getting it. Don\'t worry - you will only have to enter this once.</string>
 
     <!--Replies feed-->
     <string name="comments">Replies</string>

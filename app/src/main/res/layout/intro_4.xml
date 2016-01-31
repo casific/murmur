@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:id="@+id/thirdFrame"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:paddingTop="20dp"
+              android:paddingLeft="25dp"
+              android:paddingRight="25dp">
+
+    <TextView
+        style="@style/OnboardingTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/onboarding4_title"/>
+
+    <TextView
+        style="@style/OnboardingMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/onboarding4_message"/>
+
+    <Button
+        android:id="@+id/check_device_settings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/settings_bt_device_settings"
+        android:textColor="@android:color/white"
+        android:layout_gravity="center"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:background="@color/app_yellow"
+        android:layout_marginTop="17dp"
+        android:layout_marginBottom="17dp"/>
+
+    <EditText
+        android:id="@+id/mac_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:inputType="none"
+        android:textSize="22sp"
+        android:gravity="center"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:textColor="@android:color/white"
+        android:background="@drawable/edit_text_underline_light"
+        android:layout_marginBottom="20dp"/>
+
+    <TextView
+        style="@style/OnboardingMessageSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/onboarding4_message_small_why"
+        android:layout_marginBottom="10dp"/>
+
+    <TextView
+        style="@style/OnboardingMessageSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/onboarding4_message"/>
+
+</LinearLayout>

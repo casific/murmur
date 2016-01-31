@@ -396,16 +396,29 @@
     </style>
 
     <style name="OnboardingTitle">
-        <item name="android:textSize">18sp</item>
+        <item name="android:textSize">16sp</item>
         <item name="android:textColor">#FFFFFF</item>
         <item name="android:paddingLeft">20dp</item>
         <item name="android:paddingRight">20dp</item>
         <item name="android:gravity">center</item>
         <item name="android:layout_gravity">center</item>
+        <item name="android:layout_marginBottom">12dp</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:textStyle">bold</item>
     </style>
 
     <style name="OnboardingMessage">
         <item name="android:textSize">14sp</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:paddingLeft">20dp</item>
+        <item name="android:paddingRight">20dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_marginBottom">15dp</item>
+    </style>
+
+    <style name="OnboardingMessageSmall">
+        <item name="android:textSize">13sp</item>
         <item name="android:textColor">#FFFFFF</item>
         <item name="android:paddingLeft">20dp</item>
         <item name="android:paddingRight">20dp</item>
