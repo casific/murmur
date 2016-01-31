@@ -29,6 +29,10 @@ public class ConfigureLog4J {
         // Set log level of a specific logger
         logConfigurator.setLevel("org.apache", Level.ERROR);
         logConfigurator.setResetConfiguration(FreezeLogging);
-        logConfigurator.configure();
+        try {
+            logConfigurator.configure();
+        } catch (Exception e){
+            //log configuration not supported by device
+        }
     }
 }

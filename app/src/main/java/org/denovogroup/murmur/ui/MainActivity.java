@@ -1,5 +1,8 @@
 package org.denovogroup.murmur.ui;
 
+import android.animation.Animator;
+import android.animation.LayoutTransition;
+import android.animation.ValueAnimator;
 import android.bluetooth.BluetoothAdapter;
 import android.content.ComponentName;
 import android.content.DialogInterface;
@@ -29,9 +32,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.view.animation.AccelerateInterpolator;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.Spinner;
@@ -75,6 +81,8 @@ public class MainActivity extends AppCompatActivity implements DrawerActivityHel
     CheckBox advancedToggle;
 
     boolean showAdvanced = false;
+
+    int advancedHeight = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -244,13 +252,17 @@ public class MainActivity extends AppCompatActivity implements DrawerActivityHel
             if (v instanceof TextView) v.setOnClickListener(drawerMenuClickListener);
         }
 
-        int visibility = ((CheckBox) findViewById(R.id.drawer_menu_advanced)).isChecked() ? View.VISIBLE : View.GONE;
+        showAdvanced = ((CheckBox) findViewById(R.id.drawer_menu_advanced)).isChecked();
+        int visibility = showAdvanced ? View.VISIBLE : View.GONE;
         childcount = advancedDrawerMenu.getChildCount();
         for (int i = 0; i < childcount; i++) {
             View child = advancedDrawerMenu.getChildAt(i);
-            child.setVisibility(visibility);
+            //child.setVisibility(visibility);
             if (child instanceof TextView) child.setOnClickListener(drawerMenuClickListener);
         }
+        advancedDrawerMenu.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
+        if(advancedHeight <= 0 ) advancedHeight = advancedDrawerMenu.getMeasuredHeight();
+        advancedDrawerMenu.setVisibility(View.GONE);
 
         SharedPreferences pref = getSharedPreferences(PREF_FILE, MODE_PRIVATE);
         ((SwitchCompat) drawerMenu.findViewById(R.id.drawer_menu_offline_mode)).setChecked(!pref.getBoolean(IS_APP_ENABLED, true));
@@ -290,22 +302,68 @@ public class MainActivity extends AppCompatActivity implements DrawerActivityHel
                     // dont change activated state
                     showAdvanced = !showAdvanced;
                     advancedToggle.setChecked(showAdvanced);
-                    int visibility = showAdvanced ? View.VISIBLE : View.GONE;
-                    int advancedChildcount = advancedDrawerMenu.getChildCount();
+
+                    ValueAnimator animator = showAdvanced ? ValueAnimator.ofFloat(0f, 1f) : ValueAnimator.ofFloat(1f, 0f);
+                    animator.setDuration(400);
+                    animator.setInterpolator(showAdvanced ? new DecelerateInterpolator() : new AccelerateInterpolator());
+                    animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+                        @Override
+                        public void onAnimationUpdate(ValueAnimator animation) {
+                            LinearLayout.LayoutParams params
+                                    = new LinearLayout.LayoutParams(
+                                    ViewGroup.LayoutParams.MATCH_PARENT, (int) (advancedHeight * ((float) animation.getAnimatedValue())));
+                            advancedDrawerMenu.setLayoutParams(params);
+                            advancedDrawerMenu.setAlpha(((float) animation.getAnimatedValue()));
+                            advancedDrawerMenu.requestLayout();
+                        }
+                    });
+                    animator.addListener(new Animator.AnimatorListener() {
+                        @Override
+                        public void onAnimationStart(Animator animation) {
+                            if(showAdvanced){
+                                advancedDrawerMenu.setVisibility(View.VISIBLE);
+                            }
+                        }
+
+                        @Override
+                        public void onAnimationEnd(Animator animation) {
+                            LinearLayout.LayoutParams params
+                                    = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                            advancedDrawerMenu.setVisibility(showAdvanced ? View.VISIBLE : View.GONE);
+                            advancedDrawerMenu.setAlpha(1);
+                            advancedDrawerMenu.setLayoutParams(params);
+                            advancedDrawerMenu.requestLayout();
+
+                            if (showAdvanced) {
+                                final ScrollView scroller = (ScrollView) findViewById(R.id.drawer_menu_scroll);
+                                scroller.postDelayed(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        scroller.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
+                                        scroller.smoothScrollTo(0, scroller.getMeasuredHeight());
+                                    }
+                                }, 400);
+                            }
+                        }
+
+                        @Override
+                        public void onAnimationCancel(Animator animation) {}
+
+                        @Override
+                        public void onAnimationRepeat(Animator animation) {}
+                    });
+
+                    if(!showAdvanced && advancedHeight <= 0) advancedHeight = advancedDrawerMenu.getHeight();
+
+                    animator.start();
+
+                    //int visibility = showAdvanced ? View.VISIBLE : View.GONE;
+                    /*int advancedChildcount = advancedDrawerMenu.getChildCount();
                     for (int i = 0; i < advancedChildcount; i++) {
                         View child = advancedDrawerMenu.getChildAt(i);
                         child.setVisibility(visibility);
-                    }
-                    if (showAdvanced) {
-                        final ScrollView scroller = (ScrollView) findViewById(R.id.drawer_menu_scroll);
-                        scroller.postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                scroller.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
-                                scroller.smoothScrollTo(0, scroller.getMeasuredHeight());
-                            }
-                        }, 400);
-                    }
+                    }*/
+
                     break;
                 default:
                     int childcount = drawerMenu.getChildCount();
