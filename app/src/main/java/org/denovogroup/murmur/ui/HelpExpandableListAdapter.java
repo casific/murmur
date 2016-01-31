@@ -23,11 +23,11 @@ public class HelpExpandableListAdapter extends BaseExpandableListAdapter {
 
     Context context;
     List<String> headers;
-    Map<String,List<String>> data;
+    List<String> data;
 
     ImageGetter imageGetter;
 
-    public HelpExpandableListAdapter(Context context, List<String> headers, Map<String, List<String>> data) {
+    public HelpExpandableListAdapter(Context context, List<String> headers, List<String> data) {
         this.context = context;
         this.data = data;
         this.headers = headers;
@@ -36,12 +36,12 @@ public class HelpExpandableListAdapter extends BaseExpandableListAdapter {
 
     @Override
     public int getGroupCount() {
-        return data.size();
+        return headers.size();
     }
 
     @Override
     public int getChildrenCount(int groupPosition) {
-        return data.get(headers.get(groupPosition)).size();
+        return 1;
     }
 
     @Override
@@ -51,7 +51,7 @@ public class HelpExpandableListAdapter extends BaseExpandableListAdapter {
 
     @Override
     public Object getChild(int groupPosition, int childPosition) {
-        return data.get(headers.get(groupPosition)).get(childPosition);
+        return data.get(groupPosition);
     }
 
     @Override
@@ -72,11 +72,16 @@ public class HelpExpandableListAdapter extends BaseExpandableListAdapter {
     @Override
     public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
 
-        if(convertView == null){
+
+        if(getChild(groupPosition, 0).toString().length() == 0){
+            //big header
+            convertView = LayoutInflater.from(context).inflate(R.layout.help_big_title, parent, false);
+        } else {
             convertView = LayoutInflater.from(context).inflate(R.layout.help_title, parent, false);
+            convertView.findViewById(R.id.shadow).setVisibility(isExpanded ? View.GONE : View.VISIBLE);
         }
+
         ((TextView) convertView.findViewById(R.id.help_title)).setText((String) getGroup(groupPosition));
-        convertView.findViewById(R.id.shadow).setVisibility(isExpanded ? View.GONE : View.VISIBLE);
 
         return convertView;
     }
@@ -84,15 +89,17 @@ public class HelpExpandableListAdapter extends BaseExpandableListAdapter {
     @Override
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
 
-        if(convertView == null){
+        if(getChild(groupPosition, childPosition).toString().length() == 0) {
+            //big header
+            convertView = new View(context);
+        } else {
             convertView = LayoutInflater.from(context).inflate(R.layout.help_body, parent, false);
+            convertView.measure(View.MeasureSpec.UNSPECIFIED,View.MeasureSpec.UNSPECIFIED);
+
+            ((TextView) convertView.findViewById(R.id.help_body)).setText(Html.fromHtml((String)getChild(groupPosition, childPosition),imageGetter, null));
+
+            convertView.findViewById(R.id.shadow).setVisibility(isLastChild ? View.VISIBLE : View.GONE);
         }
-
-        convertView.measure(View.MeasureSpec.UNSPECIFIED,View.MeasureSpec.UNSPECIFIED);
-
-        ((TextView) convertView.findViewById(R.id.help_body)).setText(Html.fromHtml((String)getChild(groupPosition, childPosition),imageGetter, null));
-
-        convertView.findViewById(R.id.shadow).setVisibility(isLastChild ? View.VISIBLE : View.GONE);
 
         return convertView;
     }

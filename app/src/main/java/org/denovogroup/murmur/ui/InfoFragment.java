@@ -24,7 +24,7 @@ public class InfoFragment extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(R.string.drawer_menu_info);
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(getString(R.string.app_name));
 
         ((AppCompatActivity) getActivity()).getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.app_dark_purple)));
 

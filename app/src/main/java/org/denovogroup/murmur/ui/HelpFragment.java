@@ -26,6 +26,7 @@ import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -39,7 +40,7 @@ public class HelpFragment extends Fragment{
     private ExpandableListView listView;
 
     List<String> headers;
-    Map<String, List<String>> data;
+    List<String> data;
 
     boolean partial = true;
 
@@ -84,128 +85,19 @@ public class HelpFragment extends Fragment{
     }
 
     private void prepareHelpContent() {
+        List<String> tempHeaders = Arrays.asList(getActivity().getResources().getStringArray(R.array.help_content_titles));
+        headers = new ArrayList<>(tempHeaders);
+        List<String> tempData = Arrays.asList(getActivity().getResources().getStringArray(R.array.help_content_body));
+        data = new ArrayList<>(tempData);
 
-        //make hot topics
-
-        headers = new ArrayList<>();
-        data = new HashMap<>();
-
-        String header1 = getString(R.string.help_title1);
-        List<String> body1 = new ArrayList<>();
-        body1.add(getString(R.string.help_content1));
-        headers.add(header1);
-        data.put(header1, body1);
-
-        String header2 = getString(R.string.help_title2);
-        List<String> body2 = new ArrayList<>();
-        body2.add(getString(R.string.help_content2));
-        headers.add(header2);
-        data.put(header2, body2);
-
-        String header3 = getString(R.string.help_title3);
-        List<String> body3 = new ArrayList<>();
-        body3.add(getString(R.string.help_content3));
-        headers.add(header3);
-        data.put(header3, body3);
-
-        if(partial) return;
-        //make all other stuff
-
-        String header4 = getString(R.string.help_title4);
-        List<String> body4 = new ArrayList<>();
-        body4.add(getString(R.string.help_content4));
-        headers.add(header4);
-        data.put(header4, body4);
-
-        String header5 = getString(R.string.help_title5);
-        List<String> body5 = new ArrayList<>();
-        body5.add(getString(R.string.help_content5));
-        headers.add(header5);
-        data.put(header5, body5);
-
-        String header6 = getString(R.string.help_title6);
-        List<String> body6 = new ArrayList<>();
-        body6.add(getString(R.string.help_content6));
-        headers.add(header6);
-        data.put(header6, body6);
-
-        String header7 = getString(R.string.help_title7);
-        List<String> body7 = new ArrayList<>();
-        body7.add(getString(R.string.help_content7));
-        headers.add(header7);
-        data.put(header7, body7);
-
-        String header8 = getString(R.string.help_title8);
-        List<String> body8 = new ArrayList<>();
-        body8.add(getString(R.string.help_content8));
-        headers.add(header8);
-        data.put(header8, body8);
-
-        String header9 = getString(R.string.help_title9);
-        List<String> body9 = new ArrayList<>();
-        body9.add(getString(R.string.help_content9));
-        headers.add(header9);
-        data.put(header9, body9);
-
-        String header10 = getString(R.string.help_title10);
-        List<String> body10 = new ArrayList<>();
-        body10.add(getString(R.string.help_content10));
-        headers.add(header10);
-        data.put(header10, body10);
-
-        String header11 = getString(R.string.help_title11);
-        List<String> body11 = new ArrayList<>();
-        body11.add(getString(R.string.help_content11));
-        headers.add(header11);
-        data.put(header11, body11);
-
-        String header12 = getString(R.string.help_title12);
-        List<String> body12 = new ArrayList<>();
-        body12.add(getString(R.string.help_content12));
-        headers.add(header12);
-        data.put(header12, body12);
-
-        String header13 = getString(R.string.help_title13);
-        List<String> body13 = new ArrayList<>();
-        body13.add(getString(R.string.help_content13));
-        headers.add(header13);
-        data.put(header13, body13);
-
-        String header14 = getString(R.string.help_title14);
-        List<String> body14 = new ArrayList<>();
-        body14.add(getString(R.string.help_content14));
-        headers.add(header14);
-        data.put(header14, body14);
-
-        String header15 = getString(R.string.help_title15);
-        List<String> body15 = new ArrayList<>();
-        body15.add(getString(R.string.help_content15));
-        headers.add(header15);
-        data.put(header15, body15);
-
-        String header16 = getString(R.string.help_title16);
-        List<String> body16 = new ArrayList<>();
-        body16.add(getString(R.string.help_content16));
-        headers.add(header16);
-        data.put(header16, body16);
-
-        String header17 = getString(R.string.help_title17);
-        List<String> body17 = new ArrayList<>();
-        body17.add(getString(R.string.help_content17));
-        headers.add(header17);
-        data.put(header17, body17);
-
-        String header18 = getString(R.string.help_title18);
-        List<String> body18 = new ArrayList<>();
-        body18.add(getString(R.string.help_content18));
-        headers.add(header18);
-        data.put(header18, body18);
-
-        String header19 = getString(R.string.help_title19);
-        List<String> body19 = new ArrayList<>();
-        body19.add(getString(R.string.help_content19));
-        headers.add(header19);
-        data.put(header19, body19);
+        int maxItems = 3;
+        if(partial){
+            int headerSize = headers.size();
+            for(int i= headerSize-1; i>maxItems; i--){
+                headers.remove(i);
+                data.remove(i);
+            }
+        }
     }
 
     private void openEmailSendingForm(boolean includeLog){

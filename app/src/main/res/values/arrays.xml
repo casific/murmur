@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="help_content_titles">
+        <!--Key things to know about Murmur-->
+        <item>Key things to know about Murmur</item>
+
+        <item>How is it different from other messaging apps?</item>
+        <item>Can you elaborate on how messages are sent in Murmur?</item>
+        <item>How do I control my level of anonymity?</item>
+        <item>What is a Connection Score and how can I use it to filter messages?</item>
+        <item>How can I limit the audience of my messages?</item>
+
+        <!--User Interface FAQ-->
+        <item>User Interface FAQ</item>
+
+        <item>How to use the Feed ?</item>
+        <item>What do the icons in each message represent?</item>
+        <item>How do I post a message?</item>
+        <item>How do I add my location to a new message?</item>
+        <item>How do I send a Restricted Message?</item>
+        <item>What is a self-destruct message and how do I send one?</item>
+        <item>How do I configure a nickname?</item>
+        <item>How do I endorse a message?</item>
+        <item>How do I reply to a message?</item>
+        <item>How do I save a message?</item>
+        <item>How do I add contacts in Murmur?</item>
+        <item>How do I set-up Murmur?</item>
+        <item>What do the various options included in the Settings screen mean?</item>
+        <item>How do I reset the app?</item>
+        <item>How do I export messages from Murmur?</item>
+        <item>What does Offline mode mean?</item>
+        <item>How do I share the app with other users?</item>
+        <item>How do I retweet a message and what is the benefit of doing so?</item>
+        <item>How do I delete a message from my feed?</item>
+        <item>Can I delete more than one message at a time?</item>
+
+        <!--Troubleshooting-->
+        <item>Troubleshooting</item>
+
+        <item>Murmur stopped exchanging messages, what should I do?</item>
+        <item>Why has my WiFi Direct’s device name changed?</item>
+        <item>Does Murmur change the Bluetooth’s device name?</item>
+    </string-array>
+
+    <string-array name="help_content_body">
+        <!--Key things to know about Murmur-->
+        <item></item>
+
+        <!--How is it different from other messaging apps?-->
+        <item>Murmur is a free, open-source, anonymous messaging app that does not require an Internet connection. Messages are not sent in real-time like with other messaging apps that rely on the Internet and have a central server, but instead spread directly from one device to another (forming a peer-to-peer network) without user intervention using Bluetooth and WiFi Direct. The more devices the faster the message spreads! If no device is around, the message is queued in the feed to be sent later. You control your anonymity and decide what information to share about yourself. Lastly, Connection Scores help you filter spam messages and Restricted Messages limit your audience to your friends.</item>
+        <!--Can you elaborate on how messages are sent in Murmur?-->
+        <item><![CDATA[Murmur runs in the background and constantly scans for nearby devices using WiFi Direct. When a peer is identified, a temporary connection is established seamlessly without user intervention over Bluetooth. Each app in turn sends all the messages in its feed to the other app. Given the exchange is happening over Bluetooth it is imperative that the two devices are within Bluetooth range (approximately 30 feet) to each other.<br><br>When you post a new message, it gets added to your feed and is sent alongside the other messages whenever a connection to a peer is established. This means that there could be a delay between the time a message is posted and the time it is received by all or most of the users in the network. The delay depends on the number of users in the network and how frequently they are in close proximity to each other, which could range from a few seconds to several days. To shorten the time it takes for messages to spread in the network, users can coordinate message exchanges (e.g. decide on a certain time and location to meet) or invite more users to join the network. The more users there are, the faster the message spreads.<br><br>Lastly, messages are sent in plain-text (i.e. are unencrypted) and are broadcasted to the entire network. That said, certain restrictions on messages may be applied, for instance setting messages as restricted or self-destruct (see more details below).<br><br>To summarize:<br>1) exchanges occur when users are close to each other and rely on Bluetooth and WiFi Direct<br>2) messages do not spread in real-time<br>3) messages are sent unencrypted and are broadcast to the entire network<br>]]></item>
+        <!--How do I control my level of anonymity?-->
+        <item>Murmur allows you to fine tune the level of anonymity you maintain while using the app. Go to the Settings screen and choose the profile that meets your exact needs. Generally the more features you enable the less anonymous you are. Features include defining a nickname, adding timestamps and location tagging to messages.</item>
+        <!--What is a Connection Score and how can I use it to filter messages?-->
+        <item><![CDATA[One of the downsides of anonymity, especially in peer-to-peer networks which do not have a central authority (server) that polices the network, is spam. In order to deal with this situation Murmur provides a score which aims to assist the user in filtering out less trustworthy messages. The Connection Score is an automatically calculated score between 1 and 100 (the higher the better) that roughly represents the percentage of mutual connections the message author, the users who forwarded this message, and you share. When a message is exchanged with another user, the percentage of mutual contacts between the sender and receiver is multiplied by the original message’s score. The result is rounded and normalized to fit the 1-100 range. This same calculation repeats every message exchange, therefore as the message propagates in the network, its Connection Score will inevitably go down. If a user enabled Connection Scores in Settings, each message in the feed will display its Connection Score. Whenever the user posts a message it is automatically assigned with the maximum score of 100. If Connection Scores are disabled, all messages in the feed whether sent/received are automatically assigned with the minimum score of 1 and the scores are hidden from the feed.<br></br><br>To filter messages, you can either configure Murmur to automatically delete messages below a certain score, or you manually sort or delete messages manually using the feed.]]></item>
+        <!--How can I limit the audience of my messages?-->
+        <item><![CDATA[While messages are generally broadcast to the entire network, Murmur does allow you to configure messages as Restricted. With Restricted Messages, you decide on a threshold of minimum shared contacts and every time you exchange messages with a peer, they will receive the message only if they share at least that number of contacts with you. This process repeats as the message propagates in the network. To accomplish this, in each message exchange a cryptographic protocol is used to compare the set of contacts of the two users. The outcome of that comparison is used to calculate the Connection Score and to determine whether to send a Restricted Message or not.<br><br>Note, the cryptographic protocol in use guarantees that your privacy is kept and nobody can eavesdrop and gather who your Murmur contacts are. ]]></item>
+
+        <!--User Interface FAQ-->
+        <item></item>
+
+        <!--How to use the Feed ?-->
+        <item>The feed is the main screen in the app. It displays all the messages and allows you to sort, search, save (star) and delete messages amongst other actions. You can sort the messages in the feed by time, endorsements or Connection Score, and you can search for specific messages by entering a nickname ( ‘@’ followed by the name), hashtag (‘#’ followed by tag) or keyword(s) in the search input box.</item>
+        <!--What do the icons in each message represent?-->
+        <item><![CDATA[<img src=\"icon_demo.png\"><br>Messages may include some or all of the following fields:<br><br>1. Message body (mandatory)<br>2. Nickname (optional)<br>3. Connection Score (optional)<br>4. Saved (Starred) message (optional)<br>5. Replies (optional) - shows the total number of replies received for this message<br>6. Endorsements (optional) - shows the total number of endorsements<br>7. Location tag (optional)<br>8. Timestamp (optional) - the time (rounded to nearest hour) in which message was received<br>9. Self-destruct expiration (optional) - shows the time left until message is automatically deleted from feed<br><br>Optional fields are included if message contains that field and enabled in Settings.]]></item>
+        <!--How do I post a message?-->
+        <item>Tap on the plus button to open the New Post screen, enter the message and tap the arrow button at the top right to send.  To undo tap on the cancel icon at the top-left.</item>
+        <!--How do I add my location to a new message?-->
+        <item><![CDATA[Tap on the location icon in the New Post screen. Note, this requires Android\'s location services (GPS) to be on.<br>To undo and clear the location tag from the message tap again on the location icon while in the New Post screen.]]></item>
+        <!--How do I send a Restricted Message?-->
+        <item>To send a Restricted Message tap on the restricted icon in the New Post screen. The minimum number set on your Settings screen will be added to the message and only users with whom you (or any recipient of the message) have at least that number of mutual contacts with will receive the message. To undo a message from being set as restricted tap again on the restricted icon while in the New Post screen. In the feed, Restricted Messages are marked with a lock icon. Note, for the Restricted Message to work effectively you should add contacts beforehand.</item>
+        <!--What is a self-destruct message and how do I send one?-->
+        <item><![CDATA[A self-destruct message is exchanged only between the author of the message and any immediate peers he connects with directly. It will not get forwarded from those users to other users. The author can configure the expiration (in hours) for the message in the Settings screen under Self-destruct duration. Once the duration configured for the message has elapsed each app will delete automatically that message from its feed, for instance if the self-destruct is set for two hours then each user that receives the message will have two hours from the moment received to view the message until it is deleted from the feed. Note, this option does not guarantee that the message is not copied and thereby sent to other users - it automatically deletes the message from the recipient and limits its forwarding to other users.<br><br>To send a self-destruct message tap on the self-destruct icon in the New Post screen. You can change the expiration time in the Settings screen. To undo a message from being set as self-destruct tap again on the self-destruct icon while in the New Post screen.]]></item>
+        <!--How do I configure a nickname?-->
+        <item>To configure a nickname go to the Profile screen in the left navigation menu, enter your nickname and tap the check icon on top right.</item>
+        <!--How do I endorse a message?-->
+        <item>Tap the endorse icon to endorse a message you like. Each user can only endorse a message once. If you wish to undo your endorsement tap on the endorsement icon again. Note, the number next to the icon shows the total number of endorsements a message has.</item>
+        <!--How do I reply to a message?-->
+        <item><![CDATA[[Tap the reply icon to reply to a message. If the message already has replies, tapping on the icon will open the Replies screen which displays all the existing replies and includes a floating reply icon that opens the Reply screen. Otherwise (i.e. there are no replies available) the Reply screen opens directly.<br><br>The Reply screen is essentially the New Post screen addressed at the nickname (if one is available in the original message). Note, the number next to the icon shows the total number of replies a specific message has.]]></item>
+        <!--How do I save a message?-->
+        <item>Tap the star icon to save a message for easy access later on through the Starred menu (accessible via the left navigation menu). To undo tap again on the star icon.</item>
+        <!--How do I add contacts in Murmur?-->
+        <item><![CDATA[To add contacts go to the Contacts screen from the left navigation menu and select the method you would like to add contacts - QR Code or Phonebook based (note these options depend on the profile chosen in the Settings screen). If QR Code is selected a scanner is opened, have your contact open their Profile screen, scan their QR code and enter a nickname for that contact.  If Phonebook is selected then select the contact you wish to add from the Phonebook. To add more than one friend repeat the process.<br>Given QR code addition requires physical proximity to your contacts it is more secure, albeit less convenient. Conversely Phonebook contact addition does not require physical proximity and is more convenient yet less secure.]]></item>
+        <!--How do I set-up Murmur?-->
+        <item><![CDATA[Go to the Settings screen from left navigation menu and select either one of the preconfigured profiles or choose a custom one by changing specific settings (we recommend this only to advanced users).<br>There are two preconfigured settings:<br><br>&#8226; <b>More features / less security</b> - provides more functionality including nicknames, timestamps, location tagging, etc in exchange for less security - namely, less anonymity and less protections against spam.<br><br>&#8226; <b>More security / less features</b> - provide less functionality in exchange for more security - namely, more anonymity and more protections against spam messages.]]></item>
+        <!--What do the various options included in the Settings screen mean?-->
+        <item><![CDATA[<u>Anonymity:</u><br><br>&#8226; <b>Timestamps</b> - if enabled, posted messages receive a timestamp (resolution of hours) and the feed displays the timestamp of messages received (if available). If disabled, then no timestamp is added to posted messages and the feed does not display any timestamp (nor are timestamps retained in the app’s database).<br><br>&#8226; <b>Location tagging</b> - if enabled, location tagging is enabled in New Post screen.<br><br>&#8226; <b>Nicknames</b> - if enabled, posted messages will automatically include the nickname set-up in the Profile screen.<br><br><u>Privacy:</u><br><br>&#8226; <b>Connection score</b> - if enabled, a Connection Score is calculated per message as part of any message exchange and presented accordingly in the feed.<br><br>&#8226; <b>Self-destruction duration</b> - set the default duration of a self-destruct message, after which the message will be deleted from the recipient feed automatically.<br><br>&#8226; <b>Restricted Messages</b> - set the minimum shared contacts threshold required for Restricted Messages to be exchanged.<br><br><u>Feed</u><br><br>&#8226; <b>Auto-delete messages</b> - allows you to set a criteria by which messages are automatically deleted from the feed:<br>  1) connection score - deletes messages with score below the set threshold<br>  2) older than - deletes messages that have been received more than the preset threshold before.<br><br><u>Contacts</u><br><br>&#8226; <b>Add contacts via Phonebook</b> - if enabled you can add contacts directly from Phonebook<br><br>&#8226; <b>Add contacts via QR code</b> - if enabled you can add contacts using QR codes which require physical proximity to each contact.]]></item>
+        <!--How do I reset the app?-->
+        <item>Tap on Advanced in the left navigation menu and then Reset app. Beware that this will erase all messages and contacts from the app and restore the Settings to the default settings. There is no way to undo this operation.</item>
+        <!--How do I export messages from Murmur?-->
+        <item>Tap on Advanced in the left navigation menu and then Export feed. Your current feed will be saved in a CSV format in your downloads folder on your device under Murmur Exports folder. Note, to easily access this file we recommend using a file/storage manager app.</item>
+        <!--What does Offline mode mean?-->
+        <item><![CDATA[If Offline mode is enabled, the app ceases to scan and exchange messages with other devices and is also no longer discoverable.<br>We suggest using this mode as a quick way to disable the app when not in range of other devices, or not interested in exchanging messages, or in order to reduce battery degradation.]]></item>
+        <!--How do I share the app with other users?-->
+        <item>Tap on Share Murmur in the left navigation menu and then select the an app to use to share. A link to download Murmur will be pasted into the selected app.</item>
+        <!--How do I retweet a message and what is the benefit of doing so?-->
+        <item><![CDATA[Long press on any message in the feed you wish to retweet and then tap on the retweet icon in the action bar. This will launch the New post screen with the message text copied into it, there you can send it as is or edit the message beforehand.<br><br>If you or your contacts have Connection Scores enabled, retweet messages automatically get like any self-authored message a score of 100.]]></item>
+        <!--How do I delete a message from my feed?-->
+        <item>Long press on any message in the feed you wish to delete and then tap on the delete icon in the action bar.</item>
+        <!--Can I delete more than one message at a time?-->
+        <item><![CDATA[Yes. Long press on any message in the feed and then tap on the overflow menu in the action bar (the icon with three dots). The overflow menu includes three options:<br><br>&#8226; <b>Same nickname</b> - deletes all the messages coming from the same sender ; enabled only if message has a nickname<br>&#8226; <b>Same or lower score</b> -  deletes all messages that have the same Connection Score or lower ; enabled only if Connection Scores are enabled in Settings<br>&#8226; <b>Same exchange</b> -  deletes all messages received in the same message exchange (each exchange includes multiple messages) in which the selected message was received<br><br>Note, the options that are enabled are only the ones that are applicable to the selected message.]]></item>
+
+        <!--Troubleshooting-->
+        <item></item>
+
+        <!--Murmur stopped exchanging messages, what should I do?-->
+        <item><![CDATA[First, make sure both Bluetooth and WiFi are on and that Offline mode is disabled. Second, make sure you are in Bluetooth range (approximately 30 feet) of another Murmur user and that he also has Bluetooth and WiFi on. If no message exchange is happening within a short period (typically within seconds but up to a minute) then move Murmur to Offline mode and then back online - this should restart the message exchange service running on your device - then restart the app. Similarly, the other user should do the same.<br><br>If this does not solve the problem please send us a bug report using the Feedback interface.]]></item>
+        <!--Why has my WiFi Direct’s device name changed?-->
+        <item><![CDATA[The app uses WiFi Direct to advertise both the fact that the user is using Murmur and his Bluetooth MAC address. Further, it uses WiFi Direct to continuously scan and identify other nearby devices. Once another device is identified, the app parses the WiFi Direct’s device name to gather whether this is a device with Murmur running on it, and if so extracts the Bluetooth address from the name in order to connect to the other device.<br><br>If you are using WiFi Direct for other purposes (e.g. connecting to external keyboard or the like), we suggest you change the device name on those peripherals to the one set up by Murmur. Alternatively, at times when you are using WiFi Direct for other purposes, you can move Murmur to Offline mode which will in turn revert the device name back to the name it originally had prior to installing Murmur.]]></item>
+        <!--Does Murmur change the Bluetooth’s device name?-->
+        <item>No. But, we have noticed that some device manufacturers erroneously apply the WiFi Direct’s device name to both WiFi Direct and Bluetooth. In those circumstances, we suggest you change the Bluetooth device name on the peripherals you are using to the one set up by Murmur. Alternatively, at times when you are using Bluetooth for other purposes, you can move Murmur to Offline mode which will in turn revert the device name to the name it had prior to installing Murmur.</item>
+    </string-array>
+</resources>
