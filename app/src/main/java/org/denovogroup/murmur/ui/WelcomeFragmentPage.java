@@ -34,6 +34,8 @@ import android.bluetooth.BluetoothAdapter;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.provider.Settings;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
@@ -44,6 +46,7 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 
 import org.denovogroup.murmur.R;
+import org.denovogroup.murmur.backend.MurmurService;
 
 /**
  * Created by Liran on 1/14/2016.
@@ -56,6 +59,8 @@ public class WelcomeFragmentPage extends Fragment{
     private MacInputCallbacks callbacks;
     private EditText input;
     private View errorView;
+
+    private String mac;
 
     private TextWatcher watcher = new TextWatcher() {
         @Override
@@ -108,12 +113,33 @@ public class WelcomeFragmentPage extends Fragment{
 
     public void setCallbacks(MacInputCallbacks callbacks) {
         this.callbacks = callbacks;
+
+
     }
 
     @Override
     public void onResume() {
         super.onResume();
         if(input != null ) input.addTextChangedListener(watcher);
+
+        if(mac == null) {
+            Handler handler = new Handler();
+
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        mac = Settings.Secure.getString(getActivity().getContentResolver(), "bluetooth_address");
+                        if (mac != null && !mac.equals(MurmurService.DUMMY_MAC_ADDRESS)) {
+                            input.setText(mac);
+                            if(callbacks != null) callbacks.onMacChanged(mac);
+                        }
+                    } catch (Exception e) {
+
+                    }
+                }
+            }, 1000);
+        }
     }
 
     @Override

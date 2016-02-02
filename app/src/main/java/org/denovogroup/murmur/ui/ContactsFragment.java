@@ -50,6 +50,7 @@ import android.telephony.PhoneNumberUtils;
 import android.telephony.TelephonyManager;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -592,8 +593,9 @@ public class ContactsFragment extends Fragment implements View.OnClickListener, 
                             boolean requireReformating = true;
                             while(!phoneCursor.isAfterLast()){
                                 String unformattedNumber = phoneCursor.getString(phoneCursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
+                                String normalizedNumber = phoneCursor.getString(phoneCursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NORMALIZED_NUMBER));
 
-                                String formattedNumber = formatNumber(unformattedNumber);
+                                String formattedNumber = (normalizedNumber != null && normalizedNumber.length() > 0) ? normalizedNumber : formatNumber(unformattedNumber);
                                 String noneNullValue = formattedNumber != null ? formattedNumber : unformattedNumber;
 
                                 if(phonesCount > 1 && phoneCursor.getPosition() < phoneCursor.getCount()-1){

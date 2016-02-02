@@ -166,7 +166,7 @@ public class MurmurService extends Service {
 
     private static final int NOTIFICATION_ID = R.string.unread_notification_title;
     private static final int RENAME_DELAY = 1000;
-    private static final String DUMMY_MAC_ADDRESS = "02:00:00:00:00:00";
+    public static final String DUMMY_MAC_ADDRESS = "02:00:00:00:00:00";
     public static final int BACKOFF_FOR_ATTEMPT_MILLIS = 10 * 1000;
     public static final int BACKOFF_MAX = BACKOFF_FOR_ATTEMPT_MILLIS * (int)Math.pow(2,5);
 
