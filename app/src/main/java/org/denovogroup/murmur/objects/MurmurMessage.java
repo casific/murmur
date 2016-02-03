@@ -33,6 +33,7 @@ package org.denovogroup.murmur.objects;
 import android.content.Context;
 import android.location.Location;
 import android.location.LocationManager;
+import android.util.Log;
 
 import org.denovogroup.murmur.backend.*;
 import org.denovogroup.murmur.backend.SecurityManager;
@@ -62,6 +63,10 @@ public final class MurmurMessage extends Message {
     public static final String BIGPARENT_KEY = "bigparent";
     public static final String HOP_KEY = "hop";
     public static final String MIN_USERS_P_HOP_KEY = "min_users_p_hop";
+
+    private static final float MEAN = 0.0f;
+    private static final float VAR = 0.003f;//originally set to 0.003f
+    private static final float EPSILON_TRUST = 0.001f;
 
     /**
      * The message's id, as a String.
@@ -204,7 +209,7 @@ public final class MurmurMessage extends Message {
     }
 
     /** convert the message into a json based on current security profile settings */
-    public JSONObject toJSON(Context context){
+    public JSONObject toJSON(Context context, int sharedFriends, int myFriends){
         JSONObject result = new JSONObject();
         try {
             result.put(MESSAGE_ID_KEY, this.messageid);
@@ -219,14 +224,17 @@ public final class MurmurMessage extends Message {
             SecurityProfile profile = SecurityManager.getCurrentProfile(context);
 
             //put optional items based on security profile settings
-            if(profile.isUseTrust()) result.put(TRUST_KEY, this.trust +
-                    (profile.isUseTrust() ? Utils.makeNoise(0d, 0.003d) : 0));
+            if(profile.isUseTrust()) result.put(TRUST_KEY, (profile.isUseTrust() ?
+                    makeNoise(trust, sharedFriends, myFriends)
+                    : 0));
             if(profile.isPseudonyms()) result.put(PSEUDONYM_KEY, this.pseudonym);
             if(profile.isShareLocation()) result.put(LATLONG_KEY, this.latlong);
 
         } catch (JSONException e) {
             e.printStackTrace();
         }
+        Log.d("liran","trust converted from "+trust+" to "+result.optDouble(TRUST_KEY, -1f));
+
         return result;
     }
 
@@ -237,7 +245,7 @@ public final class MurmurMessage extends Message {
             Location location = new Location(LocationManager.GPS_PROVIDER);
 
             double lat = Double.parseDouble(latlong.substring(0,latlong.indexOf(" ")));
-            double lng = Double.parseDouble(latlong.substring(latlong.indexOf(" ")+1));
+            double lng = Double.parseDouble(latlong.substring(latlong.indexOf(" ") + 1));
 
             location.setLatitude(lat);
             location.setLongitude(lng);
@@ -247,5 +255,64 @@ public final class MurmurMessage extends Message {
             e.printStackTrace();
         }
         return null;
+    }
+
+    /** Compute the priority score for a person normalized by his number of friends, and passed
+     * through a sigmoid function.
+     *
+     * @param priority The priority of the message before computing trust.
+     * @param sharedFriends Number of friends shared between this person and the message sender.
+     * @param myFriends The number of friends this person has.
+     */
+    private float makeNoise(double priority,
+                            int sharedFriends,
+                            int myFriends){
+        //return priority + Utils.makeNoise(MEAN, VAR);
+        return (float)computeNewPriority_sigmoidFractionOfFriends(priority,
+                                                           sharedFriends,
+                                                           myFriends);
+    }
+
+    /** Compute the priority score for a person normalized by his number of friends, and passed
+     * through a sigmoid function.
+     *
+     * @param priority The priority of the message before computing trust.
+     * @param sharedFriends Number of friends shared between this person and the message sender.
+     * @param myFriends The number of friends this person has.
+     */
+    public static double computeNewPriority_sigmoidFractionOfFriends(double priority,
+                                                                     int sharedFriends,
+                                                                     int myFriends) {
+        double trustMultiplier = sigmoid(sharedFriends / (double) myFriends, 0.3, 13.0);
+        // add noise
+        trustMultiplier = trustMultiplier + getGaussian(MEAN,VAR);
+
+        // truncate range
+        trustMultiplier = Math.min(trustMultiplier,1);
+        trustMultiplier = Math.max(trustMultiplier,0);
+
+        if (sharedFriends == 0) {
+            trustMultiplier = EPSILON_TRUST;
+        }
+        return priority * trustMultiplier;
+    }
+
+    /** Pass an input trust score through a sigmoid between 0 and 1, and return the result.
+     *
+     * @param input The input trust score.
+     * @param cutoff The transition point of the sigmoid.
+     * @param rate The rate at which the sigmoid grows.
+     */
+    public static double sigmoid(double input, double cutoff, double rate) {
+        return 1.0/(1+Math.pow(Math.E,-rate*(input-cutoff)));
+    }
+
+    /** Returns a number drawn from a Gaussian distribution determined by the input parameters.
+     *
+     * @param mean The mean of the Gaussian distribution.
+     * @param variance The variance of the Gaussian distribution.
+     */
+    private static double getGaussian(double mean, double variance){
+        return Utils.makeNoise(mean, variance);
     }
 }

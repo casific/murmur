@@ -233,7 +233,7 @@ public class CryptographicExchange extends Exchange {
           for (MurmurMessage message : messagesPool) {
               log.debug("sending a message");
               List<JSONObject> messageWrapper = new ArrayList<>();
-              messageWrapper.add(message.toJSON(mContext));
+              messageWrapper.add(message.toJSON(mContext, commonFriends, FriendStore.getInstance(mContext).getAllFriends().size()));
               ClientMessage cm = new ClientMessage((ArrayList<JSONObject>)messageWrapper, null);
               if (!lengthValueWrite(out, cm.toJSON())) {
                   success = false;

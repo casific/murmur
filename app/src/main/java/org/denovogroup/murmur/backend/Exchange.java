@@ -230,7 +230,7 @@ public class Exchange implements Runnable {
       List<MurmurMessage> messages = getMessages(0);
       //notify the recipient how many items we expect to send him.
       MurmurMessage exchangeInfoMessage = new MurmurMessage("ExchangeAgreement", Integer.toString(messages.size()),1d);
-      if(lengthValueWrite(out, exchangeInfoMessage.toJSON(MurmurApplication.getContext()))) {
+      if(lengthValueWrite(out, exchangeInfoMessage.toJSON(MurmurApplication.getContext(),0,0))) {
           // Send messages
          for(MurmurMessage message : messages){
 

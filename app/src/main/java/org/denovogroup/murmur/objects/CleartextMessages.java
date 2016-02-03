@@ -36,7 +36,7 @@ public final class CleartextMessages extends Message {
         JSONObject json = new JSONObject();
         JSONArray jsonArray = new JSONArray();
         for(MurmurMessage message : messages){
-            jsonArray.put(message.toJSON(context));
+            jsonArray.put(message.toJSON(context,0,0));
         }
         try {
             json.put(MESSAGES, jsonArray);
