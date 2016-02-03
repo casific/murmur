@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?><resources>
+
+    <!-- General -->
+
+    <!-- Navigation drawer state for usability assistance-->
+    <string name="open">El cajón de navegación está abierto</string>
+    <string name="close">El cajón de navegación está cerrado</string>
+
+    <!-- Network error notification and prompts -->
+    <string name="offline_mode_toast">Murmur está ejecutándose en modo Sin conexión</string>
+    <string name="notification_connection_error_title">Error de conexión</string>
+    <string name="notification_connection_error_message">Active Bluetooth/Wi-Fi o cambie a Sin conexión</string>
+    <string name="notification_no_bluetooth_title">Error de conexión: Bluetooth está desactivado</string>
+  <!-- no longer in use, uses single error for both WIFI and BT-->
+    <string name="notification_no_bluetooth_message">Por favor active Bluetooth o cambie a modo Sin conexión</string>
+  <!-- no longer in use, uses single error for both WIFI and BT-->
+    <string name="notification_no_wifi_title">Error de conexión: Wi-Fi está desactivado</string>
+  <!-- no longer in use, uses single error for both WIFI and BT-->
+    <string name="notification_no_wifi_message">Por favor active Wi-Fi o cambie a modo Sin conexión</string>
+  <!-- no longer in use, uses single error for both WIFI and BT-->
+
+    <string name="error_notification_action_onwifi">Activar</string>
+    <string name="error_notification_action_turnon_bt">Activar</string>
+    <string name="error_notification_action_off_service">Cambiar a Sin conexión</string>
+
+    <!-- New messages notification-->
+    <string name="unread_notification_title">Nuevos mensajes sin leer</string>
+    <string name="unread_notification_content">Nuevos intercambios</string>
+
+    <!-- New messages snackbar -->
+    <string name="new_messages_notification_desc">mensajes nuevos</string>
+    <string name="new_message_notification_desc">mensaje nuevo</string>
+    <string name="new_messages_notification_btn">Ver nuevo</string>
+    <string name="exchanges">nuevos intercambios</string>
+    <string name="exchange">nuevo intercambio</string>
+
+    <!-- Drawer menu actions (also used as page titles)-->
+    <string name="drawer_menu_feed">Feed</string>
+    <string name="drawer_menu_starred">Favorito</string>
+    <string name="drawer_menu_offline_mode">Modo Sin conexión</string>
+    <string name="drawer_menu_contact">Contactos</string>
+    <string name="drawer_menu_profile">Perfil</string>
+    <string name="drawer_menu_settings">Ajustes</string>
+    <string name="drawer_menu_help">Ayuda y retroalimentación</string>
+    <string name="drawer_menu_info">Acerca de</string>
+    <string name="drawer_menu_reset">Restablecer app</string>
+    <string name="drawer_menu_export">Exportar feed</string>
+    <string name="drawer_menu_share_app">Compartir Murmur</string>
+    <string name="drawer_menu_advanced">Avanzado</string>
+
+    <!-- share app picker title-->
+    <string name="share_using">Compartir usando</string>
+
+    <!-- export process toasts-->
+    <string name="export">Exportando...</string>
+    <string name="export_message">Por favor espere...</string>
+    <string name="export_successful">El feed fue exportado a su carpeta de descargas</string>
+    <string name="export_failed">Lo sentimos, no se pudo exportar el feed, por favor intente de nuevo</string>
+
+    <!-- Share message (from feed/stared)-->
+    <string name="share_prefix">Enviado con Murmur</string>
+
+    <!-- Actionbar/Toolbar-->
+
+    <string name="empty_string"/>
+    <string name="select_all">Seleccionar todo</string>
+    <string name="deselect_all">Deseleccionar todo</string>
+
+    <!-- actionbar sort options-->
+    <string name="sort_opt_newest">Más reciente</string>
+    <string name="sort_opt_oldest">Más antiguo</string>
+    <string name="sort_opt_mostendorsed">Más recomendado</string>
+    <string name="sort_opt_leastendorsed">Menos recomendado</string>
+    <string name="sort_opt_mostconnected">Más conectado</string>
+    <string name="sort_opt_leastconnected">Menos conectado</string>
+
+    <!-- menu item titles (not shown but required) -->
+    <string name="send">Enviar</string>
+    <string name="search_title">Buscar</string>
+    <string name="retweet">Retweetear</string>
+    <string name="share">Compartir</string>
+    <string name="delete">Eliminar</string>
+
+    <!-- menu item titles (shown when in advance delete mode-->
+    <string name="delete_from_sender">Mismo sobrenombre</string>
+  <!--Delete messages with same sender-->
+    <string name="delete_by_connection">Igual o menor puntaje</string>
+  <!--Delete messages with same or lower connection-->
+    <string name="delete_by_exchange">Mismo intercambio</string>
+  <!--Delete messages from same exchange-->
+    <string name="delete_tree">Incluyendo respuestas</string>
+  <!--Delete message and replies-->
+
+    <!-- Feed/Starred-->
+
+    <!-- delete dialog conformation-->
+    <string name="delete_dialog_title">Eliminar elementos</string>
+    <string name="delete_dialog_message1">¿Está seguro que desea eliminar</string>
+  <!-- pre-number-->
+    <string name="delete_dialog_message2">elementos?</string>
+  <!-- post-number-->
+
+    <!-- item time units -->
+    <string name="days_short">d</string>
+    <string name="just_now">última hora</string>
+    <string name="today">hoy</string>
+    <string name="h_ago">hace horas</string>
+    <string name="d_ago">hace días</string>
+
+    <!-- self destruct pre-text-->
+    <string name="self_destruct_in">se autodestruirá en</string>
+  <!-- time -->
+
+    <!-- reset application dialog -->
+    <string name="reset_dialog_title">Restablecer la aplicación</string>
+    <string name="reset_app_message">¿Está seguro que desea restablecer Murmur? Todos los mensajes y contactos serán eliminados</string>
+    <string name="confirm_reset_dialog_title">Confirmar restablecer</string>
+    <string name="confirm_reset_app_message">Haga clic en \'Sí\' para restablecer Murmur.</string>
+
+    <!-- Post/Reply post -->
+    <!-- actionbar titles-->
+    <string name="new_post">Nueva publicación</string>
+    <string name="reply">Responder</string>
+
+    <string name="post_hint">Escriba su mensaje</string>
+
+    <!-- Self-destruct dialog -->
+    <string name="timebound_dialog_title">Autodestruir</string>
+    <string name="hours_short">horas</string>
+
+    <!-- Share location error -->
+    <string name="no_gps_error">No se pudo establecer la ubicación, por favor active su GPS</string>
+
+    <!-- Profile -->
+    <string name="pseudonym_title">Sobrenombre</string>
+    <string name="qr_title">Código QR</string>
+
+    <!-- Contacts-->
+
+    <!-- Menu item title (not shown but required) -->
+    <string name="add">Agregar</string>
+
+    <!-- Add Contact dialog -->
+    <string name="add_friend_dialog_title">Añadir contacto</string>
+    <string name="add_friend_dialog_body">Seleccionar método</string>
+    <string name="add_friend_qrcode">Código QR</string>
+    <string name="add_friend_phonebook">Libreta de teléfonos</string>
+
+    <!-- edit contact dialog -->
+    <string name="conf_friend_dialog_title">Editar contacto</string>
+    <string name="conf_friend_dialog_name_title">Sobrenombre</string>
+    <string name="conf_friend_dialog_number_title">Teléfono</string>
+
+    <!-- Delete contact conformation dialog-->
+    <string name="delete_dialog_friend1">¿Está seguro que desea eliminar</string>
+  <!--pre-number-->
+    <string name="delete_dialog_friend2">elementos</string>
+  <!--post-number-->
+
+    <!-- QR code scanner prompt message-->
+    <string name="qr_scanner_message">Escanear un código QR Murmur</string>
+
+    <!-- add contact result toasts -->
+    <string name="contact_add_conf">Contacto añadido</string>
+    <string name="contact_exist">Ya está en contactos</string>
+    <string name="contact_add_fail">El contacto seleccionado no tiene número de teléfono</string>
+    <string name="qr_badqr_error">No es un código QR Murmur</string>
+
+    <!-- Settings-->
+    <!-- profile preset block-->
+    <string name="select_profile_title">Elija un perfil</string>
+    <string name="profile_flexible">Más características/menos seguridad</string>
+    <string name="profile_strict">Más seguridad/menos características</string>
+    <string name="profile_custom">Personalizado</string>
+    <string name="profile_custom_annotation">Recomendado solo para usuarios avanzados</string>
+
+    <!-- anonymity settings block-->
+    <string name="settings_anonymity_title">Anonimato</string>
+
+    <string name="settings_timestamp">Marcas de tiempo</string>
+    <string name="settings_location_tagging">Etiquetado de ubicación</string>
+    <string name="settings_pseudonym">Sobrenombres</string>
+
+    <!-- privacy settings block-->
+    <string name="settings_privacy_title">Privacidad</string>
+
+    <string name="settings_trust">Puntajes de conexión</string>
+    <string name="settings_self_dest">Tiempo para la autodestrucción</string>
+    <string name="settings_self_dest_annotation">Tiempo en horas para la autodestrucción del mensaje</string>
+    <string name="settings_restricted">Mensajes restringidos (contactos)</string>
+    <string name="settings_restricted_annotation">Mínimo de contactos compartidos para enviar mensaje</string>
+
+    <!-- feed related settings block-->
+    <string name="settings_feed_title">Feed</string>
+
+    <string name="settings_autodelete">Eliminar automáticamente los mensajes</string>
+    <string name="settings_autodelete_trust_annotation">Con un puntaje de conexión menor que</string>
+  <!-- describe meaning of changing connection score threshold-->
+    <string name="settings_autodelete_age_annotation">Mayor que (en días)</string>
+  <!-- describe meaning of changing age threshold-->
+
+    <!-- contact related settings block-->
+    <string name="settings_contacts_title">Contactos</string>
+
+    <string name="settings_add_via_phonebook">Añadir contactos mediante la libreta de teléfonos</string>
+    <string name="settings_add_via_qr">Añadir contactos mediante código QR</string>
+
+    <!-- exchange related settings block-->
+    <string name="settings_exchange_title">Intercambios</string>
+
+    <string name="settings_max_messages_p_exchange">Máximo de mensajes por intercambio</string>
+    <string name="settings_timeout_p_exchange">Tiempo de expiración entre intercambios</string>
+
+    <!-- network related settings block (not currently in use)-->
+    <string name="settings_network_title">Red</string>
+
+    <string name="settings_mac_title">Dirección Bluetooth</string>
+
+    <string name="settings_bt_device_settings">Ir a la pantalla de estado</string>
+
+    <!-- About -->
+
+    <string name="aboutTitle">Acerca de Murmur</string>
+    <string name="aboutBody">Murmur es una app de mensajería gratuita, anónima y de código abierto que no necesita conexión a Internet. Los mensajes no se envían en tiempo real como con otras apps de mensajería que dependen de internet y tienen un servidor central, sino que se diseminan directamente entre dispositivos (mediante una red punto a punto) sin intervención del usuario, usando Bluetooth y Wi-Fi Direct. ¡Entre más dispositivos, más rápido se envían los mensajes! Si no hay dispositivos cercanos, el mensaje queda en cola para ser enviado más tarde. Usted controla su anonimato y decide que información suya compartir. Por último, los puntajes de conexión lo ayudan a filtrar los mensajes no deseados y a limitar los mensajes restringidos a su audiencia y amigos.</string>
+
+    <!-- Share app-->
+    <!-- notification attached to the url message -->
+    <string name="share_app_promo1">¡Pruebe Murmur! En Google Play</string>
+    <string name="share_app_promo2">o, si no tiene acceso, aquí</string>
+
+    <!-- On-boarding -->
+    <string name="skip_welcome">SIGUIENTE</string>
+    <string name="skip_welcome2">GUARDAR</string>
+
+    <string name="onboarding1_title">Comuníquese libremente</string>
+    <string name="onboarding1_message">Los mensajes se transmiten entre dispositivos por Bluetooth y Wi-Fi. ¡Entre más dispositivos, más rápido se envían los mensajes! Si no hay dispositivos cercanos, el mensaje queda en cola para ser enviado más tarde</string>
+
+    <string name="onboarding2_title">Controle su anonimato</string>
+    <string name="onboarding2_message">Elija los ajustes de seguridad para establecer su nivel de anonimato. Entre más ajustes habilite, más información suya comparte</string>
+
+    <string name="onboarding3_title">Mantenga su privacidad</string>
+    <string name="onboarding3_message">Filtre el correo no deseado usando puntajes de conexión y limite su audiencia con los mensajes restringidos</string>
+
+    <string name="onboarding4_title">Solo una cosa más</string>
+    <string name="onboarding4_message">Por favor habilite Bluetooth, vaya a la pantalla de Estado, y copie su dirección de Bluetooth a continuación:</string>
+    <string name="onboarding4_message_small_why">¿Por qué pedimos esto?</string>
+    <string name="onboarding4_message_small">Murmur usa Bluetooth para comunicarse. Desafortunadamente las apps Android 6.x no pueden tener acceso a su dirección Bluetooth automáticamente, por lo que necesitamos su ayuda. No se preocupe, solo es necesario hacerlo una vez. Si se equivoca al ingresar la dirección, puede corregirla después en Ajustes</string>
+    <string name="onboarding4_message_error">Dirección Bluetooth invalida</string>
+
+    <!--Replies feed-->
+    <string name="comments">Respuestas</string>
+
+    <!-- Help & Feedback-->
+    <!-- feedback-->
+    <string name="send_feedback">Enviar comentarios</string>
+    <string name="feedback_intro">Apreciado representantes de soporte de Murmur:</string>
+
+    <string name="more_help">
+    <u>Más &gt;&gt;</u>
+  </string>
+
+</resources>
