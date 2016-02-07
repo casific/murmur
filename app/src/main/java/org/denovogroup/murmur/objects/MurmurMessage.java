@@ -65,8 +65,10 @@ public final class MurmurMessage extends Message {
     public static final String MIN_USERS_P_HOP_KEY = "min_users_p_hop";
 
     private static final float MEAN = 0.0f;
-    private static final float VAR = 0.003f;//originally set to 0.003f
+    private static final float VAR = 0.003f;//paper suggest 0.1
     private static final float EPSILON_TRUST = 0.001f;
+
+    private static final boolean USE_SIMPLE_NOISE = false;
 
     /**
      * The message's id, as a String.
@@ -233,7 +235,6 @@ public final class MurmurMessage extends Message {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        Log.d("liran","trust converted from "+trust+" to "+result.optDouble(TRUST_KEY, -1f));
 
         return result;
     }
@@ -267,10 +268,13 @@ public final class MurmurMessage extends Message {
     private float makeNoise(double priority,
                             int sharedFriends,
                             int myFriends){
-        //return priority + Utils.makeNoise(MEAN, VAR);
-        return (float)computeNewPriority_sigmoidFractionOfFriends(priority,
-                                                           sharedFriends,
-                                                           myFriends);
+        if(USE_SIMPLE_NOISE){
+            return (float)(priority + Utils.makeNoise(MEAN, VAR));
+        } else {
+            return (float) computeNewPriority_sigmoidFractionOfFriends(priority,
+                    sharedFriends,
+                    myFriends);
+        }
     }
 
     /** Compute the priority score for a person normalized by his number of friends, and passed

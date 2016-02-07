@@ -52,7 +52,7 @@ public class SecurityManager {
     private static List<SecurityProfile> profiles;
 
     /** the shared preference file where security settings are stored */
-    public static final String SETTINGS_FILE = "Settings";
+    public static final String SETTINGS_FILE = "Settings_secure";
     /** the key under which pseudonym is set in the file*/
     public static final String PSEUDONYM_KEY = "pseudonym";
     /** the key under which mac is set in the file*/

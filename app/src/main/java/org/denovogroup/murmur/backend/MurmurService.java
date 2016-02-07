@@ -316,6 +316,7 @@ public class MurmurService extends Service {
         mWifiDirectSpeaker.dismissNoWifiNotification();
         mBluetoothSpeaker.unregisterReceiver(this);
         mBluetoothSpeaker.dismissNoBluetoothNotification();
+        mBluetoothSpeaker.destroyListeningSocket();
         log.debug("MurmurService destroyed");
     }
 

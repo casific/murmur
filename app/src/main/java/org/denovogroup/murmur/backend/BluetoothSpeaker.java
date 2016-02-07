@@ -284,6 +284,18 @@ public class BluetoothSpeaker {
               SDP_NAME, mThisDeviceUUID));
   }
 
+    public void destroyListeningSocket(){
+        if(mServerSocket != null){
+            try {
+                mServerSocket.close();
+                log.info("Listening socket closed");
+            } catch (IOException e) {
+                log.info("Listening socket failed closing",e);
+                e.printStackTrace();
+            }
+        }
+    }
+
     /**
    * Accept a connection to the BluetoothServerSocket we've set up.
    * @throws IOException

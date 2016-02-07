@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?><resources>
+
+    <!-- General -->
+
+    <!-- Navigation drawer state for usability assistance-->
+    <string name="open">درج التصفح مفتوح</string>
+    <string name="close">درج التصفح مغلق</string>
+
+    <!-- Network error notification and prompts -->
+    <string name="offline_mode_toast">تطبيقMurmur  يعمل في وضع عدم الاتصال بالشبكة</string>
+    <string name="notification_connection_error_title">خطأ في الاتصال</string>
+    <string name="notification_connection_error_message">تشغيل البلوتوث/الواي فاي أو الانتقال إلى وضع عدم الاتصال بالشبكة</string>
+    <string name="notification_no_bluetooth_title">خطأ في الاتصال: البلوتوث لا يعمل</string>
+  <!-- no longer in use, uses single error for both WIFI and BT-->
+    <string name="notification_no_bluetooth_message">برجاء تشغيل البلوتوث أو الانتقال إلى وضع عدم الاتصال بالشبكة</string>
+  <!-- no longer in use, uses single error for both WIFI and BT-->
+    <string name="notification_no_wifi_title">خطأ في الاتصال: الواي فاي لا يعمل</string>
+  <!-- no longer in use, uses single error for both WIFI and BT-->
+    <string name="notification_no_wifi_message">برجاء تشغيل البلوتوث/الواي فاي أو الانتقال إلى وضع عدم الاتصال بالشبكة</string>
+  <!-- no longer in use, uses single error for both WIFI and BT-->
+
+    <string name="error_notification_action_onwifi">تشغيل</string>
+    <string name="error_notification_action_turnon_bt">تشغيل</string>
+    <string name="error_notification_action_off_service">الانتقال إلى وضع عدم الاتصال بالشبكة</string>
+
+    <!-- New messages notification-->
+    <string name="unread_notification_title">لا توجد رسائل غير مقروءة</string>
+    <string name="unread_notification_content">تبادلات جديدة</string>
+
+    <!-- New messages snackbar -->
+    <string name="new_messages_notification_desc">رسائل جديدة</string>
+    <string name="new_message_notification_desc">رسالة جديدة</string>
+    <string name="new_messages_notification_btn">عرض الجديد</string>
+    <string name="exchanges">تبادلات جديدة</string>
+    <string name="exchange">تبادل جديد</string>
+
+    <!-- Drawer menu actions (also used as page titles)-->
+    <string name="drawer_menu_feed">التلقيم</string>
+    <string name="drawer_menu_starred">مميز بنجمة</string>
+    <string name="drawer_menu_offline_mode">وضع عدم الاتصال بالشبكة</string>
+    <string name="drawer_menu_contact">جهات الاتصال</string>
+    <string name="drawer_menu_profile">الملف الشخصي</string>
+    <string name="drawer_menu_settings">الإعدادات</string>
+    <string name="drawer_menu_help">المساعدة والتعقيبات</string>
+    <string name="drawer_menu_info">حول التطبيق</string>
+    <string name="drawer_menu_reset">إعادة ضبط التطبيق</string>
+    <string name="drawer_menu_export">تصدير التلقيم</string>
+    <string name="drawer_menu_share_app">مشاركة Murmur</string>
+    <string name="drawer_menu_advanced">متقدم</string>
+
+    <!-- share app picker title-->
+    <string name="share_using">.مشاركة باستخدام</string>
+
+    <!-- export process toasts-->
+    <string name="export">جارِ التصدير ...</string>
+    <string name="export_message">برجاء الانتظار</string>
+    <string name="export_successful">تم إخراج التلقيم إلى مجلد التحميلات</string>
+    <string name="export_failed">عفوا، تعذر تصدير التلقيم، يرجى المحاولة مرة أخرى</string>
+
+    <!-- Share message (from feed/stared)-->
+    <string name="share_prefix">تم الإرسال بواسطة Murmur</string>
+
+    <!-- Actionbar/Toolbar-->
+
+    <string name="empty_string"/>
+    <string name="select_all">اختيار الكل</string>
+    <string name="deselect_all">إلغاء اختيار الكل</string>
+
+    <!-- actionbar sort options-->
+    <string name="sort_opt_newest">الأحدث</string>
+    <string name="sort_opt_oldest">الأقدم</string>
+    <string name="sort_opt_mostendorsed">الأكثر تأييدًا</string>
+    <string name="sort_opt_leastendorsed">الأقل تأييدًا</string>
+    <string name="sort_opt_mostconnected">الأكثر اتصالاً</string>
+    <string name="sort_opt_leastconnected">الأقل اتصالاً</string>
+
+    <!-- menu item titles (not shown but required) -->
+    <string name="send">إرسال</string>
+    <string name="search_title">بحث</string>
+    <string name="retweet">إعادة المشاركة</string>
+    <string name="share">مشاركة</string>
+    <string name="delete">حذف</string>
+
+    <!-- menu item titles (shown when in advance delete mode-->
+    <string name="delete_from_sender">نفس الاسم المستعار</string>
+  <!--Delete messages with same sender-->
+    <string name="delete_by_connection">نفس الدرجة أو أقل</string>
+  <!--Delete messages with same or lower connection-->
+    <string name="delete_by_exchange">نفس التبادل</string>
+  <!--Delete messages from same exchange-->
+    <string name="delete_tree">إدراج الردود</string>
+  <!--Delete message and replies-->
+
+    <!-- Feed/Starred-->
+
+    <!-- delete dialog conformation-->
+    <string name="delete_dialog_title">حذف المحتوى</string>
+    <string name="delete_dialog_message1">هل أنت متأكد من رغبتك في حذف</string>
+  <!-- pre-number-->
+    <string name="delete_dialog_message2">عنصر (عناصر)؟</string>
+  <!-- post-number-->
+
+    <!-- item time units -->
+    <string name="days_short">يوم</string>
+    <string name="just_now">آخر ساعة</string>
+    <string name="today">اليوم</string>
+    <string name="h_ago">منذ ساعة واحدة</string>
+    <string name="d_ago">منذ يوم واحد</string>
+
+    <!-- self destruct pre-text-->
+    <string name="self_destruct_in">تدمير ذاتي في</string>
+  <!-- time -->
+
+    <!-- reset application dialog -->
+    <string name="reset_dialog_title">إعادة ضبط التطبيق</string>
+    <string name="reset_app_message">هل أنت متأكد من رغبتك في إعادة ضبط تطبيق Murmur؟\nسوف يتم حذف جميع الرسائل وجهات الاتصال؟</string>
+    <string name="confirm_reset_dialog_title">تأكيد إعادة الضبط</string>
+    <string name="confirm_reset_app_message">انقر على\"نعم\" لإعادة ضبط Murmur</string>
+
+    <!-- Post/Reply post -->
+    <!-- actionbar titles-->
+    <string name="new_post">مشاركة جديدة</string>
+    <string name="reply">رد</string>
+
+    <string name="post_hint">اكتب رسالتك</string>
+
+    <!-- Self-destruct dialog -->
+    <string name="timebound_dialog_title">تدمير ذاتي</string>
+    <string name="hours_short">ساعات</string>
+
+    <!-- Share location error -->
+    <string name="no_gps_error">تعذر تحديد الموقع، يرجى تفعيل تحديد المواقع (GPS)</string>
+
+    <!-- Profile -->
+    <string name="pseudonym_title">الاسم المستعار</string>
+    <string name="qr_title">رمز الاستجابة السريعة</string>
+
+    <!-- Contacts-->
+
+    <!-- Menu item title (not shown but required) -->
+    <string name="add">إضافة</string>
+
+    <!-- Add Contact dialog -->
+    <string name="add_friend_dialog_title">إضافة جهة اتصال</string>
+    <string name="add_friend_dialog_body">حدد الطريقة</string>
+    <string name="add_friend_qrcode">رمز الاستجابة السريعة</string>
+    <string name="add_friend_phonebook">دليل الهاتف</string>
+
+    <!-- edit contact dialog -->
+    <string name="conf_friend_dialog_title">تعديل جهة الاتصال</string>
+    <string name="conf_friend_dialog_name_title">الاسم المستعار</string>
+    <string name="conf_friend_dialog_number_title">الهاتف</string>
+
+    <!-- Delete contact conformation dialog-->
+    <string name="delete_dialog_friend1">هل أنت متأكد من رغبتك في حذف</string>
+  <!--pre-number-->
+    <string name="delete_dialog_friend2">عناصر</string>
+  <!--post-number-->
+
+    <!-- QR code scanner prompt message-->
+    <string name="qr_scanner_message">المسح الضوئي لرمز الاستجابة السريعة في Murmur</string>
+    <!-- valid QR code prefix to identify app related QR-->
+
+    <!-- add contact result toasts -->
+    <string name="contact_add_conf">تمت إضافة جهة الاتصال</string>
+    <string name="contact_exist">موجود بالفعل في جهات الاتصال</string>
+    <string name="contact_add_fail">جهة الاتصال المختارة ليس لديها رقم هاتف</string>
+    <string name="qr_badqr_error">ليس رمز استجابة سريعة في Murmur</string>
+
+    <!-- Settings-->
+    <!-- profile preset block-->
+    <string name="select_profile_title">اختيار ملف شخصي</string>
+    <string name="profile_flexible">مزايا أكثر/ أمن أقل</string>
+    <string name="profile_strict">أمن أكثر/ مزايا أقل</string>
+    <string name="profile_custom">مخصص</string>
+    <string name="profile_custom_annotation">موصى به للمستخدمين المتقدمين فقط</string>
+
+    <!-- anonymity settings block-->
+    <string name="settings_anonymity_title">إخفاء الهوية</string>
+
+    <string name="settings_timestamp">طوابع زمنية</string>
+    <string name="settings_location_tagging">تحديد الموقع</string>
+    <string name="settings_pseudonym">أسماء مستعارة</string>
+
+    <!-- privacy settings block-->
+    <string name="settings_privacy_title">الخصوصية</string>
+
+    <string name="settings_trust">درجات الاتصال</string>
+    <string name="settings_self_dest">مدة التدمير الذاتي</string>
+    <string name="settings_self_dest_annotation">مدة رسالة التدمير الذاتي الافتراضية بالساعات</string>
+    <string name="settings_restricted">رسائل محظورة (جهات الاتصال)</string>
+    <string name="settings_restricted_annotation">الحد الأدنى لجهات الاتصال المشتركة لإرسال رسالة</string>
+
+    <!-- feed related settings block-->
+    <string name="settings_feed_title">تلقيم</string>
+
+    <string name="settings_autodelete">الحذف التلقائي للرسائل</string>
+    <string name="settings_autodelete_trust_annotation">بدرجة اتصال أقل من</string>
+  <!-- describe meaning of changing connection score threshold-->
+    <string name="settings_autodelete_age_annotation">أقدم من (بالأيام)</string>
+  <!-- describe meaning of changing age threshold-->
+
+    <!-- contact related settings block-->
+    <string name="settings_contacts_title">جهات الاتصال</string>
+
+    <string name="settings_add_via_phonebook">إضافة جهات اتصال بواسطة سجل الهاتف</string>
+    <string name="settings_add_via_qr">إضافة جهات اتصال بواسطة رمز الاستجابة السريعة</string>
+
+    <!-- exchange related settings block-->
+    <string name="settings_exchange_title">تبادلات</string>
+
+    <string name="settings_max_messages_p_exchange">الحد الأقصى للرسائل في التبادل الواحد</string>
+    <string name="settings_timeout_p_exchange">زمن الانتظار بين التبادلات</string>
+
+    <!-- network related settings block (not currently in use)-->
+    <string name="settings_network_title">الشبكة</string>
+
+    <string name="settings_mac_title">عنوان البلوتوث</string>
+
+    <string name="settings_bt_device_settings">الذهاب إلى شاشة الحالة</string>
+
+    <!-- About -->
+
+    <string name="aboutTitle">حول تطبيق Murmur</string>
+    <string name="aboutBody">Murmur هو تطبيق لإرسال الرسائل مجاني، ومفتوح\nالمصدر ويخفي\nالهوية، ولا يتطلب الاتصال بالإنترنت.\nو لا يتم إرسال الرسائل في الوقت الحقيقي كما هو الحال في تطبيقات الرسائل الأخرى\nالتي تعتمد على الإنترنت ولها خادم مركزي، ولكن بدلاً من ذلك فإنها تنتقل مباشرة\nمن جهاز إلى آخر (تشكل شبكة ند إلى ند) دون تدخل المستخدم باستخدام تقنية البلوتوث\nوواي فاي مباشرة. وكلما زاد عدد الأجهزة كلما انتشرت الرسالة بشكل أسرع! وإذا لم تكن\nهناك أجهزة قريبة، يتم وضع الرسالة في قائمة الانتظار في التلقيم ليتم إرسالها في\nوقت لاحق. ويمكنك التحكم في عدم الكشف عن هويتك وتحديدالمعلومات التي تشاركها مع\nالآخرين عن نفسك. وأخيرًا،  تساعدك درجات الاتصال\nعلى تصفية الرسائل غير المرغوب فيها فضلاً عن أن الرسائل المحظورة تجعل جمهورك\nمقتصر على أصدقائك.</string>
+
+    <!-- Share app-->
+    <!-- notification attached to the url message -->
+    <string name="share_app_promo1">اكتشف تطبيق Murmur! على Google Play</string>
+    <string name="share_app_promo2">أو إذا لم يكن لديك إمكانية الدخول هنا</string>
+
+    <!-- On-boarding -->
+    <string name="skip_welcome">التالى</string>
+    <string name="skip_welcome2">حفظ</string>
+
+    <string name="onboarding1_title">تواصل بحرية</string>
+    <string name="onboarding1_message">يتم نقل الرسائل بين الأجهزة عبر البلوتوث والواي فاي. وكلما زاد عدد الأجهزة، تحركت الرسائل بشكل أسرع! وإذا لم يكن هناك أجهزة قريبة، يتم وضع الرسائل في قائمة الانتظار ليتم إرسالها في وقت لاحق</string>
+
+    <string name="onboarding2_title">تحكم في إخفاء هويتك.</string>
+    <string name="onboarding2_message">قم باختيار إعدادات الأمان لتحديد مستوى إخفاء هويتك. وكلما زادت الإعدادات المتاحة، زادت المعلومات التي تشاركها عن نفسك</string>
+
+    <string name="onboarding3_title">حافظ على خصوصيتك</string>
+    <string name="onboarding3_message">قم بتصفية الرسائل غير المرغوب فيها باستخدام درجات الاتصال وقلل عدد جمهورك بواسطة الرسائل المحظورة</string>
+
+    <string name="onboarding4_title">شئ آخر واحد فقط</string>
+    <string name="onboarding4_message">يرجى تشغيل البلوتوث، والذهاب إلى شاشة الحالة، ونسخ ولصق عنوان البلوتوث الخاص بك أدناه:</string>
+    <string name="onboarding4_message_small_why">\n\n\n \n  \n  لماذا نطلب منك ذلك؟</string>
+    <string name="onboarding4_message_small">يستخدم تطبيق Murmur البلوتوث للاتصال. وللأسف، فإن تطبيقات أندرويد 6.x لا يمكنها الوصول التلقائي لعنوان البلوتوث الخاص بك، ولذلك نحن في حاجة لمساعدتك. ولا تقلق - سيكون عليك إدخال هذا مرة واحدة فقط. وإذا أخطأت في إدخال العنوان يمكنك تصحيح ذلك لاحقًا في الإعدادات</string>
+    <string name="onboarding4_message_error">عنوان بلوتوث غير صحيح</string>
+
+    <!--Replies feed-->
+    <string name="comments">ردود</string>
+
+    <!-- Help & Feedback-->
+    <!-- feedback-->
+    <string name="send_feedback">أرسل تعقيبًا</string>
+    <string name="feedback_intro">السيد ممثل الدعم في Murmur،</string>
+
+    <string name="more_help">
+    <u> المزيد &gt;&gt; </u>
+  </string>
+
+</resources>
