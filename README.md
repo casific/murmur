@@ -23,22 +23,22 @@ Murmur passed a full 3rd party security audit by iSEC, see docs for the report o
 
 ## Installation notes
 Murmur is built using Android Studio using java 1.8 plugin. To setup your own build:  
-1. Clone the repository
-2. Open android studio
-3. From the splash menu select Open existing android studio project
-4. Navigate to where the clone is located and select the build.gradle file.
-5. wait for android studio to complete building the project (will require internet connection)
+1. Clone the repository  
+2. Open android studio  
+3. From the splash menu select Open existing android studio project  
+4. Navigate to where the clone is located and select the build.gradle file  
+5. wait for android studio to complete building the project (will require internet connection)  
 
 # Troubleshooting
-If you have any issues setting up your build environment consider the following:
-1. Update your java plugin to 1.8 or higher
-2. Ensure you have the latest build tools version from the sdk manager
+If you have any issues setting up your build environment consider the following:  
+1. Update your java plugin to 1.8 or higher  
+2. Ensure you have the latest build tools version from the sdk manager  
 
 ## Dependencies / 3rd party libraries
-Android support library
-Android AppCompat extension
-ZXing : used in QR-code read/creation
-Okio : used in cryptographic engine of the storage and network layer
-Spongycastle : used in cryptographic engine of the storage layer
-SystemBarTint : provides translucent theme for older API levels
-Log4J : used to create and send logs as part of the Send Feedback feature
+1. Android support library  
+2. Android AppCompat extension  
+3. ZXing : used in QR-code read/creation  
+4. Okio : used in cryptographic engine of the storage and network layer  
+5. Spongycastle : used in cryptographic engine of the storage layer  
+6. SystemBarTint : provides translucent theme for older API levels  
+7. Log4J : used to create and send logs as part of the Send Feedback feature  
