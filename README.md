@@ -10,10 +10,10 @@ Each exchange starts with a handshake in which each device sends its contacts li
 When the exchange is completed, the received messages are saved to the local database and a backoff algorithm is initiated in order to conserve battery life and avoid redundant exchanges with same peer if no actual messages were added to the feed. 
 
 ## Major classes and packages
-The Network layer consist of 3 main classes:
-MurmurService - service running in the background, listening to WiFi Direct and Bluetooth changes and attempting to perform exchange when peer(s) identified. This is the main process of the network layer and must be running to provide network functionality.
-BluetoothSpeaker - An event handler for the Bluetooth hardware, this class is in charge of initiating calls to the Bluetooth hardware, starting a connection and create a listening socket for incoming transmissions
-WifiDirectSpeaker - An event handler for the WifiDirect hardware, this class is in charge of running scans on WiFi Direct network.
+The Network layer consist of 3 main classes:  
+* MurmurService - service running in the background, listening to WiFi Direct and Bluetooth changes and attempting to perform exchange when peer(s) identified. This is the main process of the network layer and must be running to provide network functionality.  
+* BluetoothSpeaker - An event handler for the Bluetooth hardware, this class is in charge of initiating calls to the Bluetooth hardware, starting a connection and create a listening socket for incoming transmissions  
+* WifiDirectSpeaker - An event handler for the WifiDirect hardware, this class is in charge of running scans on WiFi Direct network.
 
 UI Structure:
 Murmur uses one primary Activity called MainActivity as the main source for all its UI screens. This class provides the basic handling of the DrawerMenu widget and sets the stage for other screens supplied as Fragments. Running this Activity will launch the MurmurService which remains alive even after the app is closed.
@@ -22,23 +22,23 @@ Murmur uses one primary Activity called MainActivity as the main source for all 
 Murmur passed a full 3rd party security audit by iSEC, see docs for the report outputs. All major findings have been resolved.
 
 ## Installation notes
-Murmur is built using Android Studio using java 1.8 plugin. To setup your own build:
-1. Clone the repository
-2. Open android studio
-3. From the splash menu select Open existing android studio project
-4. Navigate to where the clone is located and select the build.gradle file.
-5. wait for android studio to complete building the project (will require internet connection)
+Murmur is built using Android Studio using java 1.8 plugin. To setup your own build:  
+1. Clone the repository  
+2. Open android studio  
+3. From the splash menu select Open existing android studio project  
+4. Navigate to where the clone is located and select the build.gradle file  
+5. wait for android studio to complete building the project (will require internet connection)  
 
 # Troubleshooting
-If you have any issues setting up your build environment consider the following:
-1. Update your java plugin to 1.8 or higher
-2. Ensure you have the latest build tools version from the sdk manager
+If you have any issues setting up your build environment consider the following:  
+1. Update your java plugin to 1.8 or higher  
+2. Ensure you have the latest build tools version from the sdk manager  
 
 ## Dependencies / 3rd party libraries
-Android support library
-Android AppCompat extension
-ZXing : used in QR-code read/creation
-Okio : used in cryptographic engine of the storage and network layer
-Spongycastle : used in cryptographic engine of the storage layer
-SystemBarTint : provides translucent theme for older API levels
-Log4J : used to create and send logs as part of the Send Feedback feature
+* Android support library  
+* Android AppCompat extension  
+* ZXing : used in QR-code read/creation  
+* Okio : used in cryptographic engine of the storage and network layer  
+* Spongycastle : used in cryptographic engine of the storage layer  
+* SystemBarTint : provides translucent theme for older API levels  
+* Log4J : used to create and send logs as part of the Send Feedback feature  
