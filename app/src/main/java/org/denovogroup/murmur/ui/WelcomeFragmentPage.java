@@ -114,6 +114,12 @@ public class WelcomeFragmentPage extends Fragment{
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        if(input != null ) input.addTextChangedListener(watcher);
+    }
+
+    @Override
     public void onPause() {
         super.onPause();
         if(input != null ) input.removeTextChangedListener(watcher);

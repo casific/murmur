@@ -109,9 +109,7 @@ public class WelcomeActivity extends AppCompatActivity {
 
         /*String prefName = "initializes";
         String prefProperty = "initializes";
-
         SharedPreferences prefFile = getSharedPreferences(prefName, Context.MODE_PRIVATE);
-
         if(prefFile.contains(prefProperty)){
             goToMain();
         } else {
