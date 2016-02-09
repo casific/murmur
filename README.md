@@ -21,6 +21,19 @@ Murmur uses one primary Activity called MainActivity as the main source for all 
 ## Security Audit
 Murmur passed a full 3rd party security audit by iSEC, see docs for the report outputs. All major findings have been resolved.
 
+## Installation notes
+Murmur is built using Android Studio using java 1.8 plugin. To setup your own build:
+1. Clone the repository
+2. Open android studio
+3. From the splash menu select Open existing android studio project
+4. Navigate to where the clone is located and select the build.gradle file.
+5. wait for android studio to complete building the project (will require internet connection)
+
+# Troubleshooting
+If you have any issues setting up your build environment consider the following:
+1. Update your java plugin to 1.8 or higher
+2. Ensure you have the latest build tools version from the sdk manager
+
 ## Dependencies / 3rd party libraries
 Android support library
 Android AppCompat extension
