@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?><resources>
+
+    <!-- General -->
+
+    <!-- Navigation drawer state for usability assistance-->
+    <string name="open">导航抽屉打开</string>
+    <string name="close">导航抽屉关闭</string>
+
+    <!-- Network error notification and prompts -->
+    <string name="offline_mode_toast">Murmur处于离线运行模式</string>
+    <string name="notification_connection_error_title">连接错误</string>
+    <string name="notification_connection_error_message">开启蓝牙/WiFi或切换至离线</string>
+    <string name="notification_no_bluetooth_title">连接错误：未开启蓝牙</string>
+  <!-- no longer in use, uses single error for both WIFI and BT-->
+    <string name="notification_no_bluetooth_message">请开启蓝牙或切换至离线模式</string>
+  <!-- no longer in use, uses single error for both WIFI and BT-->
+    <string name="notification_no_wifi_title">连接错误：未开启WiFi</string>
+  <!-- no longer in use, uses single error for both WIFI and BT-->
+    <string name="notification_no_wifi_message">请开启WiFi或切换至离线模式</string>
+  <!-- no longer in use, uses single error for both WIFI and BT-->
+
+    <string name="error_notification_action_onwifi">开启</string>
+    <string name="error_notification_action_turnon_bt">开启</string>
+    <string name="error_notification_action_off_service">切换到离线</string>
+
+    <!-- New messages notification-->
+    <string name="unread_notification_title">新未读消息</string>
+    <string name="unread_notification_content">新交流</string>
+
+    <!-- New messages snackbar -->
+    <string name="new_messages_notification_desc">新消息</string>
+    <string name="new_message_notification_desc">新消息</string>
+    <string name="new_messages_notification_btn">查看新信息</string>
+    <string name="exchanges">新交流</string>
+    <string name="exchange">新交流</string>
+
+    <!-- Drawer menu actions (also used as page titles)-->
+    <string name="drawer_menu_feed">动态</string>
+    <string name="drawer_menu_starred">收藏</string>
+    <string name="drawer_menu_offline_mode">离线模式</string>
+    <string name="drawer_menu_contact">联系人</string>
+    <string name="drawer_menu_profile">配置</string>
+    <string name="drawer_menu_settings">设置</string>
+    <string name="drawer_menu_help">帮助与反馈</string>
+    <string name="drawer_menu_info">关于</string>
+    <string name="drawer_menu_reset">重置应用程序</string>
+    <string name="drawer_menu_export">导出动态</string>
+    <string name="drawer_menu_share_app">分享Murmur</string>
+    <string name="drawer_menu_advanced">高级</string>
+
+    <!-- share app picker title-->
+    <string name="share_using">分享使用</string>
+
+    <!-- export process toasts-->
+    <string name="export">正在导出...</string>
+    <string name="export_message">请稍等...</string>
+    <string name="export_successful">动态已导出至你的下载文件夹</string>
+    <string name="export_failed">哎呀，动态导出失败，请再次尝试</string>
+
+    <!-- Share message (from feed/stared)-->
+    <string name="share_prefix">已使用Murmur发送</string>
+
+    <!-- Actionbar/Toolbar-->
+
+    <string name="empty_string"/>
+    <string name="select_all">全选</string>
+    <string name="deselect_all">取消全选</string>
+
+    <!-- actionbar sort options-->
+    <string name="sort_opt_newest">最新</string>
+    <string name="sort_opt_oldest">最早</string>
+    <string name="sort_opt_mostendorsed">最多赞</string>
+    <string name="sort_opt_leastendorsed">最少赞</string>
+    <string name="sort_opt_mostconnected">最多连接</string>
+    <string name="sort_opt_leastconnected">最少连接</string>
+
+    <!-- menu item titles (not shown but required) -->
+    <string name="send">发送</string>
+    <string name="search_title">搜索</string>
+    <string name="retweet">锐推</string>
+    <string name="share">分享</string>
+    <string name="delete">删除</string>
+
+    <!-- menu item titles (shown when in advance delete mode-->
+    <string name="delete_from_sender">相同昵称</string>
+  <!--Delete messages with same sender-->
+    <string name="delete_by_connection">相同或较低得分</string>
+  <!--Delete messages with same or lower connection-->
+    <string name="delete_by_exchange">相同交流</string>
+  <!--Delete messages from same exchange-->
+    <string name="delete_tree">包含回复</string>
+  <!--Delete message and replies-->
+
+    <!-- Feed/Starred-->
+
+    <!-- delete dialog conformation-->
+    <string name="delete_dialog_title">删除项目</string>
+    <string name="delete_dialog_message1">你确定要删除</string>
+  <!-- pre-number-->
+    <string name="delete_dialog_message2">项目吗？</string>
+  <!-- post-number-->
+
+    <!-- item time units -->
+    <string name="days_short">天</string>
+    <string name="just_now">上一小时</string>
+    <string name="today">今天</string>
+    <string name="h_ago">小时前</string>
+    <string name="d_ago">天以前</string>
+
+    <!-- self destruct pre-text-->
+    <string name="self_destruct_in">自毁于</string>
+  <!-- time -->
+
+    <!-- reset application dialog -->
+    <string name="reset_dialog_title">重置应用</string>
+    <string name="reset_app_message">你确定要重置Murmur吗？\n所有消息和联系人将被删除</string>
+    <string name="confirm_reset_dialog_title">确定重置</string>
+    <string name="confirm_reset_app_message">点击“是”重置Murmur。</string>
+
+    <!-- Post/Reply post -->
+    <!-- actionbar titles-->
+    <string name="new_post">新帖</string>
+    <string name="reply">回复</string>
+
+    <string name="post_hint">输入你的信息</string>
+
+    <!-- Self-destruct dialog -->
+    <string name="timebound_dialog_title">自毁</string>
+    <string name="hours_short">小时</string>
+
+    <!-- Share location error -->
+    <string name="no_gps_error">无法确定位置，请激活你的GPS全球定位功能</string>
+
+    <!-- Profile -->
+    <string name="pseudonym_title">昵称</string>
+    <string name="qr_title">二维码</string>
+
+    <!-- Contacts-->
+
+    <!-- Menu item title (not shown but required) -->
+    <string name="add">添加</string>
+
+    <!-- Add Contact dialog -->
+    <string name="add_friend_dialog_title">添加联系人</string>
+    <string name="add_friend_dialog_body">选择方法</string>
+    <string name="add_friend_qrcode">二维码</string>
+    <string name="add_friend_phonebook">通讯录</string>
+
+    <!-- edit contact dialog -->
+    <string name="conf_friend_dialog_title">编辑联系人</string>
+    <string name="conf_friend_dialog_name_title">昵称</string>
+    <string name="conf_friend_dialog_number_title">电话</string>
+
+    <!-- Delete contact conformation dialog-->
+    <string name="delete_dialog_friend1">你确定要删除</string>
+  <!--pre-number-->
+    <string name="delete_dialog_friend2">项目</string>
+  <!--post-number-->
+
+    <!-- QR code scanner prompt message-->
+    <string name="qr_scanner_message">扫描Murmur二维码</string>
+
+    <!-- add contact result toasts -->
+    <string name="contact_add_conf">联系人已添加</string>
+    <string name="contact_exist">已有联系人</string>
+    <string name="contact_add_fail">所选联系人没有电话号码</string>
+    <string name="qr_badqr_error">不是Murmur二维码</string>
+
+    <!-- Settings-->
+    <!-- profile preset block-->
+    <string name="select_profile_title">选择配置</string>
+    <string name="profile_flexible">更多功能/较少安全性</string>
+    <string name="profile_strict">更多安全性/较少功能</string>
+    <string name="profile_custom">自定义</string>
+    <string name="profile_custom_annotation">仅推荐高级用户使用</string>
+
+    <!-- anonymity settings block-->
+    <string name="settings_anonymity_title">匿名</string>
+
+    <string name="settings_timestamp">时间戳</string>
+    <string name="settings_location_tagging">位置标记</string>
+    <string name="settings_pseudonym">昵称</string>
+
+    <!-- privacy settings block-->
+    <string name="settings_privacy_title">隐私</string>
+
+    <string name="settings_trust">连接得分</string>
+    <string name="settings_self_dest">自毁时间</string>
+    <string name="settings_self_dest_annotation">自毁消息默认小时数</string>
+    <string name="settings_restricted">受限消息（联系人）</string>
+    <string name="settings_restricted_annotation">发送消息的最少共享联系人</string>
+
+    <!-- feed related settings block-->
+    <string name="settings_feed_title">动态</string>
+
+    <string name="settings_autodelete">自动删除消息</string>
+    <string name="settings_autodelete_trust_annotation">连接得分少于</string>
+  <!-- describe meaning of changing connection score threshold-->
+    <string name="settings_autodelete_age_annotation">早于（天数）</string>
+  <!-- describe meaning of changing age threshold-->
+
+    <!-- contact related settings block-->
+    <string name="settings_contacts_title">联系人</string>
+
+    <string name="settings_add_via_phonebook">通过通讯录添加联系人</string>
+    <string name="settings_add_via_qr">通过二维码添加联系人</string>
+
+    <!-- exchange related settings block-->
+    <string name="settings_exchange_title">交流</string>
+
+    <string name="settings_max_messages_p_exchange">每次交流最大消息数</string>
+    <string name="settings_timeout_p_exchange">交流间超时</string>
+
+    <!-- network related settings block (not currently in use)-->
+    <string name="settings_network_title">网络</string>
+
+    <string name="settings_mac_title">蓝牙地址</string>
+
+    <string name="settings_bt_device_settings">前往状态屏幕</string>
+
+    <!-- About -->
+
+    <string name="aboutTitle">关于Murmur</string>
+    <string name="aboutBody">Murmur是一款不要求互联网连接的免费开源匿名短信应用软件。该软件并不像其他短信应用软件那样依赖互联网并具有中央服务器，它的消息不是实时发送，而是利用蓝牙和WiFi Direct连接从一部设备直接传播至另一部设备（构成对等网络），无需用户干预。设备数量越多，消息就传播得越快！如果周围没有任何设备，消息则在动态中形成队列以便稍后发送。你可以控制你的匿名方式并决定分享什么有关于你的信息。最后，连接得分帮助你过滤垃圾短信，而受限消息则只在你的朋友圈中传播。</string>
+
+    <!-- Share app-->
+    <!-- notification attached to the url message -->
+    <string name="share_app_promo1">马上获得Murmur！就在Google Play</string>    
+    <string name="share_app_promo2">或者如果你在这里无法接入</string>    
+
+    <!-- On-boarding -->
+    <string name="skip_welcome">下一步</string>
+    <string name="skip_welcome2">保存</string>
+
+    <string name="onboarding1_title">自由交流</string>
+    <string name="onboarding1_message">消息通过蓝牙和WiFi在设备之间传播。设备数量越多，消息就传播得越快！如果周围没有任何设备，消息就形成队列以待稍后发送</string>
+
+    <string name="onboarding2_title">控制你的匿名方式</string>
+    <string name="onboarding2_message">选择安全设置以确定你的匿名程度。你启用的设置越多，就会分享越多关于自己的信息</string>
+
+    <string name="onboarding3_title">维持个人隐私</string>
+    <string name="onboarding3_message">通过连接得分过滤垃圾短信，通过受限消息限定受众</string>
+
+    <string name="onboarding4_title">只需再做一件事</string>
+    <string name="onboarding4_message">请开启蓝牙，打开状态屏幕，将你的蓝牙地址复制并粘贴在下方：</string>
+    <string name="onboarding4_message_small_why">为何要这样做呢？</string>
+    <string name="onboarding4_message_small">Murmur使用蓝牙作为通讯手段。遗憾的是，Android 6.x应用软件无法自动访问你的蓝牙地址，因此需要你的帮助。不用担心，你只需要这样做一次即可。如果输错了地址，你可以稍后在设置中进行更正</string>
+    <string name="onboarding4_message_error">无效的蓝牙地址</string>
+
+    <!--Replies feed-->
+    <string name="comments">回复</string>
+
+    <!-- Help & Feedback-->
+    <!-- feedback-->
+    <string name="send_feedback">发送反馈</string>
+    <string name="feedback_intro">尊敬的Murmur支持代表：</string>
+
+    <string name="more_help">
+    <u>更多&gt;&gt; </u>
+  </string>
+
+</resources>

@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?><resources>
+
+    <!-- General -->
+
+    <!-- Navigation drawer state for usability assistance-->
+    <string name="open">Панель навигации открыта</string>
+    <string name="close">Панель навигации закрыта</string>
+
+    <!-- Network error notification and prompts -->
+    <string name="offline_mode_toast">Murmur работает в автономном режиме</string>
+    <string name="notification_connection_error_title">Ошибка подключения</string>
+    <string name="notification_connection_error_message">Включите BT/WiFi или перейдите в автономный режим</string>
+    <string name="notification_no_bluetooth_title">Ошибка подключения: Bluetooth выключен</string>
+  <!-- no longer in use, uses single error for both WIFI and BT-->
+    <string name="notification_no_bluetooth_message">Пожалуйста, включите Bluetooth или перейдите в автономный режим</string>
+  <!-- no longer in use, uses single error for both WIFI and BT-->
+    <string name="notification_no_wifi_title">Ошибка подключения: WiFi выключен</string>
+  <!-- no longer in use, uses single error for both WIFI and BT-->
+    <string name="notification_no_wifi_message">Пожалуйста, включите WiFi или перейдите в автономный режим</string>
+  <!-- no longer in use, uses single error for both WIFI and BT-->
+
+    <string name="error_notification_action_onwifi">Включить</string>
+    <string name="error_notification_action_turnon_bt">Включить</string>
+    <string name="error_notification_action_off_service">Автономный режим</string>
+
+    <!-- New messages notification-->
+    <string name="unread_notification_title">Новые непрочитанные сообщения</string>
+    <string name="unread_notification_content">Новые обмены</string>
+
+    <!-- New messages snackbar -->
+    <string name="new_messages_notification_desc">новые сообщения</string>
+    <string name="new_message_notification_desc">новое сообщение</string>
+    <string name="new_messages_notification_btn">Новые</string>
+    <string name="exchanges">новые обмены</string>
+    <string name="exchange">новый обмен</string>
+
+    <!-- Drawer menu actions (also used as page titles)-->
+    <string name="drawer_menu_feed">Очередь</string>
+    <string name="drawer_menu_starred">Избранное</string>
+    <string name="drawer_menu_offline_mode">Автономный режим</string>
+    <string name="drawer_menu_contact">Контакты</string>
+    <string name="drawer_menu_profile">Профиль</string>
+    <string name="drawer_menu_settings">Настройки</string>
+    <string name="drawer_menu_help">Помощь и обратная связь</string>
+    <string name="drawer_menu_info">О программе</string>
+    <string name="drawer_menu_reset">Сброс приложения</string>
+    <string name="drawer_menu_export">Экспорт очереди</string>
+    <string name="drawer_menu_share_app">Поделиться Murmur</string>
+    <string name="drawer_menu_advanced">Дополнительно</string>
+
+    <!-- share app picker title-->
+    <string name="share_using">Поделиться с помощью</string>
+
+    <!-- export process toasts-->
+    <string name="export">Экспорт....</string>
+    <string name="export_message">Пожалуйста, подождите...</string>
+    <string name="export_successful">Очередь экспортирована в папку Загрузки</string>
+    <string name="export_failed">Упс! Экспортировать очередь не удалось, попробуйте еще раз</string>
+
+    <!-- Share message (from feed/stared)-->
+    <string name="share_prefix">Отправлено через Murmur</string>
+
+    <!-- Actionbar/Toolbar-->
+
+    <string name="empty_string"/>
+    <string name="select_all">Выбрать все</string>
+    <string name="deselect_all">Отменить все</string>
+
+    <!-- actionbar sort options-->
+    <string name="sort_opt_newest">Самые новые</string>
+    <string name="sort_opt_oldest">Самые старые</string>
+    <string name="sort_opt_mostendorsed">С наибольшим количеством одобрений</string>
+    <string name="sort_opt_leastendorsed">С наименьшим количеством одобрений</string>
+    <string name="sort_opt_mostconnected">С наибольшим количеством подключений</string>
+    <string name="sort_opt_leastconnected">С наименьшим количеством подключений</string>
+
+    <!-- menu item titles (not shown but required) -->
+    <string name="send">Отправить</string>
+    <string name="search_title">Поиск</string>
+    <string name="retweet">Ретвитнуть</string>
+    <string name="share">Поделиться</string>
+    <string name="delete">Удалить</string>
+
+    <!-- menu item titles (shown when in advance delete mode-->
+    <string name="delete_from_sender">Тот же ник</string>
+  <!--Delete messages with same sender-->
+    <string name="delete_by_connection">Тот же или более низкий индекс</string>
+  <!--Delete messages with same or lower connection-->
+    <string name="delete_by_exchange">Тот же обмен</string>
+  <!--Delete messages from same exchange-->
+    <string name="delete_tree">Включая ответы</string>
+  <!--Delete message and replies-->
+
+    <!-- Feed/Starred-->
+
+    <!-- delete dialog conformation-->
+    <string name="delete_dialog_title">Удалить объекты</string>
+    <string name="delete_dialog_message1">Действительно удалить?</string>
+  <!-- pre-number-->
+    <string name="delete_dialog_message2">объект(ы)?</string>
+  <!-- post-number-->
+
+    <!-- item time units -->
+    <string name="days_short">д</string>
+    <string name="just_now">последний час</string>
+    <string name="today">сегодня</string>
+    <string name="h_ago">ч назад</string>
+    <string name="d_ago">д назад</string>
+
+    <!-- self destruct pre-text-->
+    <string name="self_destruct_in">самоуничтожается через</string>
+  <!-- time -->
+
+    <!-- reset application dialog -->
+    <string name="reset_dialog_title">Сброс программы</string>
+    <string name="reset_app_message">Вы уверены, что хотите сбросить Murmur?\nВсе сообщения и контакты будут стерты</string>
+    <string name="confirm_reset_dialog_title">Подтвердите сброс</string>
+    <string name="confirm_reset_app_message">Нажмите \"да\" для сброса Murmur.</string>
+
+    <!-- Post/Reply post -->
+    <!-- actionbar titles-->
+    <string name="new_post">Новое сообщение</string>
+    <string name="reply">Ответить</string>
+
+    <string name="post_hint">Текст сообщения</string>
+
+    <!-- Self-destruct dialog -->
+    <string name="timebound_dialog_title">Самоуничтожение</string>
+    <string name="hours_short">часов</string>
+
+    <!-- Share location error -->
+    <string name="no_gps_error">Не удалось определить местоположение. Пожалуйста, включите GPS</string>
+
+    <!-- Profile -->
+    <string name="pseudonym_title">Ник</string>
+    <string name="qr_title">QR-код</string>
+
+    <!-- Contacts-->
+
+    <!-- Menu item title (not shown but required) -->
+    <string name="add">Добавить</string>
+
+    <!-- Add Contact dialog -->
+    <string name="add_friend_dialog_title">Добавить контакт</string>
+    <string name="add_friend_dialog_body">Выберите способ</string>
+    <string name="add_friend_qrcode">QR-код</string>
+    <string name="add_friend_phonebook">Телефонная книга</string>
+
+    <!-- edit contact dialog -->
+    <string name="conf_friend_dialog_title">Редактировать контакт</string>
+    <string name="conf_friend_dialog_name_title">Ник</string>
+    <string name="conf_friend_dialog_number_title">Телефон</string>
+
+    <!-- Delete contact conformation dialog-->
+    <string name="delete_dialog_friend1">Действительно удалить?</string>
+  <!--pre-number-->
+    <string name="delete_dialog_friend2">объекты</string>
+  <!--post-number-->
+
+    <!-- QR code scanner prompt message-->
+    <string name="qr_scanner_message">Сканировать QR-код Murmur</string>
+
+    <!-- add contact result toasts -->
+    <string name="contact_add_conf">Контакт добавлен</string>
+    <string name="contact_exist">Уже в контактах</string>
+    <string name="contact_add_fail">Выбранный контакт не имеет телефонного номера</string>
+    <string name="qr_badqr_error">Это не QR-код Murmur</string>
+
+    <!-- Settings-->
+    <!-- profile preset block-->
+    <string name="select_profile_title">Выберите профиль</string>
+    <string name="profile_flexible">Больше возможностей / меньше безопасность</string>
+    <string name="profile_strict">Больше безопасность / меньше возможностей</string>
+    <string name="profile_custom">Пользовательский</string>
+    <string name="profile_custom_annotation">Рекомендуется только для продвинутых пользователей</string>
+
+    <!-- anonymity settings block-->
+    <string name="settings_anonymity_title">Анонимность</string>
+
+    <string name="settings_timestamp">Временные метки</string>
+    <string name="settings_location_tagging">Теги местоположения</string>
+    <string name="settings_pseudonym">Псевдонимы</string>
+
+    <!-- privacy settings block-->
+    <string name="settings_privacy_title">Конфиденциальность</string>
+
+    <string name="settings_trust">Количество подключений</string>
+    <string name="settings_self_dest">Время до самоуничтожения</string>
+    <string name="settings_self_dest_annotation">Время до самоуничтожения сообщения в часах</string>
+    <string name="settings_restricted">Конфиденциальные сообщения (контакты)</string>
+    <string name="settings_restricted_annotation">Минимальное количество общих контактов для отправки сообщения</string>
+
+    <!-- feed related settings block-->
+    <string name="settings_feed_title">Очередь</string>
+
+    <string name="settings_autodelete">Авто-удаление сообщений</string>
+    <string name="settings_autodelete_trust_annotation">С количеством подключений менее чем</string>
+  <!-- describe meaning of changing connection score threshold-->
+    <string name="settings_autodelete_age_annotation">Старше чем (дней)</string>
+  <!-- describe meaning of changing age threshold-->
+
+    <!-- contact related settings block-->
+    <string name="settings_contacts_title">Контакты</string>
+
+    <string name="settings_add_via_phonebook">Добавить контакты из телефонной книги</string>
+    <string name="settings_add_via_qr">Добавить контакты с помощью QR-кода</string>
+
+    <!-- exchange related settings block-->
+    <string name="settings_exchange_title">Обмены</string>
+
+    <string name="settings_max_messages_p_exchange">Максимум сообщений за обмен</string>
+    <string name="settings_timeout_p_exchange">Время ожидания между обменами</string>
+
+    <!-- network related settings block (not currently in use)-->
+    <string name="settings_network_title">Сеть</string>
+
+    <string name="settings_mac_title">Адрес Bluetooth</string>
+
+    <string name="settings_bt_device_settings">Перейти к экрану статуса</string>
+
+    <!-- About -->
+
+    <string name="aboutTitle">О Murmur</string>
+    <string name="aboutBody">Murmur - это бесплатная программа с открытым исходным кодом, предназначенная  для обмена сообщениями и не требующая подключения к интернету. Сообщения не отправляются в режиме реального времени, как в других программах для обмена сообщениями, которые используют подключение к интернету и имеют центральный сервер, а распространяются вместо этого непосредственно от одного устройства к другому (формируя сеть peer-to-peer) без вмешательства пользователя, используя Bluetooth и WiFi Direct. Чем больше устройств, тем быстрее распространяется сообщение! Если поблизости нет устройств, сообщение ставится в очередь для последующей отправки. Вы можете управлять вашей анонимностью и самостоятельно решать, какую информацию вы готовы предоставить о себе. И наконец, Счет подключений поможет вам отфильтровать спам, а Ограниченные сообщения - ограничить аудиторию вашими друзьями.</string>
+
+    <!-- Share app-->
+    <!-- notification attached to the url message -->
+    <string name="share_app_promo1">Попробуй Murmur! На Google Play</string>
+    <string name="share_app_promo2">или если у вас нет доступа сюда</string>    
+
+    <!-- On-boarding -->
+    <string name="skip_welcome">ДАЛЕЕ</string>
+    <string name="skip_welcome2">СОХРАНИТЬ</string>
+
+    <string name="onboarding1_title">Общайтесь свободно</string>
+    <string name="onboarding1_message">Сообщения передаются между устройствами с помощью Bluetooth и Wi-Fi. Чем больше устройств, тем быстрее передаются сообщения! Если поблизости нет устройств, сообщение помещается в очередь для последующей отправки</string>
+
+    <string name="onboarding2_title">Управляйте вашей анонимностью</string>
+    <string name="onboarding2_message">Выберите настройки безопасности, чтобы определить ваш уровень анонимности. Чем больше опций вы выберете, тем больше информации вы сообщите о себе</string>
+
+    <string name="onboarding3_title">Позаботьтесь о вашей конфиденциальности</string>
+    <string name="onboarding3_message">Отфильтровывайте спам с помощью Индекса Подключений и ограничивайте вашу аудиторию с помощью конфиденциальных сообщений</string>
+
+    <string name="onboarding4_title">И еще одно</string>
+    <string name="onboarding4_message">Пожалуйста включите Bluetooth, перейдите к экрану статуса, скопируйте и вставьте ваш адрес Bluetooth ниже:</string>
+    <string name="onboarding4_message_small_why">Почему мы просим это сделать?</string>
+    <string name="onboarding4_message_small">Murmur использует Bluetooth для связи. К сожалению, приложения для Android 6.x не имеют автоматического доступа к вашему адресу Bluetooth. Таким образом, нам нужна ваша помощь. Не волнуйтесь - вам потребуется ввести эту информацию всего один раз. Если вы сделали ошибку при вводе адреса, вы сможете исправить это в настройках</string>
+    <string name="onboarding4_message_error">Неверный адрес Bluetooth</string>
+
+    <!--Replies feed-->
+    <string name="comments">Ответы</string>
+
+    <!-- Help & Feedback-->
+    <!-- feedback-->
+    <string name="send_feedback">Отправить отзыв</string>
+    <string name="feedback_intro">Уважаемый представитель службы поддержки Murmur,</string>
+
+    <string name="more_help">
+    <u>Еще&gt;&gt;</u>
+  </string>
+
+</resources>

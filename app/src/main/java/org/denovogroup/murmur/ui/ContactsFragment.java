@@ -591,6 +591,9 @@ public class ContactsFragment extends Fragment implements View.OnClickListener, 
                             phoneCursor.moveToFirst();
                             int phonesCount = phoneCursor.getCount();
                             boolean requireReformating = true;
+
+                            boolean wasAdded = false;
+
                             while(!phoneCursor.isAfterLast()){
                                 String unformattedNumber = phoneCursor.getString(phoneCursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
                                 String normalizedNumber = phoneCursor.getString(phoneCursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NORMALIZED_NUMBER));
@@ -621,20 +624,23 @@ public class ContactsFragment extends Fragment implements View.OnClickListener, 
 
                                 if(encryptedNumber != null) {
                                     FriendStore fs = FriendStore.getInstance(getActivity());
-                                    boolean wasAdded = fs.addFriendBytes(adjustedName, encryptedNumber, FriendStore.ADDED_VIA_PHONE, noneNullValue);
+                                    if(fs.addFriendBytes(adjustedName, encryptedNumber, FriendStore.ADDED_VIA_PHONE, noneNullValue)){
+                                        wasAdded = true;
+                                    };
                                     log.info("Now have " + fs.getAllFriends().size()
                                             + " contacts.");
-                                    if (wasAdded) {
-                                        Toast.makeText(getActivity(), R.string.contact_add_conf, Toast.LENGTH_SHORT)
-                                                .show();
-                                    } else {
-                                        Toast.makeText(getActivity(), R.string.contact_exist, Toast.LENGTH_SHORT)
-                                                .show();
-                                    }
                                 }
 
                                 requireReformating = true;
                                 phoneCursor.moveToNext();
+                            }
+
+                            if (wasAdded) {
+                                Toast.makeText(getActivity(), R.string.contact_add_conf, Toast.LENGTH_SHORT)
+                                        .show();
+                            } else {
+                                Toast.makeText(getActivity(), R.string.contact_exist, Toast.LENGTH_SHORT)
+                                        .show();
                             }
                         }
                         if(phoneCursor != null) contactCursor.close();

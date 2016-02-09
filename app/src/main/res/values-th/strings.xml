@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?><resources>
+
+    <!-- General -->
+
+    <!-- Navigation drawer state for usability assistance-->
+    <string name="open">ลิ้นชักนำร่องเปิด</string>
+    <string name="close">ลิ้นชักนำร่องปิด</string>
+
+    <!-- Network error notification and prompts -->
+    <string name="offline_mode_toast">Murmur กำลังทำงานในโหมดออฟไลน์</string>
+    <string name="notification_connection_error_title">ข้อผิดพลาดในการเชื่อมต่อ</string>
+    <string name="notification_connection_error_message">เปิดบลูทูธ/อินเตอร์เน็ตไร้สาย หรือ สลับไปออฟไลน์</string>
+    <string name="notification_no_bluetooth_title">ข้อผิดพลาดในการเชื่อมต่อ: บลูทูธปิด</string>
+  <!-- no longer in use, uses single error for both WIFI and BT-->
+    <string name="notification_no_bluetooth_message">กรุณาเปิดบลูทูธ หรือ สลับไปโหมดออฟไลน์</string>
+  <!-- no longer in use, uses single error for both WIFI and BT-->
+    <string name="notification_no_wifi_title">ข้อผิดพลาดในการเชื่อมต่อ: อินเตอร์เน็ตไร้สายปิด</string>
+  <!-- no longer in use, uses single error for both WIFI and BT-->
+    <string name="notification_no_wifi_message">กรุณาเปิดอินเตอร์เน็ตไร้สาย หรือ สลับไปที่โหมดออฟไลน์</string>
+  <!-- no longer in use, uses single error for both WIFI and BT-->
+
+    <string name="error_notification_action_onwifi">เปิด</string>
+    <string name="error_notification_action_turnon_bt">เปิด</string>
+    <string name="error_notification_action_off_service">สลับไปออฟไลน์</string>
+
+    <!-- New messages notification-->
+    <string name="unread_notification_title">ข้อความใหม่ที่ยังไม่ได้อ่าน</string>
+    <string name="unread_notification_content">การแลกเปลี่ยนใหม่</string>
+
+    <!-- New messages snackbar -->
+    <string name="new_messages_notification_desc">ข้อความใหม่</string>
+    <string name="new_message_notification_desc">ข้อความใหม่</string>
+    <string name="new_messages_notification_btn">ดูใหม่</string>
+    <string name="exchanges">การแลกเปลี่ยนใหม่</string>
+    <string name="exchange">การแลกเปลี่ยนใหม่</string>
+
+    <!-- Drawer menu actions (also used as page titles)-->
+    <string name="drawer_menu_feed">ฟีด</string>
+    <string name="drawer_menu_starred">ติดดาว</string>
+    <string name="drawer_menu_offline_mode">โหมดออฟไลน์</string>
+    <string name="drawer_menu_contact">รายชื่อติดต่อ</string>
+    <string name="drawer_menu_profile">โปรไฟล์</string>
+    <string name="drawer_menu_settings">การตั้งค่า</string>
+    <string name="drawer_menu_help">ความช่วยเหลือและข้อเสนอแนะ</string>
+    <string name="drawer_menu_info">เกี่ยวกับ</string>
+    <string name="drawer_menu_reset">รีเซ็ตแอปพลิเคชั่น</string>
+    <string name="drawer_menu_export">ส่งออกฟีด</string>
+    <string name="drawer_menu_share_app">แบ่งปัน Murmur</string>
+    <string name="drawer_menu_advanced">ขั้นสูง</string>
+
+    <!-- share app picker title-->
+    <string name="share_using">แบ่งปันโดยใช้</string>
+
+    <!-- export process toasts-->
+    <string name="export">กำลังส่งออก ....</string>
+    <string name="export_message">กรุณารอ...</string>
+    <string name="export_successful">ส่งออกฟีดไปยังโฟลเดอร์ดาวน์โหลดของคุณแล้ว</string>
+    <string name="export_failed">อุ๊ย การส่งออกฟีดล้มเหลว กรุณาลองอีกครั้ง</string>
+
+    <!-- Share message (from feed/stared)-->
+    <string name="share_prefix">ส่งไปพร้อมกับ Murmur แล้ว</string>
+
+    <!-- Actionbar/Toolbar-->
+
+    <string name="empty_string"/>
+    <string name="select_all">เลือกทั้งหมด</string>
+    <string name="deselect_all">ยกเลิกการเลือกทั้งหมด</string>
+
+    <!-- actionbar sort options-->
+    <string name="sort_opt_newest">ใหม่ล่าสุด</string>
+    <string name="sort_opt_oldest">เก่าที่สุด</string>
+    <string name="sort_opt_mostendorsed">ได้รับการรับรองมากที่สุด</string>
+    <string name="sort_opt_leastendorsed">ได้รับการรับรองน้อยที่สุด</string>
+    <string name="sort_opt_mostconnected">เชื่อมต่อมากที่สุด</string>
+    <string name="sort_opt_leastconnected">เชื่อมต่อน้อยที่สุด</string>
+
+    <!-- menu item titles (not shown but required) -->
+    <string name="send">ส่ง</string>
+    <string name="search_title">ค้นหา</string>
+    <string name="retweet">ทวีตซ้ำ</string>
+    <string name="share">แบ่งปัน</string>
+    <string name="delete">ลบ</string>
+
+    <!-- menu item titles (shown when in advance delete mode-->
+    <string name="delete_from_sender">ชื่อเล่นเดียวกัน</string>
+  <!--Delete messages with same sender-->
+    <string name="delete_by_connection">คะแนนเท่ากันหรือต่ำกว่า</string>
+  <!--Delete messages with same or lower connection-->
+    <string name="delete_by_exchange">การแลกเปลี่ยนเดียวกัน</string>
+  <!--Delete messages from same exchange-->
+    <string name="delete_tree">รวมการตอบกลับ</string>
+  <!--Delete message and replies-->
+
+    <!-- Feed/Starred-->
+
+    <!-- delete dialog conformation-->
+    <string name="delete_dialog_title">ลบรายการ</string>
+    <string name="delete_dialog_message1">คุณแน่ใจว่าคุณต้องการลบ</string>
+  <!-- pre-number-->
+    <string name="delete_dialog_message2">รายการ ?</string>
+  <!-- post-number-->
+
+    <!-- item time units -->
+    <string name="days_short">วัน</string>
+    <string name="just_now">ชั่วโมงสุดท้าย</string>
+    <string name="today">วันนี้</string>
+    <string name="h_ago">ชม. ที่ผ่านมา</string>
+    <string name="d_ago">วัน ที่ผ่านมา</string>
+
+    <!-- self destruct pre-text-->
+    <string name="self_destruct_in">ทำลายตัวเอง ใน</string>
+  <!-- time -->
+
+    <!-- reset application dialog -->
+    <string name="reset_dialog_title">รีเซ็ตแอปพลิเคชั่นใหม่</string>
+    <string name="reset_app_message">คุณแน่ใจว่าคุณต้องการรีเซ็ต Murmur ?\nข้อความและรายชื่อติดต่อทั้งหมดจะถูกลบ</string>
+    <string name="confirm_reset_dialog_title">ยืนยันการรีเซ็ต</string>
+    <string name="confirm_reset_app_message">คลิกที่ \'ใช่\' เพื่อรีเซ็ต Murmur</string>
+
+    <!-- Post/Reply post -->
+    <!-- actionbar titles-->
+    <string name="new_post">โพสต์ใหม่</string>
+    <string name="reply">ตอบ</string>
+
+    <string name="post_hint">พิมพ์ข้อความของคุณ</string>
+
+    <!-- Self-destruct dialog -->
+    <string name="timebound_dialog_title">ทำลายตัวเอง</string>
+    <string name="hours_short">ชม.</string>
+
+    <!-- Share location error -->
+    <string name="no_gps_error">ไม่สามารถเลือกตำแหน่งที่ตั้งได้ กรุณาเปิดใช้งาน GPS ของคุณ</string>
+
+    <!-- Profile -->
+    <string name="pseudonym_title">ชื่อเล่น</string>
+    <string name="qr_title">รหัสคิวอาร์</string>
+
+    <!-- Contacts-->
+
+    <!-- Menu item title (not shown but required) -->
+    <string name="add">เพิ่ม</string>
+
+    <!-- Add Contact dialog -->
+    <string name="add_friend_dialog_title">เพิ่มรายชื่อติดต่อ</string>
+    <string name="add_friend_dialog_body">เลือกวิธี</string>
+    <string name="add_friend_qrcode">รหัสคิวอาร์</string>
+    <string name="add_friend_phonebook">สมุดโทรศัพท์</string>
+
+    <!-- edit contact dialog -->
+    <string name="conf_friend_dialog_title">แก้ไขรายชื่อติดต่อ</string>
+    <string name="conf_friend_dialog_name_title">ชื่อเล่น</string>
+    <string name="conf_friend_dialog_number_title">โทรศัพท์</string>
+
+    <!-- Delete contact conformation dialog-->
+    <string name="delete_dialog_friend1">คุณแน่ใจว่าต้องการลบ</string>
+  <!--pre-number-->
+    <string name="delete_dialog_friend2">รายการ</string>
+  <!--post-number-->
+
+    <!-- QR code scanner prompt message-->
+    <string name="qr_scanner_message">สแกนรหัสคิวอาร์ของ Murmur</string>
+
+    <!-- add contact result toasts -->
+    <string name="contact_add_conf">เพิ่มรายชื่อติดต่อแล้ว</string>
+    <string name="contact_exist">อยู่ในรายชื่อติดต่อแล้ว</string>
+    <string name="contact_add_fail">รายชื่อติดต่อที่เลือกไม่มีหมายเลขโทรศัพท์</string>
+    <string name="qr_badqr_error">ไม่ได้เป็นรหัสคิวอาร์ของ Murmur</string>
+
+    <!-- Settings-->
+    <!-- profile preset block-->
+    <string name="select_profile_title">เลือกโปรไฟล์</string>
+    <string name="profile_flexible">เพิ่มคุณสมบัติ / ลดระดับการรักษาความปลอดภัย</string>
+    <string name="profile_strict">เพิ่มระดับการรักษาความปลอดภัย / ลดคุณสมบัติ</string>
+    <string name="profile_custom">กำหนดเอง</string>
+    <string name="profile_custom_annotation">แนะนำเฉพาะผู้ใช้ขั้นสูง</string>
+
+    <!-- anonymity settings block-->
+    <string name="settings_anonymity_title">นิรนาม</string>
+
+    <string name="settings_timestamp">บันทึกเวลา</string>
+    <string name="settings_location_tagging">แท็กตำแหน่งที่ตั้ง</string>
+    <string name="settings_pseudonym">ชื่อเล่น</string>
+
+    <!-- privacy settings block-->
+    <string name="settings_privacy_title">ความเป็นส่วนตัว</string>
+
+    <string name="settings_trust">คะแนนการเชื่อมต่อ</string>
+    <string name="settings_self_dest">ระยะเวลาการทำลายตัวเอง</string>
+    <string name="settings_self_dest_annotation">ตั้งค่าเริ่มต้นระยะเวลาการทำลายตัวเองของข้อความในหน่วยชั่วโมง</string>
+    <string name="settings_restricted">ข้อความหวงห้าม (รายชื่อติดต่อ)</string>
+    <string name="settings_restricted_annotation">จำนวนขั้นต่ำของรายชื่อติดต่อที่ใช้ร่วมกันเพื่อส่งข้อความ</string>
+
+    <!-- feed related settings block-->
+    <string name="settings_feed_title">ฟีด</string>
+
+    <string name="settings_autodelete">ข้อความลบอัตโนมัติ</string>
+    <string name="settings_autodelete_trust_annotation">ด้วยคะแนนการเชื่อมต่อน้อยกว่า</string>
+  <!-- describe meaning of changing connection score threshold-->
+    <string name="settings_autodelete_age_annotation">เก่ากว่า (เป็นวัน)</string>
+  <!-- describe meaning of changing age threshold-->
+
+    <!-- contact related settings block-->
+    <string name="settings_contacts_title">รายชื่อติดต่อ</string>
+
+    <string name="settings_add_via_phonebook">เพิ่มรายชื่อติดต่อผ่านทางสมุดโทรศัพท์</string>
+    <string name="settings_add_via_qr">เพิ่มรายชื่อติดต่อผ่านทางรหัสคิวอาร์</string>
+
+    <!-- exchange related settings block-->
+    <string name="settings_exchange_title">แลกเปลี่ยน</string>
+
+    <string name="settings_max_messages_p_exchange">จำนวนข้อความสูงสุดต่อครั้งในการแลกเปลี่ยน</string>
+    <string name="settings_timeout_p_exchange">หมดเวลาในระหว่างการแลกเปลี่ยน</string>
+
+    <!-- network related settings block (not currently in use)-->
+    <string name="settings_network_title">เครือข่าย</string>
+
+    <string name="settings_mac_title">ที่อยู่บลูทูธ</string>
+
+    <string name="settings_bt_device_settings">ไปที่หน้าจอสถานะ</string>
+
+    <!-- About -->
+
+    <string name="aboutTitle">เกี่ยวกับ Murmur</string>
+    <string name="aboutBody">Murmur คือแอปพลิเคชั่นรับส่งข้อความนิรนามฟรีแบบที่เป็นโอเพ่นซอร์สซึ่งไม่ต้องใช้การเชื่อมต่ออินเทอร์เน็ต ข้อความจะไม่ถูกส่งตามเวลาจริงเหมือนในแอปพลิเคชั่นรับส่งข้อความอื่น ๆ ที่ต้องขึ้นอยู่กับอินเทอร์เน็ตและมีเซิร์ฟเวอร์กลาง แต่จะส่งแบบกระจายโดยตรงจากอุปกรณ์หนึ่งไปยังอีกอุปกรณ์หนึ่งแทน (ในรูปแบบเครือข่ายแบบ เพื่อน-ถึง-เพื่อน) ซึ่งปราศจากการแทรกแซงของผู้ใช้โดยใช้บลูทูธและ WiFi Direct ยิ่งมีอุปกรณ์มากขึ้นเท่าไหร่ก็ยิ่งกระจายข้อความได้เร็วขึ้นเท่านั้น! หากไม่มีอุปกรณ์อยู่ใกล้ ๆ ข้อความจะถูกจัดรอคิวไว้ในฟีดเพื่อส่งภายหลัง คุณสามารถควบคุมความเป็นนิรนามของคุณได้และตัดสินใจว่าจะแบ่งปันข้อมูลอะไรบ้างที่เกี่ยวกับตัวคุณ ท้ายที่สุดคือคะแนนการเชื่อมต่อที่ช่วยให้คุณกรองข้อความขยะและจำกัดข้อความหวงห้ามให้ผู้รับเป็นแค่เพื่อนของคุณเท่านั่น</string>
+
+    <!-- Share app-->
+    <!-- notification attached to the url message -->
+    <string name="share_app_promo1">ลองใช้ Murmur ! บนกูเกิ้ลเพลย์</string>
+    <string name="share_app_promo2">หรือถ้าคุณไม่สามารถเข้าถึงได้จากที่นี่</string>
+
+    <!-- On-boarding -->
+    <string name="skip_welcome">ถัดไป</string>
+    <string name="skip_welcome2">บันทึก</string>
+
+    <string name="onboarding1_title">สื่อสารได้อย่างอิสระ</string>
+    <string name="onboarding1_message">ข้อความจะแพร่กระจายระหว่างอุปกรณ์ผ่านทางบลูทูธและอินเตอร์เน็ตไร้สาย ยิ่งมีอุปกรณ์มากเท่าไหร่ ยิ่งเคลื่อนย้ายข้อความได้เร็วเท่านั้น! หากไม่มีอุปกรณ์อยู่ใกล้ ๆ ข้อความจะถูกจัดคิวไว้ส่งในภายหลัง</string>
+
+    <string name="onboarding2_title">การควบคุมไม่ให้เปิดเผยตัวตนของคุณ</string>
+    <string name="onboarding2_message">เลือกการตั้งค่าการรักษาความปลอดภัยเพื่อกำหนดระดับของความนิรนามของคุณได้ ยิ่งเปิดใช้งานการตั้งค่าต่าง ๆ มากขึ้นเท่าไหร่ ก็ยิ่งเพิ่มข้อมูลที่คุณแบ่งปันเกี่ยวกับตัวคุณเองเท่านั้น</string>
+
+    <string name="onboarding3_title">รักษาความเป็นส่วนตัวของคุณ</string>
+    <string name="onboarding3_message">ตัวกรองสแปมโดยใช้คะแนนการเชื่อมต่อและจำกัดผู้รับข้อความของคุณด้วยข้อความหวงห้าม</string>
+
+    <string name="onboarding4_title">เพียงสิ่งหนึ่งที่เพิ่มเติม</string>
+    <string name="onboarding4_message">กรุณาเปิดบลูทูธ ไปที่หน้าจอสถานะของคุณและคัดลอกและวางที่อยู่บลูทูธของคุณด้านล่าง:</string>
+    <string name="onboarding4_message_small_why">ทำไมเราถึงขอสิ่งนี้ ?</string>
+    <string name="onboarding4_message_small">Murmur ใช้บลูทูธในการติดต่อสื่อสาร แต่น่าเสียดายที่การใช้งานแอนดรอยด์ 6.x ไม่สามารถเข้าถึงไปยังที่อยู่บลูทูธของคุณได้โดยอัตโนมัติ ดังนั้นเราต้องการความช่วยเหลือของคุณ ไม่ต้องกังวล - คุณแค่ป้อนข้อมูลเพียงแค่ครั้งเดียว ถ้าคุณทำผิดพลาดในระหว่างที่ป้อนข้อมูลที่อยู่ คุณสามารถแก้ไขข้อมูลนี้ได้ในภายหลังในการตั้งค่า</string>
+    <string name="onboarding4_message_error">ที่อยู่บลูทูธไม่ถูกต้อง</string>
+
+    <!--Replies feed-->
+    <string name="comments">ตอบกลับ</string>
+
+    <!-- Help & Feedback-->
+    <!-- feedback-->
+    <string name="send_feedback">ส่งข้อเสนอแนะ</string>
+    <string name="feedback_intro">เรียน ตัวแทนฝ่ายสนับสนุนของ Murmur</string>
+
+    <string name="more_help">
+    <u> เพิ่มเติม &gt;&gt; </u>
+  </string>
+
+</resources>

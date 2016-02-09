@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?><resources>
+
+    <!-- General -->
+
+    <!-- Navigation drawer state for usability assistance-->
+    <string name="open">Açılır Menü Açık</string>
+    <string name="close">Açılır Menü Kapalı</string>
+
+    <!-- Network error notification and prompts -->
+    <string name="offline_mode_toast">Murmur Çevrimdışı modda çalışıyor</string>
+    <string name="notification_connection_error_title">Bağlantı Hatası</string>
+    <string name="notification_connection_error_message">BT/WiFi\'ı açın ya da Çevrimdışı moda Geçin</string>
+    <string name="notification_no_bluetooth_title">Bağlantı Hatası: Bluetooth kapalı</string>
+  <!-- no longer in use, uses single error for both WIFI and BT-->
+    <string name="notification_no_bluetooth_message">Lütfen Bluetooth\'u açın ya da Çevrimdışı moda geçin</string>
+  <!-- no longer in use, uses single error for both WIFI and BT-->
+    <string name="notification_no_wifi_title">Bağlantı Hatası: WiFi kapalı</string>
+  <!-- no longer in use, uses single error for both WIFI and BT-->
+    <string name="notification_no_wifi_message">Lütfen WiFi\'ı açın ya da Çevrimdışı moda geçin</string>
+  <!-- no longer in use, uses single error for both WIFI and BT-->
+
+    <string name="error_notification_action_onwifi">Aç</string>
+    <string name="error_notification_action_turnon_bt">Aç</string>
+    <string name="error_notification_action_off_service">Çevrimdışı Moda Geç</string>
+
+    <!-- New messages notification-->
+    <string name="unread_notification_title">Yeni okunmamış mesajlar</string>
+    <string name="unread_notification_content">Yeni mesaj alışverişleri</string>
+
+    <!-- New messages snackbar -->
+    <string name="new_messages_notification_desc">yeni mesajlar</string>
+    <string name="new_message_notification_desc">yeni mesaj</string>
+    <string name="new_messages_notification_btn">Yenileri Gör</string>
+    <string name="exchanges">yeni mesaj alışverişleri</string>
+    <string name="exchange">yeni mesaj alışverişi</string>
+
+    <!-- Drawer menu actions (also used as page titles)-->
+    <string name="drawer_menu_feed">Yayın Akışı</string>
+    <string name="drawer_menu_starred">Yıldızlı</string>
+    <string name="drawer_menu_offline_mode">Çevrimışı mod</string>
+    <string name="drawer_menu_contact">Kişiler</string>
+    <string name="drawer_menu_profile">Profil</string>
+    <string name="drawer_menu_settings">Ayarlar</string>
+    <string name="drawer_menu_help">Yardım &amp; geribildirim</string>
+    <string name="drawer_menu_info">Hakkında</string>
+    <string name="drawer_menu_reset">Uygulamayı sıfırla</string>
+    <string name="drawer_menu_export">Yayın akışını dışa aktar</string>
+    <string name="drawer_menu_share_app">Murmur\'u Paylaş</string>
+    <string name="drawer_menu_advanced">Gelişmiş</string>
+
+    <!-- share app picker title-->
+    <string name="share_using">Şunu kullanarak paylaş</string>
+
+    <!-- export process toasts-->
+    <string name="export">Dışa aktarılıyor....</string>
+    <string name="export_message">Lütfen Bekleyin...</string>
+    <string name="export_successful">Yayın akışı İndirme klasörünüze aktarıldı</string>
+    <string name="export_failed">Üzgünüz, yayın akışını dışa aktarma başarısız oldu, lütfen tekrar deneyin</string>
+
+    <!-- Share message (from feed/stared)-->
+    <string name="share_prefix">Murmur ile Gönderildi</string>
+
+    <!-- Actionbar/Toolbar-->
+
+    <string name="empty_string"/>
+    <string name="select_all">Hepsini Seç</string>
+    <string name="deselect_all">Hiçbirini Seçme</string>
+
+    <!-- actionbar sort options-->
+    <string name="sort_opt_newest">En Yeni</string>
+    <string name="sort_opt_oldest">En Eski</string>
+    <string name="sort_opt_mostendorsed">En çok beğenilen</string>
+    <string name="sort_opt_leastendorsed">En az beğenilen</string>
+    <string name="sort_opt_mostconnected">En çok bağlanılan</string>
+    <string name="sort_opt_leastconnected">En az bağlanılan</string>
+
+    <!-- menu item titles (not shown but required) -->
+    <string name="send">Gönder</string>
+    <string name="search_title">Arama</string>
+    <string name="retweet">Retweet</string>
+    <string name="share">Paylaş</string>
+    <string name="delete">Sil</string>
+
+    <!-- menu item titles (shown when in advance delete mode-->
+    <string name="delete_from_sender">Aynı takma ad</string>
+  <!--Delete messages with same sender-->
+    <string name="delete_by_connection">Aynı ya da daha düşük puan</string>
+  <!--Delete messages with same or lower connection-->
+    <string name="delete_by_exchange">Aynı mesaj alışverişi</string>
+  <!--Delete messages from same exchange-->
+    <string name="delete_tree">Cevaplarda dahil</string>
+  <!--Delete message and replies-->
+
+    <!-- Feed/Starred-->
+
+    <!-- delete dialog conformation-->
+    <string name="delete_dialog_title">Öğeleri sil</string>
+    <string name="delete_dialog_message1">Silmek istediğinizden emin misiniz</string>
+  <!-- pre-number-->
+    <string name="delete_dialog_message2">öğe(ler)?</string>
+  <!-- post-number-->
+
+    <!-- item time units -->
+    <string name="days_short">g</string>
+    <string name="just_now">son saat</string>
+    <string name="today">bugün</string>
+    <string name="h_ago">saat önce</string>
+    <string name="d_ago">g önce</string>
+
+    <!-- self destruct pre-text-->
+    <string name="self_destruct_in">şu süre içinde kendini imha eder:</string>
+  <!-- time -->
+
+    <!-- reset application dialog -->
+    <string name="reset_dialog_title">Uygulamayı sıfırla</string>
+    <string name="reset_app_message">Murmur\'u sıfırlamak istediğinizden emin misiniz? Tüm mesajlar ve kişiler silinecektir</string>
+    <string name="confirm_reset_dialog_title">Sıfırlamayı onayla</string>
+    <string name="confirm_reset_app_message">Murmur\'u sıfırlamak için \"Evet\"e tıklayın.</string>
+
+    <!-- Post/Reply post -->
+    <!-- actionbar titles-->
+    <string name="new_post">Yeni gönderi</string>
+    <string name="reply">Cevap</string>
+
+    <string name="post_hint">Mesajınızı yazın</string>
+
+    <!-- Self-destruct dialog -->
+    <string name="timebound_dialog_title">Kendini imha eden</string>
+    <string name="hours_short">saat</string>
+
+    <!-- Share location error -->
+    <string name="no_gps_error">Konum belirlenemiyor, lütfen GPS\'inizi aktif hale getirin</string>
+
+    <!-- Profile -->
+    <string name="pseudonym_title">Takma ad</string>
+    <string name="qr_title">QR Kod</string>
+
+    <!-- Contacts-->
+
+    <!-- Menu item title (not shown but required) -->
+    <string name="add">Ekle</string>
+
+    <!-- Add Contact dialog -->
+    <string name="add_friend_dialog_title">Kişi ekle</string>
+    <string name="add_friend_dialog_body">Yöntem seç</string>
+    <string name="add_friend_qrcode">QR-kod</string>
+    <string name="add_friend_phonebook">Telefon defteri</string>
+
+    <!-- edit contact dialog -->
+    <string name="conf_friend_dialog_title">Kişiyi düzenle</string>
+    <string name="conf_friend_dialog_name_title">Takma ad</string>
+    <string name="conf_friend_dialog_number_title">Telefon</string>
+
+    <!-- Delete contact conformation dialog-->
+    <string name="delete_dialog_friend1">Silmek istediğinizden emin misiniz</string>
+  <!--pre-number-->
+    <string name="delete_dialog_friend2">öğeler</string>
+  <!--post-number-->
+
+    <!-- QR code scanner prompt message-->
+    <string name="qr_scanner_message">Bir Murmur QR kodunu tarayın</string>
+
+    <!-- add contact result toasts -->
+    <string name="contact_add_conf">Kişi Eklendi</string>
+    <string name="contact_exist">Zaten kişilerde var</string>
+    <string name="contact_add_fail">Seçilen kişinin bir telefon numarası yok</string>
+    <string name="qr_badqr_error">Bu bir Murmur QR kodu değil</string>
+
+    <!-- Settings-->
+    <!-- profile preset block-->
+    <string name="select_profile_title">Bir profil seçin</string>
+    <string name="profile_flexible">Daha fazla özellik / daha az güvenlik</string>
+    <string name="profile_strict">Daha fazla güvenlik / daha az özellik</string>
+    <string name="profile_custom">Özel</string>
+    <string name="profile_custom_annotation">Sadece ileri seviye kullanıcılar için önerilir</string>
+
+    <!-- anonymity settings block-->
+    <string name="settings_anonymity_title">Anonimlik</string>
+
+    <string name="settings_timestamp">Zaman bilgileri</string>
+    <string name="settings_location_tagging">Konum etiketleme</string>
+    <string name="settings_pseudonym">Takma adlar</string>
+
+    <!-- privacy settings block-->
+    <string name="settings_privacy_title">Gizlilik</string>
+
+    <string name="settings_trust">Bağlantı puanları</string>
+    <string name="settings_self_dest">Kendini imha etme süresi</string>
+    <string name="settings_self_dest_annotation">Mesajların kendini imha etmesi için saat olarak varsayılan süre</string>
+    <string name="settings_restricted">Gizli mesajlar (kişiler)</string>
+    <string name="settings_restricted_annotation">Mesaj göndermek için minimum ortak kişi sayısı</string>
+
+    <!-- feed related settings block-->
+    <string name="settings_feed_title">Yayın Akışı</string>
+
+    <string name="settings_autodelete">Mesajları otomatik olarak sil</string>
+    <string name="settings_autodelete_trust_annotation">Şu bağlantı puanından daha azı ile</string>
+  <!-- describe meaning of changing connection score threshold-->
+    <string name="settings_autodelete_age_annotation">Daha eski (gün olarak)</string>
+  <!-- describe meaning of changing age threshold-->
+
+    <!-- contact related settings block-->
+    <string name="settings_contacts_title">Kişiler</string>
+
+    <string name="settings_add_via_phonebook">Telefon rehberinden kişileri ekle</string>
+    <string name="settings_add_via_qr">QR kod ile kişileri ekle</string>
+
+    <!-- exchange related settings block-->
+    <string name="settings_exchange_title">Mesaj Alışverişleri</string>
+
+    <string name="settings_max_messages_p_exchange">Mesaj alışverişi başına maksimum mesaj sayısı</string>
+    <string name="settings_timeout_p_exchange">Mesaj alışverişleri arasındaki zaman aşımı</string>
+
+    <!-- network related settings block (not currently in use)-->
+    <string name="settings_network_title">Ağ</string>
+
+    <string name="settings_mac_title">Bluetooth Adresi</string>
+
+    <string name="settings_bt_device_settings">Durum Ekranına Git</string>
+
+    <!-- About -->
+
+    <string name="aboutTitle">Murmur Hakkında</string>
+    <string name="aboutBody">Murmur ücretsiz, açık kaynak kodlu ve internet bağlantısı gerektirmeyen bir anonim mesajlaşma uygulamasıdır. Mesajlar, çalışması için merkezi bir sunucusu bulunan ve internet gerektiren diğer mesajlaşma uygulamaları gibi anlık olarak gönderilmez, bunun yerine bir cihazdan diğer cihaza (eşdüzeyde) herhangi bir kullanıcı müdahalesi olmadan Bluetooth ya da WiFi üzerinden direkt olarak gönderilir. Etrafta ne kadar fazla cihaz varsa, mesaj o kadar hızlı iletilir! Eğer etrafta cihaz yoksa, mesaj sonradan gönderilmesi için yayın sırasına alınır. Anonimliğinizi siz kontrol edersiniz ve kendiniz hakkında hangi bilgiyi paylaşacağınıza siz karar verirsiniz.Son olarak, Bağlantı Puanları ile istenmeyen mesajları filtreleyebilir ve Gizli Mesajlar ile hedef kitlenizi arkadaşlarınız ile sınırlayabilirsiniz.</string>
+
+    <!-- Share app-->
+    <!-- notification attached to the url message -->
+    <string name="share_app_promo1">Murmur\'a göz atın! Şimdi Google Play\'de</string>
+    <string name="share_app_promo2">veya burada erişiminiz yoksa</string>
+
+    <!-- On-boarding -->
+    <string name="skip_welcome">SONRAKİ</string>
+    <string name="skip_welcome2">KAYDET</string>
+
+    <string name="onboarding1_title">Özgürce iletişim kurun</string>
+    <string name="onboarding1_message">Mesajlar, cihazlar arasında Bluetooth ve WiFi kullanarak yayılır. Ne kadar fazla cihaz olursa, mesajlar o kadar hızlı iletilir! Eğer etrafta cihaz yoksa, mesaj sonradan gönderilmek üzere sıraya konulur</string>
+
+    <string name="onboarding2_title">Anonimliğinizi kontrol edin</string>
+    <string name="onboarding2_message">Anonimlik seviyenizi belirlemek için gizlilik ayarlarını seçin. Ne kadar fazla seçeneği etkinleştirirseniz, kendiniz hakkında o kadar bilgi paylaşırsınız</string>
+
+    <string name="onboarding3_title">Gizliliğinizi koruyun</string>
+    <string name="onboarding3_message">Bağlantı Puanları ile istenmeyen mesajları filtreleyin ve Gizli Mesajlar ile hedef kitlenizi sınırlayın</string>
+
+    <string name="onboarding4_title">Sadece bir şey daha</string>
+    <string name="onboarding4_message">Lütfen Bluetooth\'u açın, Durum ekranınıza gidin, Bluetooth adresini kopyalayın ve aşağıdaki alana yapıştırın:</string>
+    <string name="onboarding4_message_small_why">Neden bunu soruyoruz?</string>
+    <string name="onboarding4_message_small">Murmur iletişim kurmak için Bluetooth\'u kullanır. Maalesef Android 6.x uygulamaları Bluetooth adresinize otomatik olarak erişemez, bu yüzden sizin yardımınıza ihtiyacımız var. Endişelenmeyin - bunu sadece bir kez girmeniz gerekiyor. Eğer adresi girerken yanlışlık yaparsanız, sonradan Ayarlar bölümünden düzeltebilirsiniz.</string>
+    <string name="onboarding4_message_error">Geçersiz Bluetooth adresi</string>
+
+    <!--Replies feed-->
+    <string name="comments">Cevaplar</string>
+
+    <!-- Help & Feedback-->
+    <!-- feedback-->
+    <string name="send_feedback">Geribildirim yolla</string>
+    <string name="feedback_intro">Sevgili Murmur destek temsilcisi,</string>
+
+    <string name="more_help">
+    <u>Devamı &gt;&gt; </u>
+  </string>
+
+</resources>

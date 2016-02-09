@@ -60,8 +60,6 @@ public class WelcomeFragmentPage extends Fragment{
     private EditText input;
     private View errorView;
 
-    private String mac;
-
     private TextWatcher watcher = new TextWatcher() {
         @Override
         public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -113,33 +111,6 @@ public class WelcomeFragmentPage extends Fragment{
 
     public void setCallbacks(MacInputCallbacks callbacks) {
         this.callbacks = callbacks;
-
-
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        if(input != null ) input.addTextChangedListener(watcher);
-
-        if(mac == null) {
-            Handler handler = new Handler();
-
-            handler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    try {
-                        mac = Settings.Secure.getString(getActivity().getContentResolver(), "bluetooth_address");
-                        if (mac != null && !mac.equals(MurmurService.DUMMY_MAC_ADDRESS)) {
-                            input.setText(mac);
-                            if(callbacks != null) callbacks.onMacChanged(mac);
-                        }
-                    } catch (Exception e) {
-
-                    }
-                }
-            }, 1000);
-        }
     }
 
     @Override
