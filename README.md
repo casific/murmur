@@ -35,10 +35,10 @@ If you have any issues setting up your build environment consider the following:
 2. Ensure you have the latest build tools version from the sdk manager  
 
 ## Dependencies / 3rd party libraries
-1. Android support library  
-2. Android AppCompat extension  
-3. ZXing : used in QR-code read/creation  
-4. Okio : used in cryptographic engine of the storage and network layer  
-5. Spongycastle : used in cryptographic engine of the storage layer  
-6. SystemBarTint : provides translucent theme for older API levels  
-7. Log4J : used to create and send logs as part of the Send Feedback feature  
+* Android support library  
+* Android AppCompat extension  
+* ZXing : used in QR-code read/creation  
+* Okio : used in cryptographic engine of the storage and network layer  
+* Spongycastle : used in cryptographic engine of the storage layer  
+* SystemBarTint : provides translucent theme for older API levels  
+* Log4J : used to create and send logs as part of the Send Feedback feature  
