@@ -1,0 +1,295 @@
+robolectric_test(
+  name = 'peerTest',
+  srcs = ['PeerTest.java', ],
+  source_under_test = [ '//java/org/denovogroup/rangzen:experimentalBackend' ],
+  visibility = [ 'PUBLIC' ],
+  deps = [
+    '//libs:junit-4.11',
+    '//libs:robolectric-2.3',
+    '//libs:hamcrest-core-1.3',
+    '//libs:mockito',
+    '//java/org/denovogroup/rangzen:experimentalBackend',
+  ],
+)
+
+robolectric_test(
+  name = 'bandwidthMeasurementExchangeTest',
+  srcs = ['BandwidthMeasurementExchangeTest.java',
+          'MockFriendStore.java',
+          'MockMessageStore.java',],
+  source_under_test = [ '//java/org/denovogroup/rangzen:experimentalBackend' ],
+  visibility = [ 'PUBLIC' ],
+  resources = [
+    '//res/org/denovogroup/rangzen:res',
+  ],
+  deps = [
+    '//libs:robolectric-2.3',
+    '//libs:junit-4.11',
+    '//libs:hamcrest-core-1.3',
+    '//java/org/denovogroup/rangzen:experimentalBackend',
+    '//ui/Rangzen/src/org/denovogroup/rangzen:experimentalUI',
+    '//libs:wire-runtime',
+    '//libs:okio',
+    '//proto-repo:protobufs',
+  ],
+)
+
+robolectric_test(
+  name = 'cryptographicExchangeTest',
+  srcs = ['CryptographicExchangeTest.java'],
+  source_under_test = [ '//java/org/denovogroup/rangzen:experimentalBackend' ],
+  visibility = [ 'PUBLIC' ],
+  resources = [
+    '//res/org/denovogroup/rangzen:res',
+  ],
+  deps = [
+    '//libs:robolectric-2.3',
+    '//libs:junit-4.11',
+    '//libs:hamcrest-core-1.3',
+    '//java/org/denovogroup/rangzen:experimentalBackend',
+    '//ui/Rangzen/src/org/denovogroup/rangzen:experimentalUI',
+    '//libs:wire-runtime',
+    '//libs:okio',
+    '//proto-repo:protobufs',
+  ],
+)
+
+robolectric_test(
+  name = 'exchangeTest',
+  srcs = ['ExchangeTest.java'],
+  source_under_test = [ '//java/org/denovogroup/rangzen:experimentalBackend' ],
+  visibility = [ 'PUBLIC' ],
+  resources = [
+    '//res/org/denovogroup/rangzen:res',
+  ],
+  deps = [
+    '//libs:robolectric-2.3',
+    '//libs:junit-4.11',
+    '//libs:hamcrest-core-1.3',
+    '//java/org/denovogroup/rangzen:experimentalBackend',
+    '//ui/Rangzen/src/org/denovogroup/rangzen:experimentalUI',
+    '//libs:wire-runtime',
+    '//libs:okio',
+    '//proto-repo:protobufs',
+  ],
+)
+
+robolectric_test(
+  name = 'friendStoreTest',
+  srcs = ['FriendStoreTest.java'],
+  source_under_test = [ '//java/org/denovogroup/rangzen:experimentalBackend' ],
+  visibility = [ 'PUBLIC' ],
+  resources = [
+    '//res/org/denovogroup/rangzen:res',
+  ],
+  deps = [
+    '//libs:robolectric-2.3',
+    '//libs:junit-4.11',
+    '//libs:hamcrest-core-1.3',
+    '//java/org/denovogroup/rangzen:experimentalBackend',
+    '//ui/Rangzen/src/org/denovogroup/rangzen:experimentalUI',
+  ],
+)
+
+robolectric_test(
+  name = 'locationStoreTest',
+  srcs = ['LocationStoreTest.java'],
+  source_under_test = [ '//java/org/denovogroup/rangzen:experimentalBackend' ],
+  visibility = [ 'PUBLIC' ],
+  resources = [
+    '//ui/Rangzen:experimentalUIRes',
+  ],
+  deps = [
+    '//libs:robolectric-2.3',
+    '//libs:junit-4.11',
+    '//libs:hamcrest-core-1.3',
+    '//java/org/denovogroup/rangzen:experimentalBackend',
+    '//ui/Rangzen/src/org/denovogroup/rangzen:experimentalUI',
+  ],
+)
+
+robolectric_test(
+  name = 'messageStoreTest',
+  srcs = ['MessageStoreTest.java'],
+  source_under_test = [ '//java/org/denovogroup/rangzen:experimentalBackend' ],
+  visibility = [ 'PUBLIC' ],
+  resources = [
+    '//ui/Rangzen:experimentalUIRes',
+  ],
+  deps = [
+    '//libs:robolectric-2.3',
+    '//libs:junit-4.11',
+    '//libs:hamcrest-core-1.3',
+    '//java/org/denovogroup/rangzen:experimentalBackend',
+    '//ui/Rangzen/src/org/denovogroup/rangzen:experimentalUI',
+  ],
+)
+
+robolectric_test(
+  name = 'wireTest',
+  srcs = [
+    'WireTest.java', 
+  ],
+  source_under_test = [ '//java/org/denovogroup/rangzen:experimentalBackend' ],
+  visibility = [ 'PUBLIC' ],
+  deps = [
+    '//libs:junit-4.11',
+    '//libs:hamcrest-core-1.3',
+    '//libs:robolectric-2.3',
+    '//java/org/denovogroup/rangzen:experimentalBackend',
+    '//libs:wire-runtime',
+    '//libs:okio',
+    '//proto-repo:protobufs',
+  ],
+)
+
+java_test(
+  name = 'nullTest',
+  srcs = ['NullTest.java'],
+  source_under_test = [ '//java/org/denovogroup/rangzen:experimentalBackend' ],
+  visibility = [ 'PUBLIC' ],
+  deps = [
+    '//libs:junit-4.11',
+    '//libs:hamcrest-core-1.3',
+    '//java/org/denovogroup/rangzen:experimentalBackend',
+  ],
+)
+
+robolectric_test(
+  name = 'nullRoboTest',
+  srcs = ['NullRoboTest.java'],
+  source_under_test = [ '//java/org/denovogroup/rangzen:experimentalBackend' ],
+  visibility = [ 'PUBLIC' ],
+  deps = [
+    '//java/org/denovogroup/rangzen:experimentalBackend',
+    '//libs:robolectric-2.3',
+    '//libs:junit-4.11',
+    '//libs:hamcrest-core-1.3',
+  ],
+)
+
+# robolectric_test(
+#   name = 'rangzenServiceTest',
+#   srcs = ['RangzenServiceTest.java',],
+#   source_under_test = [ '//java/org/denovogroup/rangzen:experimentalBackend' ],
+#   visibility = [ 'PUBLIC' ],
+#   resources = [
+#      '//ui/Rangzen:experimentalUIRes',
+#   ],
+#   deps = [
+#     '//java/org/denovogroup/rangzen:experimentalBackend',
+#     '//libs:robolectric-2.3',
+#     '//libs:junit-4.11',
+#     '//libs:hamcrest-core-1.3',
+#   ],
+# )
+
+robolectric_test(
+  name = 'peerManagerTest',
+  srcs = ['PeerManagerTest.java'],
+  source_under_test = [ '//java/org/denovogroup/rangzen:experimentalBackend' ],
+  visibility = [ 'PUBLIC' ],
+  resources = [
+    '//ui/Rangzen:experimentalUIRes',
+  ],
+  deps = [
+    '//libs:robolectric-2.3',
+    '//libs:junit-4.11',
+    '//libs:hamcrest-core-1.3',
+    '//java/org/denovogroup/rangzen:experimentalBackend',
+    '//ui/Rangzen/src/org/denovogroup/rangzen:experimentalUI',
+  ],
+)
+
+robolectric_test(
+  name = 'storageBaseTest',
+  srcs = ['StorageBaseTest.java'],
+  source_under_test = [ '//java/org/denovogroup/rangzen:experimentalBackend' ],
+  visibility = [ 'PUBLIC' ],
+  resources = [
+    '//ui/Rangzen:experimentalUIRes',
+  ],
+  deps = [
+    '//libs:robolectric-2.3',
+    '//libs:junit-4.11',
+    '//libs:hamcrest-core-1.3',
+    '//java/org/denovogroup/rangzen:experimentalBackend',
+    '//ui/Rangzen/src/org/denovogroup/rangzen:experimentalUI',
+  ],
+)
+
+robolectric_test(
+  name = 'wifiDirectSpeakerTest',
+  srcs = ['WifiDirectSpeakerTest.java'],
+  source_under_test = [ '//java/org/denovogroup/rangzen:experimentalBackend' ],
+  visibility = [ 'PUBLIC' ],
+  resources = [
+    '//ui/Rangzen:experimentalUIRes',
+  ],
+  deps = [
+    '//libs:robolectric-2.3',
+    '//libs:junit-4.11',
+    '//libs:hamcrest-core-1.3',
+    '//java/org/denovogroup/rangzen:experimentalBackend',
+    '//ui/Rangzen/src/org/denovogroup/rangzen:experimentalUI',
+  ],
+)
+
+robolectric_test(
+  name = 'bluetoothSpeakerTest',
+  srcs = ['BluetoothSpeakerTest.java'],
+  source_under_test = [ '//java/org/denovogroup/rangzen:experimentalBackend' ],
+  visibility = [ 'PUBLIC' ],
+  resources = [
+    '//res/org/denovogroup/rangzen:res',
+  ],
+  deps = [
+    '//libs:robolectric-2.3',
+    '//libs:junit-4.11',
+    '//libs:hamcrest-core-1.3',
+    '//java/org/denovogroup/rangzen:experimentalBackend',
+  ],
+)
+
+robolectric_test(
+  name = 'macOrderingTests',
+  srcs = ['MacOrderingTests.java'],
+  source_under_test = [ '//java/org/denovogroup/rangzen:experimentalBackend' ],
+  visibility = [ 'PUBLIC' ],
+  resources = [
+    '//res/org/denovogroup/rangzen:res',
+  ],
+  deps = [
+    '//libs:robolectric-2.3',
+    '//libs:junit-4.11',
+    '//libs:hamcrest-core-1.3',
+    '//java/org/denovogroup/rangzen:experimentalBackend',
+  ],
+)
+
+java_test(
+  name = 'cryptoTest',
+  srcs = ['CryptoTest.java'],
+  source_under_test = [ '//java/org/denovogroup/rangzen:experimentalBackend' ],
+  visibility = [ 'PUBLIC' ],
+  deps = [
+    '//libs:junit-4.11',
+    '//libs:hamcrest-core-1.3',
+    '//libs:spongycastle-core-1.51',
+    '//libs:spongycastle-pkix-1.51',
+    '//libs:spongycastle-prov-1.51',
+    '//java/org/denovogroup/rangzen:experimentalBackend',
+    '//libs:okio',
+  ],
+)
+
+robolectric_test(
+  name = 'openCSVTest',
+  srcs = ['OpenCSVTest.java'],
+  visibility = [ 'PUBLIC' ],
+  deps = [
+    '//libs:opencsv',
+    '//libs:junit-4.11',
+    '//libs:hamcrest-core-1.3',
+  ],
+)
