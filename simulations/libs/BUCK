@@ -1,0 +1,39 @@
+prebuilt_jar(
+  name = 'mason',
+  binary_jar = 'mason.17.jar', 
+  visibility = [ 'PUBLIC' ],
+)
+prebuilt_jar(
+  name = 'jcoord',
+  binary_jar = 'jcoord-1.0.jar',
+  visibility = [ 'PUBLIC' ],
+)
+prebuilt_jar(
+  name = 'opencsv',
+  binary_jar = 'opencsv-2.3.jar', 
+  visibility = [ 'PUBLIC' ],
+)
+
+prebuilt_jar(
+  name = 'junit-4.11',
+  binary_jar = 'junit-4.11.jar', 
+  visibility = [ 'PUBLIC' ],
+)
+
+prebuilt_jar(
+  name = 'hamcrest-core-1.3',
+  binary_jar = 'hamcrest-core-1.3.jar', 
+  visibility = [ 'PUBLIC' ],
+)
+
+prebuilt_jar(
+  name = 'gson',
+  binary_jar = 'gson-2.2.4.jar',
+  visibility = [ 'PUBLIC' ],
+)
+
+prebuilt_jar(
+  name = 'commons-cli',
+  binary_jar = 'commons-cli-1.2.jar',
+  visibility = [ 'PUBLIC' ],
+)

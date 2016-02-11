@@ -1,0 +1,6 @@
+[alias]
+    proximitySimulation = //apps/simulation:proximitySimulation
+    proximitySimulationNoGUI = //apps/simulation:proximitySimulationNoGUI
+    stAndrewsSimulationNoGUI = //apps/simulation:stAndrewsSimulationNoGUI
+[java]
+    src_roots = /java/

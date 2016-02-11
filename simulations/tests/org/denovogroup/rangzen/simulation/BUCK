@@ -1,0 +1,78 @@
+java_test(
+  name = 'nullTest',
+  srcs = ['NullTest.java'],
+  source_under_test = [ '//java/org/denovogroup/rangzen/simulation:simulation' ],
+  visibility = [ 'PUBLIC' ],
+  deps = [
+    '//libs:junit-4.11',
+    '//libs:hamcrest-core-1.3',
+    '//java/org/denovogroup/rangzen/simulation:simulation',
+    '//libs:mason',
+  ],
+)
+
+java_test(
+  name = 'personTest',
+  srcs = ['PersonTest.java'],
+  source_under_test = [ '//java/org/denovogroup/rangzen/simulation:simulation' ],
+  visibility = [ 'PUBLIC' ],
+  deps = [
+    '//libs:junit-4.11',
+    '//libs:hamcrest-core-1.3',
+    '//java/org/denovogroup/rangzen/simulation:simulation',
+    '//libs:mason',
+  ],
+)
+
+java_test(
+  name = 'MessagePropagationSimulationTest',
+  srcs = ['MessagePropagationSimulationTest.java'],
+  visibility = [ 'PUBLIC' ],
+  deps = [
+    '//libs:jcoord',
+    '//libs:junit-4.11',
+    '//libs:hamcrest-core-1.3',
+    '//java/org/denovogroup/rangzen/simulation:simulation',
+    '//libs:mason',
+  ],
+)
+
+java_test(
+  name = 'JCoordTest',
+  srcs = ['JCoordTest.java'],
+  visibility = [ 'PUBLIC' ],
+  deps = [
+    '//libs:jcoord',
+    '//libs:junit-4.11',
+    '//libs:hamcrest-core-1.3',
+    '//java/org/denovogroup/rangzen/simulation:simulation',
+    '//libs:mason',
+  ],
+)
+
+java_test(
+  name = 'StAndrewsSocialNetworkParserTest',
+  srcs = ['StAndrewsSocialNetworkParserTest.java'],
+  visibility = [ 'PUBLIC' ],
+  deps = [
+    '//libs:jcoord',
+    '//libs:junit-4.11',
+    '//libs:hamcrest-core-1.3',
+    '//java/org/denovogroup/rangzen/simulation:simulation',
+    '//libs:mason',
+  ],
+)
+
+java_test(
+  name = 'PeekableAndChunkReaderTests',
+  srcs = ['PeekableAndChunkReaderTests.java'],
+  visibility = [ 'PUBLIC' ],
+  deps = [
+    '//libs:jcoord',
+    '//libs:junit-4.11',
+    '//libs:hamcrest-core-1.3',
+    '//java/org/denovogroup/rangzen/simulation:simulation',
+    '//libs:mason',
+    '//libs:opencsv',
+  ],
+)

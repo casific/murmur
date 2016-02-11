@@ -1,0 +1,21 @@
+java_library(
+  name = 'simulation',
+  srcs = [ 'Message.java', 'Person.java', 'Location.java', 'MobilityTrace.java',
+           'MessagePropagationSimulation.java', 
+           'ProximitySimulationWithGUI.java',
+           'ProximityEncounterModel.java', 'SimpleEncounterModel.java', 
+           'StAndrewsEncounterModel.java',
+           'StAndrewsEncounter.java',
+           'ProximitySimulation.java', 'StAndrewsSimulation.java',
+           'SingleMessageTrackingMeasurer.java', 'StAndrewsSocialNetworkParser.java', 
+           'PeekableCSVReader.java', 'CSVFieldChunkReader.java',
+  ],
+  visibility = [ 'PUBLIC' ],
+  deps = [
+    '//libs:jcoord',
+    '//libs:mason',
+    '//libs:opencsv',
+    '//libs:gson',
+    '//libs:commons-cli',
+  ],
+)
